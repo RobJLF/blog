@@ -96,20 +96,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://robjlf.github.io/blog/index.html">
+  <meta name="description" content="Unicode编码参考博客：彻底搞懂Unicode编码 ASCII码在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unicode编码UTF-8-16">
+<meta property="og:url" content="https://robjlf.github.io/blog/2018/11/12/Unicode编码UTF-8-16/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Unicode编码参考博客：彻底搞懂Unicode编码 ASCII码在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-11T14:36:31.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Unicode编码UTF-8-16">
+<meta name="twitter:description" content="Unicode编码参考博客：彻底搞懂Unicode编码 ASCII码在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://robjlf.github.io/blog/">
+  <link rel="canonical" href="https://robjlf.github.io/blog/2018/11/12/Unicode编码UTF-8-16/">
 
 
 
@@ -119,7 +123,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>Unicode编码UTF-8-16 | Hexo</title>
   
 
 
@@ -167,8 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -268,156 +271,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/02/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/02/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-10 16:46:09" itemprop="dateCreated datePublished" datetime="2019-02-10T16:46:09+08:00">2019-02-10</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -449,10 +305,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2018/11/12/Unicode编码UTF-8-16/" class="post-title-link" itemprop="url">Unicode编码UTF-8-16</a>
+          <h1 class="post-title" itemprop="name headline">Unicode编码UTF-8-16
+
               
             
           </h1>
@@ -528,9 +382,7 @@
       
 
       
-        
-          
-            <h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p>参考博客：<a href="https://blog.whezh.com/encoded/" target="_blank" rel="noopener"><strong>彻底搞懂Unicode编码</strong></a></p>
+        <h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p>参考博客：<a href="https://blog.whezh.com/encoded/" target="_blank" rel="noopener"><strong>彻底搞懂Unicode编码</strong></a></p>
 <h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。</p>
 <p>ASCII 码一共定义了 128 个字符，例如大写的字母 A 是 65（这是十进制数，对应二进制是0100 0001）。这 128 个字符只使用了 8 位二进制数中的后面 7 位，最前面的一位<code>统一规定为 0</code>。</p>
 <h2 id="历史问题"><a href="#历史问题" class="headerlink" title="历史问题"></a>历史问题</h2><p>英语用 128 个字符来编码完全是足够的，但是用来表示其他语言，128 个字符是远远不够的。于是，一些欧洲的国家就决定，将 ASCII 码中闲置的最高位利用起来，这样一来就能表示 256 个字符。但是，这里又有了一个问题，那就是不同的国家的字符集可能不同，就算它们都能用 256 个字符表示全，但是同一个码点（也就是 8 位二进制数）表示的字符可能可能不同。例如，144 在阿拉伯人的 ASCII 码中是 گ，而在俄罗斯的 ASCII 码中是 ђ。</p>
@@ -593,8 +445,6 @@
 <p>汉字”𠮷”的 Unicode 码点为 0x20BB7，该码点显然超出了基本平面的范围（0x0000 - 0xFFFF），因此需要使用四个字节表示。首先用 0x20BB7 - 0x10000 计算出超出的部分，然后将其用 20 个二进制位表示（不足前面补 0 ），结果为0001000010 1110110111。接着，将前 10 位映射到 U+D800 到 U+DBFF 之间，后 10 位映射到 U+DC00 到 U+DFFF 即可。U+D800 对应的二进制数为 1101100000000000，直接填充后面的 10 个二进制位即可，得到 1101100001000010，转成 16 进制数则为 0xD842。同理可得，低位为 0xDFB7。因此得出汉字”𠮷”的 UTF-16 编码为 0xD842 0xDFB7。</p>
 <p>Unicode3.0 中给出了辅助平面字符的转换公式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">H = Math.floor((c-0x10000) / 0x400)+0xD800</span><br><span class="line"></span><br><span class="line">L = (c - 0x10000) % 0x400 + 0xDC00</span><br><span class="line">难道没有移位运算吗？</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
 
@@ -617,231 +467,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/ieee-754浮点数/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2018/11/12/ieee-754浮点数/" class="post-title-link" itemprop="url">ieee-745浮点数</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/blog/2018/11/12/ieee-754浮点数/" rel="next" title="ieee-745浮点数">
+                <i class="fa fa-chevron-left"></i> ieee-745浮点数
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/blog/2019/02/10/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-02-12 10:47:12" itemprop="dateModified" datetime="2019-02-12T10:47:12+08:00">2019-02-12</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h1><p>参考博客：<a href="https://www.cnblogs.com/german-iris/p/5759557.html" target="_blank" rel="noopener"><strong>ieee 754浮点数表示标准</strong></a>  <a href="https://blog.csdn.net/tercel_zhang/article/details/52537726" target="_blank" rel="noopener">程序员必须知道的浮点运算原理</a><br>Reference：</p>
-<ol>
-<li><a href="http://steve.hollasch.net/cgindex/coding/ieeefloat.html" target="_blank" rel="noopener">http://steve.hollasch.net/cgindex/coding/ieeefloat.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/IEEE_754-1985" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/IEEE_754-1985</a></li>
-</ol>
-<h2 id="10进制和2进制的科学进制转换"><a href="#10进制和2进制的科学进制转换" class="headerlink" title="10进制和2进制的科学进制转换"></a>10进制和2进制的科学进制转换</h2><p>10进制转2进制中，对于小数点以前的值除以2，小数点以后的值除以1/2，且小数点后的值有可能是除不尽的，也就是说会有误差。<br>$$(3.3)_{10}=(11.11)_2=1.111 \times 2^1$$</p>
-<h2 id="IEEE-754标准下的存储策略"><a href="#IEEE-754标准下的存储策略" class="headerlink" title="IEEE 754标准下的存储策略"></a>IEEE 754标准下的存储策略</h2><p>ieee标准下的浮点数存储包含三个基本的组成：符号位、指数、尾数，尾数是由小数部分和一个隐含的前导数位组成(一般是1)。至于前导数位隐含的原因之后再提。</p>
-<p>下面的表格展示了单精度和双精度浮点数的bit结构</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">符号位</th>
-<th style="text-align:left">指数位</th>
-<th style="text-align:left">尾数位</th>
-<th style="text-align:left">有效位数</th>
-<th style="text-align:left">指数偏移</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">单精度</td>
-<td style="text-align:left">1 [31]</td>
-<td style="text-align:left">8 [30 - 23]</td>
-<td style="text-align:left">23 [22 - 0]</td>
-<td style="text-align:left">24</td>
-<td style="text-align:left">127</td>
-</tr>
-<tr>
-<td style="text-align:left">双精度</td>
-<td style="text-align:left">1 [63]</td>
-<td style="text-align:left">11 [62 - 52]</td>
-<td style="text-align:left">52 [51 - 0]</td>
-<td style="text-align:left">53</td>
-<td style="text-align:left">1023</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/blog/images/float_2.png" alt=""><img src="/blog/images/float_3.png" alt=""></p>
-<ul>
-<li>符号位<br>位于浮点数存储的最高比特，只占有1个bit。0表示正数，1表示负数。</li>
-<li>指数位<br>因为指数位既可以是正值也可以是负值，所以为了做到这一点引入了偏移量。对于IEEE标准下的单精度浮点数，偏移量是127，也就是说原本的指数值为8位，取值范围应该是0 - 255，带上偏移量之后代表的数学意义是-127 - 128（双精度浮点数偏移量为1023 范围-1023 - 1024）</li>
-<li>尾数<br>尾数也可以说是有效位数，决定浮点数的精确度。它由隐含得前导数位（整数部分）和小数部分组成，因为我们使用的是2为底的科学计数法，所以前导数位固定为1，所以我们不需要明确的表示出来。同时尾数也代表着浮点数可以表示的整数的取值范围($2^{24}$和$2^{53}$)</li>
-</ul>
-<h2 id="浮点数存储实例"><a href="#浮点数存储实例" class="headerlink" title="浮点数存储实例"></a>浮点数存储实例</h2><p>十进制数$0.15625_{10}$写成二进制的形式为$0.00101_2$通过乘以以2为底的指数，将小数点向右移动3位后得到$$0.00101_2 = 1.01_2 \times 2^{-3}$$<br>这个时候我们便能确定它的尾数的小数部分和指数部分分别为多少了，见如下如：</p>
-<blockquote>
-<p><img src="/blog/images/float.png" alt=""></p>
-</blockquote>
-<ul>
-<li>sign = 0, 因为该浮点数为正数（用1表示负数）</li>
-<li>真实的指数是-3，但是我们用来存储的指数要在真实的指数上加上偏移量。在单精度浮点数中，这个偏移量是127，在双精度浮点数中这个偏移量是1023；所以我们这里用来存储的指数应该为（-3+127），即124</li>
-</ul>
-<h2 id="浮点数的范围"><a href="#浮点数的范围" class="headerlink" title="浮点数的范围"></a>浮点数的范围</h2><p>以double为例，无误差整数范围为$\pm 2^{53}$超过此范围将无法保证精度。有误差小数最大值$\pm (2-2^{-52})\times 2^{1023}$ 最小值$\pm 2^{-52}\times 2^{-1022}$</p>
-<h2 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 最小值指数（所有位全置0）用于定义0和弱规范数</span><br><span class="line"></span><br><span class="line">2. 最大指数（所有位全值1）用于定义$\pm \infty$和NaN（Not a Number）</span><br><span class="line"></span><br><span class="line">3. 其他指数用于表示常规的数。</span><br></pre></td></tr></table></figure>
-<p>这样一来，最大（指绝对值）常规数的指数不是全1的，最小常规数的指数也不是0，而是1。`</p>
-<ul>
-<li><p>零<br>按照上面浮点数的表示方法，我们会发现无法表示0值。因为我们认为前导数位值默认为1。为此，我们规定当指数全部为0(-127)且尾数的小数全部为0时，这个时候浮点数的值为0。注意+0和-0是两个不同的浮点数，即使他们的数值一样，但是浮点数的表示方式不一样。</p>
-</li>
-<li><p>非标准化的值<br>当指数全部为0，但是小数不全部为0时，这个时候的浮点数表示的值就是非标准化的值。这个时候我们认为浮点数的前导数位为0。因为标准化所能表示的最小值是$(−1)^s × 1 × 2^{−126}$和$(−1)^s × 1× 2^{−1022}$，这样可以使得我们能够表达更小的值，提高精确度。注意这个时候的单精度浮点数大小为$(−1)^s × 0.f × 2^{−126}$，双精度浮点数的大小为$(−1)^s × 0.f × 2^{−1022}$，其中s为符号位上的数值，2为底的指数分别是-126和-1022，而不是-127和-1023。（这样这才能与指数位为1时的值连接，否则会产生空区间）</p>
-</li>
-<li><p>无穷大值<br>当指数位全部为1，而尾数的小数部分全部为0时表示$\pm \infty$,通过符号位来区分。</p>
-</li>
-<li><p>非数字<br>NaN用来表示非数字的值，当指数为全部为1且尾数的小数部分不为0时表示NaN值。一共有两种NaN值，静态非数（QNaN）和警告非数（SNaN）。<br>如果小数部分首位为1，表示QNaN。通常表示不被数学上定义的运算结果，比如除数为零时的时候。<br>如果小数部分首位为0，表示SNaN。表示操作中的一个异常，可以用来表示一个未被初始化变量的过早使用。</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -851,14 +502,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -879,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -924,6 +585,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unicode编码"><span class="nav-number">1.</span> <span class="nav-text">Unicode编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII码"><span class="nav-number">1.1.</span> <span class="nav-text">ASCII码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史问题"><span class="nav-number">1.2.</span> <span class="nav-text">历史问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode"><span class="nav-number">1.3.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode编码方案"><span class="nav-number">1.4.</span> <span class="nav-text">Unicode编码方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-8"><span class="nav-number">1.5.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-16"><span class="nav-number">1.6.</span> <span class="nav-text">UTF-16</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1054,6 +732,10 @@
 
 
   
+  <script src="/blog/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/blog/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -1065,6 +747,8 @@
   
 
 
+  
+
 
   
 
@@ -1080,54 +764,7 @@
 
   
   
-    
-      
-    
-      
-    
-      
-        
-      
-    
-  
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
-
-    
   
 
 
