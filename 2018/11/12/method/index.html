@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar-emoj-obscene-16.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+<meta name="keywords" content="JS,method">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数">
+<meta property="og:url" content="https://robjlf.github.io/blog/2018/11/12/method/index.html">
+<meta property="og:site_name" content="J&#39;Blog">
+<meta property="og:description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-21T05:09:14.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数">
+<meta name="twitter:description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+
+
+
+
+
+
+  <link rel="canonical" href="https://robjlf.github.io/blog/2018/11/12/method/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>函数 | J'Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">J'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">12</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/RobJLF" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/method/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">函数
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-21 13:09:14" itemprop="dateModified" datetime="2019-02-21T13:09:14+08:00">2019-02-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#第8章-函数</p>
+<ol>
+<li>函数也是对象</li>
+<li>函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值</li>
+<li>函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）</li>
+</ol>
+<h2 id="8-1-函数定义"><a href="#8-1-函数定义" class="headerlink" title="8.1 函数定义"></a>8.1 函数定义</h2><ol>
+<li>函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义</li>
+<li>函数表达式可以包含名称，这样做可以用于函数的递归；对于函数声明的递归则不能通过函数名进行，只能使用arguments.callee来调用递归</li>
+<li>函数表达式定义的函数，函数名是可选的，如果包含函数名，那么该名称将成为函数内部的一个局部变量，指向函数自己；一条函数声明相当于声明了一个变量，然后把函数对象赋值给该变量</li>
+<li>函数声明语句会将会被提前到外部脚本或者外部作用域的顶部；而函数表达式只会将变量的声明提前，而不会将变量的赋值提前，这一点和变量的声明一样</li>
+<li>没有return函数返回undefined，有return但其后没有表达式返回undefined</li>
+<li>函数声明语句只能出现在顶层语句中，只能出现在全局作用域或者其他函数中，不能出现在循环、判断或者try/catch/finally以及with等语句中；函数表示式在这方面没有约束</li>
+</ol>
+<h2 id="8-2-函数调用"><a href="#8-2-函数调用" class="headerlink" title="8.2 函数调用"></a>8.2 函数调用</h2><p>函数调用有4种方式：</p>
+<ul>
+<li>作为函数</li>
+<li>作为方法</li>
+<li>作为构造函数</li>
+<li>通过call()和apply()Function.prototype方法间接调用</li>
+</ul>
+<h3 id="8-2-1-函数调用"><a href="#8-2-1-函数调用" class="headerlink" title="8.2.1 函数调用"></a>8.2.1 函数调用</h3><ol>
+<li>如果一个函数是一个属性访问表达式进行的调用，那么它就是方法调用，否则就是函数调用</li>
+<li>会先计算参数表达式的值，</li>
+<li>函数调用的this调用上下文指的是全局对象window，在严格模式下为undefined；通过这条规则可以用来判断当前脚本是不是执行在严格模式下</li>
+</ol>
+<h3 id="8-2-2-方法调用"><a href="#8-2-2-方法调用" class="headerlink" title="8.2.2 方法调用"></a>8.2.2 方法调用</h3><ol>
+<li>方法调用说白了就是通过对象属性调用函数，与函数调用的最大区别就在于this调用上下文的指向</li>
+<li>通过方法调用的函数会隐式的传入一个实参对象，这个实参对象指向方法的附着对象；通过这种机制可以很明确的表明函数将会基于一个对象进行操作这样一种场景</li>
+<li>嵌套函数中的this和包含函数的this不是一回事，想在嵌套函数中访问包含函数的this则必须先将this赋值给局部变量；this是一个关键字，不是变量，不允许给this赋值</li>
+</ol>
+<h3 id="8-2-3-构造函数的调用"><a href="#8-2-3-构造函数的调用" class="headerlink" title="8.2.3 构造函数的调用"></a>8.2.3 构造函数的调用</h3><ol>
+<li>如果函数或者方法调用之前存在关键字new，那么就会构成构造函数的调用</li>
+<li>如果构造函数没有形参，那么JavaScript语法允许省略圆括号</li>
+<li>构造函数调用会创建一个对象，然后这个对象的<code>__proto__</code>将会从构造函数的<code>prototype</code>继承；该对象将会用作该函数的调用上下文this，构造函数可以通过this进行相应的初始化操作</li>
+<li>构造函数可以不使用return语句，因为构造函数一般用于初始化新对象，最后会自动的返回初始化的对象；如果说return返回了一个对象，那么就会返回此对象，如果说return没有指定返回值或者返回的是一个原始值，那么将会忽略该返回值并返回初始化的对象</li>
+</ol>
+<h3 id="8-2-4-间接调用"><a href="#8-2-4-间接调用" class="headerlink" title="8.2.4 间接调用"></a>8.2.4 间接调用</h3><p>通过call和apply方法来进行函数的间接调用，这两个方法都可以指定函数的调用上下文this</p>
+<h2 id="8-3-函数的形参和实参"><a href="#8-3-函数的形参和实参" class="headerlink" title="8.3 函数的形参和实参"></a>8.3 函数的形参和实参</h2><p>函数调用不会对传入的任何实参做类型检测，也不会检测传入实参的个数，所以传入参数的检测和处理都需要自己来书写</p>
+<h3 id="8-3-1-可选参数"><a href="#8-3-1-可选参数" class="headerlink" title="8.3.1 可选参数"></a>8.3.1 可选参数</h3><ol>
+<li>当实参比形参少时，属于的形参设置为undefined，这是应该考虑给形参一个比较合理的默认值（换句话说形参个数是不一定的）</li>
+<li>可选形参应该放在形参列表的最后</li>
+</ol>
+<h3 id="8-3-2-可变长的实参列表：实参对象arguments"><a href="#8-3-2-可变长的实参列表：实参对象arguments" class="headerlink" title="8.3.2 可变长的实参列表：实参对象arguments"></a>8.3.2 可变长的实参列表：实参对象arguments</h3><ol>
+<li>当实参个数多余形参个数时，可以通过arguments来访问实参列表对象；arguments是一个类数组对象可以通过下标来访问实参值而不必通过形参名访问，可以通过arguments.length来访问实参的个数</li>
+<li>arguments最适合实参个数不确定的场景</li>
+<li>arguments中的元素相当于函数形参的一个别名，所以它们指向的是同一个值，修改其中一个会改变另一个（包含原始值和对象）</li>
+<li>arguments.callee属性只想当前执行的函数；caller已经废除（指向调用当前函数的函数）</li>
+</ol>
+<h3 id="8-3-3-将对象属性作为参数"><a href="#8-3-3-将对象属性作为参数" class="headerlink" title="8.3.3 将对象属性作为参数"></a>8.3.3 将对象属性作为参数</h3><p>记住函数的参数顺序很麻烦，此时可以将实参写入一个对象，通过传入此对象作为参数</p>
+<h3 id="8-3-4-实参类型"><a href="#8-3-4-实参类型" class="headerlink" title="8.3.4 实参类型"></a>8.3.4 实参类型</h3><p>JavaScript方法的形参没有类型声明，形参传入函数体之前也不会有任何的类型检查，所以需要自己写逻辑进行判断；不过这种灵活的弱类型语言有时也适合编写参数类型和个数不确定的函数</p>
+<h2 id="8-4-作为值的函数"><a href="#8-4-作为值的函数" class="headerlink" title="8.4 作为值的函数"></a>8.4 作为值的函数</h2><ol>
+<li>函数也是对象，可以赋值给变量，存储在对象的属性或者数组的元素中，还可以作为参数传入函数中，比如Array.prototype.sort()方法；同时也可以为函数定义自己的属性</li>
+</ol>
+<h2 id="8-5-作为命名空间的函数-执行匿名函数"><a href="#8-5-作为命名空间的函数-执行匿名函数" class="headerlink" title="8.5 作为命名空间的函数-执行匿名函数"></a>8.5 作为命名空间的函数-执行匿名函数</h2><ol>
+<li>函数中的变量在函数体内是可见的，在函数体外是不可见的；不在任何函数内声明的变量都是全局变量（函数体内没有使用var声明的变量也是全局变量）；为了防止污染全局命名空间，可以执行匿名函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">  //  模块代码</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="8-6-闭包"><a href="#8-6-闭包" class="headerlink" title="8.6 闭包"></a>8.6 闭包</h2><ol>
+<li>一般来说一个函数内嵌套了另一个函数，然后返回这个嵌套的函数时就会产生闭包</li>
+<li>函数执行完后局部变量的引用将会被销毁，如果发生闭包的话那么这些引用将会保存下来</li>
+<li>当定义内部函数的时候，会为内部函数创建一个包含外部函数的作用域链，这个作用域链将会保存在内部函数的<code>[[Scope]]</code>属性中；当执行内部函数的时候，会为内部函数创建一个执行环境，并复制<code>[[Scope]]</code>属性到执行环境的作用域链中；此后还会创建一个内部函数的活动对象保存用于自己的内部变量，并将活动对象放入执行环境作用域链的顶端；函数执行结束后销毁执行环境</li>
+<li>每一次函数的执行都会创造执行环境和销毁执行环境，但是执行环境的作用域链是可以在执行环境销毁以后被别的引用保存下来的</li>
+<li>可以使用闭包中的局部变量（传入的参数）来定义私有变量，返回的函数可以是getter和setter属性函数</li>
+<li>内部函数是无法通过this和arguments访问外部函数的this和arguments的，必须将这两个值先赋值给变量才行</li>
+</ol>
+<h2 id="8-7-函数属性、方法和构造函数"><a href="#8-7-函数属性、方法和构造函数" class="headerlink" title="8.7 函数属性、方法和构造函数"></a>8.7 函数属性、方法和构造函数</h2><p>typeof函数返回”function”</p>
+<h3 id="8-7-1-length属性"><a href="#8-7-1-length属性" class="headerlink" title="8.7.1 length属性"></a>8.7.1 length属性</h3><p>函数的length属性表示的是定义函数时形参的个数；argument.length表示的是实参的个数</p>
+<h3 id="8-7-2-prototype属性"><a href="#8-7-2-prototype属性" class="headerlink" title="8.7.2 prototype属性"></a>8.7.2 prototype属性</h3><p>每一个函数在被定义时都会创建一个prototype属性，这个属性指向函数的原型对象；使用该函数构造出来的对象都会默认的将其<code>__proto__</code>属性指向该原型对象，从而实现继承</p>
+<h3 id="8-7-3-call方法和apply方法"><a href="#8-7-3-call方法和apply方法" class="headerlink" title="8.7.3 call方法和apply方法"></a>8.7.3 call方法和apply方法</h3><ol>
+<li>call和apply方法都可以用来间接地调用函数，也就是说可以改变函数执行时的调用上下文this对象</li>
+<li>严格模式下call和apply的第一个实参都会当做this的值，且可以是原始值或者是undefined和null；非严格模式下null和undefined会被全局对象替换，原始值会转化为相应的包装对象</li>
+<li>call：第一个调用上下文this实参之后的所有实参代表要传入代调用函数的值；apply：与call的相比，第一个参数一样都指this，第二个参数是一个类数组或者真实数组对象，包含传入调用函数的实参</li>
+</ol>
+<h3 id="8-7-4-bind-方法"><a href="#8-7-4-bind-方法" class="headerlink" title="8.7.4 bind()方法"></a>8.7.4 bind()方法</h3><ol>
+<li><p>调用bind方法可以将传入的参数也调用该方法的函数绑定在一起并返回一个新的函数，第一个参数绑定this对象，后面的参数按照顺序绑定至调用函数的形参上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var sum = function(x, y)&#123;return x+y;&#125;</span><br><span class="line">var succ = sum.bind(null, 1);</span><br><span class="line">succ(2) = 3 //x绑定为1， 2传给</span><br><span class="line">function f(x, y) &#123;return this.x+y+z;&#125;</span><br><span class="line">var g = f.bind(&#123;x:1&#125;, 2);</span><br><span class="line">g(3) //6 this.x绑定1 y绑定2 z绑定3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>bind返回一个函数，该函数的length值等于调用bind方法的函数的形参个数减去本次bind方法绑定的实参个数；返回函数可以用做构造函数，此时忽略bind方法传入的this值；返回函数没有prototype属性，所以作为构造函数时使用原始的未绑定的函数的prototype；对于instanceof运算，返回函数也采用原始未绑定函数的类作为判断依据</p>
+</li>
+</ol>
+<h3 id="8-7-5-toString（）方法"><a href="#8-7-5-toString（）方法" class="headerlink" title="8.7.5 toString（）方法"></a>8.7.5 toString（）方法</h3><ol>
+<li>大多数函数的toString方法会返回函数的完成代码，但是内置函数往往返回”[native code]”，因为它们的代码往往可能是C++实现的</li>
+</ol>
+<h3 id="8-7-6-Function-构造函数"><a href="#8-7-6-Function-构造函数" class="headerlink" title="8.7.6 Function()构造函数"></a>8.7.6 Function()构造函数</h3><ol>
+<li>可以使用Function构造函数来创建函数对象；其实所有的函数都会继承至Function.prototype对象</li>
+<li>new Function()中传入任意数量的字符串，最后一个实参文本表示函数体，前面的实参字符串指定函数的形参名；不需要传入函数名，所以该方式只能创建匿名函数</li>
+<li>Funciton是在JavaScript运行时动态的编译其内部函数，循环中每次都会重新编译，影响效率</li>
+<li>Function中函数代码的编译总是在全局作用域中进行的，所以不能产生闭包（功能相当受限）</li>
+</ol>
+<h3 id="8-7-7-可调用的对象"><a href="#8-7-7-可调用的对象" class="headerlink" title="8.7.7 可调用的对象"></a>8.7.7 可调用的对象</h3><ol>
+<li>JavaScript中有些对象也是可以调用的，通过<code>()</code> 比如说RegExp可以直接调用正则对象来代替exec()方法的调用，不过可调用对象更多的被函数所替换了；typeof不能很好地在所有浏览器中区分函数与可调用对象，这是可以通过判断class属性是不是Function来区分(Object.prototype.toString)</li>
+</ol>
+<h2 id="8-8-函数式编程"><a href="#8-8-函数式编程" class="headerlink" title="8.8 函数式编程"></a>8.8 函数式编程</h2><p>JavaScript可以向操作对象一样操作函数，也就衍生出了函数式编程技术</p>
+<h3 id="8-8-1-使用函数处理数组"><a href="#8-8-1-使用函数处理数组" class="headerlink" title="8.8.1 使用函数处理数组"></a>8.8.1 使用函数处理数组</h3><ol>
+<li>这些方法在数组章节进行了详细说明的，大致就是通过将函数对象作为参数传入别的函数，然后在别的函数中通过call apply来调用该函数对象的技巧</li>
+</ol>
+<h3 id="8-8-2-高阶函数"><a href="#8-8-2-高阶函数" class="headerlink" title="8.8.2 高阶函数"></a>8.8.2 高阶函数</h3><ol>
+<li>所谓高阶函数就是操作函数的函数，它接受一个或多个函数，并最终返回一个新函数</li>
+</ol>
+<h3 id="8-8-3-不完全函数"><a href="#8-8-3-不完全函数" class="headerlink" title="8.8.3 不完全函数"></a>8.8.3 不完全函数</h3><ol>
+<li>也是一种函数变化的技巧，把完整的函数调用才分为多此函数调用，每次传入的参数都是完成实参的一部分，每个拆分的函数就叫做不完全函数，比如<code>f(1,2,3,4)拆分为f(1,2)(3,4)</code></li>
+</ol>
+<h3 id="8-8-4-记忆"><a href="#8-8-4-记忆" class="headerlink" title="8.8.4 记忆"></a>8.8.4 记忆</h3><ol>
+<li>通过闭包或者函数属性的方式将函数调用的结果保存下来，已达到空间换时间，增加程序执行效率的技巧</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/blog/tags/method/" rel="tag"># method</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/11/12/Array/" rel="next" title="数组类型">
+                <i class="fa fa-chevron-left"></i> 数组类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/11/12/Unicode_UTF8_16/" rel="prev" title="Unicode编码UTF-8-16">
+                Unicode编码UTF-8-16 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar-gourdin.png" alt="RobJ">
+            
+              <p class="site-author-name" itemprop="name">RobJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/blog/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/RobJLF" title="GitHub &rarr; https://github.com/RobJLF" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:JLF_Rob@163.com" title="E-Mail &rarr; mailto:JLF_Rob@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/blog/">暂时没有</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-函数定义"><span class="nav-number">1.</span> <span class="nav-text">8.1 函数定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-函数调用"><span class="nav-number">2.</span> <span class="nav-text">8.2 函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-1-函数调用"><span class="nav-number">2.1.</span> <span class="nav-text">8.2.1 函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-2-方法调用"><span class="nav-number">2.2.</span> <span class="nav-text">8.2.2 方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-构造函数的调用"><span class="nav-number">2.3.</span> <span class="nav-text">8.2.3 构造函数的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-间接调用"><span class="nav-number">2.4.</span> <span class="nav-text">8.2.4 间接调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-函数的形参和实参"><span class="nav-number">3.</span> <span class="nav-text">8.3 函数的形参和实参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-1-可选参数"><span class="nav-number">3.1.</span> <span class="nav-text">8.3.1 可选参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-2-可变长的实参列表：实参对象arguments"><span class="nav-number">3.2.</span> <span class="nav-text">8.3.2 可变长的实参列表：实参对象arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-3-将对象属性作为参数"><span class="nav-number">3.3.</span> <span class="nav-text">8.3.3 将对象属性作为参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-4-实参类型"><span class="nav-number">3.4.</span> <span class="nav-text">8.3.4 实参类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-作为值的函数"><span class="nav-number">4.</span> <span class="nav-text">8.4 作为值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-作为命名空间的函数-执行匿名函数"><span class="nav-number">5.</span> <span class="nav-text">8.5 作为命名空间的函数-执行匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-6-闭包"><span class="nav-number">6.</span> <span class="nav-text">8.6 闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-7-函数属性、方法和构造函数"><span class="nav-number">7.</span> <span class="nav-text">8.7 函数属性、方法和构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-1-length属性"><span class="nav-number">7.1.</span> <span class="nav-text">8.7.1 length属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-2-prototype属性"><span class="nav-number">7.2.</span> <span class="nav-text">8.7.2 prototype属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-3-call方法和apply方法"><span class="nav-number">7.3.</span> <span class="nav-text">8.7.3 call方法和apply方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-4-bind-方法"><span class="nav-number">7.4.</span> <span class="nav-text">8.7.4 bind()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-5-toString（）方法"><span class="nav-number">7.5.</span> <span class="nav-text">8.7.5 toString（）方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-6-Function-构造函数"><span class="nav-number">7.6.</span> <span class="nav-text">8.7.6 Function()构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-7-可调用的对象"><span class="nav-number">7.7.</span> <span class="nav-text">8.7.7 可调用的对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-8-函数式编程"><span class="nav-number">8.</span> <span class="nav-text">8.8 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-1-使用函数处理数组"><span class="nav-number">8.1.</span> <span class="nav-text">8.8.1 使用函数处理数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-2-高阶函数"><span class="nav-number">8.2.</span> <span class="nav-text">8.8.2 高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-3-不完全函数"><span class="nav-number">8.3.</span> <span class="nav-text">8.8.3 不完全函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-4-记忆"><span class="nav-number">8.4.</span> <span class="nav-text">8.8.4 记忆</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RobJ</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/blog/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/blog/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/blog/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/blog/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+
+  
+  
+<script src="/blog/js/src/custom.js"></script>
+
+</body>
+</html>
