@@ -1287,7 +1287,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 13:09:14" itemprop="dateModified" datetime="2019-02-21T13:09:14+08:00">2019-02-21</time>
+                <time title="修改时间：2019-03-21 13:52:27" itemprop="dateModified" datetime="2019-03-21T13:52:27+08:00">2019-03-21</time>
               
             
           </span>
@@ -1341,88 +1341,135 @@
       
         
           
-            <p>#第10章-正则表达式的模式匹配</p>
-<ol>
+            <h1 id="第10章-正则表达式的模式匹配"><a href="#第10章-正则表达式的模式匹配" class="headerlink" title="第10章-正则表达式的模式匹配"></a>第10章-正则表达式的模式匹配</h1><ol>
 <li>JavaScript的正则表达式语法是Perl5正则表达式语法的一个大型子集</li>
 <li>String和RegExp都定义了有关正则表达式的方法</li>
 </ol>
 <h2 id="10-1-正则表达式的定义"><a href="#10-1-正则表达式的定义" class="headerlink" title="10.1 正则表达式的定义"></a>10.1 正则表达式的定义</h2><ol>
-<li><p>可以使用构造函数也可以使用直接量来生成正则表达式对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var pattern = new RegExp(&quot;s$&quot;);</span><br><span class="line">var patter = /s$/;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>每次运算正则表达是直接量都会返回一个新对象</p>
-</li>
+<li>可以使用构造函数也可以使用直接量来生成正则表达式对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br><span class="line"><span class="keyword">var</span> patter = <span class="regexp">/s$/</span>;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>每次运算正则表达是直接量都会返回一个新对象</li>
 <li>正则表达式中大多数的字符都是按照直接量描述匹配的字符，但是还有一些具有特殊语义</li>
 </ol>
 <h3 id="10-1-1-直接量字符"><a href="#10-1-1-直接量字符" class="headerlink" title="10.1.1 直接量字符"></a>10.1.1 直接量字符</h3><ol>
-<li><p>所有的字母和数字都是按照字面含义进行匹配的，同时还有一部本字符匹配需要通过<code>\</code>进行转义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\o NUL字符(\u0000)</span><br><span class="line">\t 制表符(\u0009)</span><br><span class="line">\n 换行符(\u000A)</span><br><span class="line">\v 垂直制表符(\u000B)</span><br><span class="line">\f 换页符(\u000C)</span><br><span class="line">\r 回车符(\u000C)</span><br><span class="line">\xnn 16进制数nn指定的拉丁符号 \x0A等价\n</span><br><span class="line">\uxxxx 16进制数xxxx指定的Unicode字符</span><br><span class="line">\cX 控制字符^X,\cJ===\n</span><br></pre></td></tr></table></figure>
-</li>
-<li><ul>
-<li>在正则表达式中许多的符号都有特殊的含义，它们是<br><code>^ $ . * + ? = ! | \ / () [] {}</code><br>如果想用这些符号的直接量进行匹配，需要在前面添加<code>\</code>，包括反斜线自己 <code>/\\/匹配反斜线</code>，这是一条通行规则。其他没有特殊意义的标点符号按照字面量匹配</li>
-<li>如果不记得哪些符号需要反斜杠进行转移，可以在每个标点符号前面都加上反斜线；许多数字和字母在反斜线做前缀时也有特殊含义，所以对于想按直接量进行匹配的数字和字母，尽量不要使用反斜杠</li>
-</ul>
-</li>
+<li>所有的字母和数字都是按照字面含义进行匹配的，同时还有一部本字符匹配需要通过<code>\</code>进行转义</li>
 </ol>
-<h3 id="10-1-2-字符类"><a href="#10-1-2-字符类" class="headerlink" title="10.1.2 字符类"></a>10.1.2 字符类</h3><ol>
-<li><p>将直接量字符单独放在方括号<code>[]</code>内就成为了字符类，一个字符类可以匹配他所包含的所有字符;另外通过在字符类最左边加入<code>^</code>可以定义否定字符类；字符类还可以用连字符<code>-</code>表示字符范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[abc] //可以和&quot;a&quot; &quot;b&quot; &quot;c&quot;中的任意一个匹配</span><br><span class="line">[^abc] //可以和&quot;a&quot; &quot;b&quot; &quot;c&quot;以外的任意一个匹配</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>某些字符类非常有用，可以使用特殊字符的转移字符来表示它们。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[...]  方括号内的任意字符</span><br><span class="line">[^...]  不在方括号内的任意字符</span><br><span class="line">.  除去换行符和其他Unicode行终止符之外的任意字符</span><br><span class="line">\w  任何ASCII字符组成的单词，等价于[a-zA-Z0-9_] 字母数字下划线</span><br><span class="line">\W  任何非ASCII字符组成的单词，等价于[^a-zA-Z0-9_]</span><br><span class="line">\s  任何Unicode空白符</span><br><span class="line">\S  任何非Unicode空白符</span><br><span class="line">\d  任何ASCII数字，等价于[0-9]</span><br><span class="line">\D  任何非ASCII数字，等价于[^0-9]</span><br><span class="line">.   匹配单个字符，除了换行和行结束符</span><br><span class="line">[\b]  退格直接量(特例)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="10-1-3-重复"><a href="#10-1-3-重复" class="headerlink" title="10.1.3 重复"></a>10.1.3 重复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;n, m&#125;  匹配前一项至少n次，但是不能超过m次</span><br><span class="line">&#123;n,&#125;    匹配前一项n次或者更多次</span><br><span class="line">&#123;n&#125;     匹配前一项n次</span><br><span class="line">?       匹配前一项0次或者1次，等价于&#123;0,1&#125;</span><br><span class="line">+       匹配前一项1次或者更多次</span><br><span class="line">*       匹配前一项0次货值更多次</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/a*/和字符串&quot;bbbb&quot;是匹配的，因为这个字符串含有0个a</span><br></pre></td></tr></table></figure>
-<p><strong>费贪婪的重复</strong><br>上表中的重复匹配是一种贪婪的匹配方法，也就是说匹配重复字符是尽可能多地匹配。同时我们也可做非贪婪的匹配，只需要在这些重复符号后面添加一个问号即可：<code>??  +?  *?  {1,5}?等</code>比如说<code>/a+/</code>会匹配<code>&quot;aaa&quot;</code>字符串的三个字符；而<code>/a+?/</code>只会匹配<code>&quot;aaa&quot;</code>字符串的第一个<code>a</code>。正则表达式的模式匹配总是会寻找字符串中第一个可能匹配的位置，比如说<code>/a+?b/</code>和<code>&quot;aaab&quot;</code>匹配的话会匹配真个<code>&quot;aaab&quot;</code>字符串，而不只是单单最后两个字符<code>&quot;ab&quot;</code></p>
-<h3 id="10-1-4-选择、分组和引用"><a href="#10-1-4-选择、分组和引用" class="headerlink" title="10.1.4 选择、分组和引用"></a>10.1.4 选择、分组和引用</h3><ol>
-<li>正则表达式还包括指定选择项、子表达式分组和引用前一个子表达式的特殊字符。</li>
-<li><ul>
-<li>选择项中<code>/ab|cd|ef/</code>可以匹配字符串<code>&quot;ab&quot;</code> <code>&quot;cd&quot;</code> <code>&quot;ef&quot;</code>；<code>/\d{3}|[a-z]{4}/</code>匹配的是三位数字或者四个小写字母。</li>
-<li>选择项的尝试匹配次序是从左到右，直到发现了匹配项为止，也就是说左边的匹配项的优先级是高于右边的匹配项的，比如<code>/a|ab/</code>匹配字符串<code>ab</code>只会匹配第一个字符<code>&quot;a&quot;</code></li>
-</ul>
-</li>
-<li><ol>
-<li>正则表达式中的圆括号有许多的作用，第一个就是把单独的项组合成子表达式，以便可以像处理一个独立的单元一样用<code>| * + ?</code>等符号对整个子表达式使用。</li>
-<li>圆括号的第二个作用是在完整的模式中定义子模式。当一个正则表达式和目标字符串匹配时，可以从目标字符串中抽出和圆括号中的子模式相匹配的部分。（后面说明具体方法的时候会讲到）</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\o NUL字符(\u0000)</span><br><span class="line">\t 制表符(\u0009)</span><br><span class="line">\n 换行符(\u000A)</span><br><span class="line">\v 垂直制表符(\u000B)</span><br><span class="line">\f 换页符(\u000C)</span><br><span class="line">\r 回车符(\u000C)</span><br><span class="line">\xnn <span class="number">16</span>进制数nn指定的拉丁符号 \x0A等价\n</span><br><span class="line">\uxxxx <span class="number">16</span>进制数xxxx指定的Unicode字符</span><br><span class="line">\cX 控制字符^X,\cJ===\n</span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li></li>
 </ol>
 <ul>
-<li>圆括号还允许在同一个正则表达式的后部分引用前面的子表达式，通过<code>\</code>后面添加数字来实现。这个数字指定了带圆括号的子表达式在正则表达式中的位置。因为子表达式之间是可以嵌套的，所以子表达式的位置其实是以左括号的位置来计算的。</li>
-<li><p>对正则表达式前一个子表达式的引用不是指对子表达式模式的引用，而是指匹配成功后对匹配的那段文本的引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[&apos;&quot;][^&apos;&quot;]*[&apos;&quot;]/  不要求左侧和右侧的引号类型相同</span><br><span class="line">/([&apos;&quot;])[^&apos;&quot;]*\1/    要求左右两侧的引号类型相同</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这种引用方法不能用在方括号也就是字符类中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/([&apos;&quot;])[^\1]*\1/  这种写法是非法的</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过<code>(?:  )</code>的方式也可以用于分组子表达式，但是只能用于分组，不能通过<code>\数字</code>进行引用，下标计数时会跳过这种分组</p>
-</li>
+<li><p>在正则表达式中许多的符号都有特殊的含义，它们是<br><code>^ $ . * + ? = ! | \ / () [] {}</code><br>如果想用这些符号的直接量进行匹配，需要在前面添加<code>\</code>，包括反斜线自己 <code>/\\/匹配反斜线</code>，这是一条通行规则。其他没有特殊意义的标点符号按照字面量匹配</p>
+<ul>
+<li>如果不记得哪些符号需要反斜杠进行转移，可以在每个标点符号前面都加上反斜线；许多数字和字母在反斜线做前缀时也有特殊含义，所以对于想按直接量进行匹配的数字和字母，尽量不要使用反斜杠</li>
 </ul>
 </li>
+</ul>
+<h3 id="10-1-2-字符类"><a href="#10-1-2-字符类" class="headerlink" title="10.1.2 字符类"></a>10.1.2 字符类</h3><ol>
+<li>将直接量字符单独放在方括号<code>[]</code>内就成为了字符类，一个字符类可以匹配他所包含的所有字符;另外通过在字符类最左边加入<code>^</code>可以定义否定字符类；字符类还可以用连字符<code>-</code>表示字符范围</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[abc] <span class="comment">//可以和"a" "b" "c"中的任意一个匹配</span></span><br><span class="line">[^abc] <span class="comment">//可以和"a" "b" "c"以外的任意一个匹配</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>某些字符类非常有用，可以使用特殊字符的转移字符来表示它们。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[...]  方括号内的任意字符</span><br><span class="line">[^...]  不在方括号内的任意字符</span><br><span class="line">.  除去换行符和其他Unicode行终止符之外的任意字符</span><br><span class="line">\w  任何ASCII字符组成的单词，等价于[a-zA-Z0<span class="number">-9</span>_] 字母数字下划线</span><br><span class="line">\W  任何非ASCII字符组成的单词，等价于[^a-zA-Z0<span class="number">-9</span>_]</span><br><span class="line">\s  任何Unicode空白符</span><br><span class="line">\S  任何非Unicode空白符</span><br><span class="line">\d  任何ASCII数字，等价于[<span class="number">0</span><span class="number">-9</span>]</span><br><span class="line">\D  任何非ASCII数字，等价于[^<span class="number">0</span><span class="number">-9</span>]</span><br><span class="line">.   匹配单个字符，除了换行和行结束符</span><br><span class="line">[\b]  退格直接量(特例)</span><br></pre></td></tr></table></figure>
+<h3 id="10-1-3-重复"><a href="#10-1-3-重复" class="headerlink" title="10.1.3 重复"></a>10.1.3 重复</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;n, m&#125;  匹配前一项至少n次，但是不能超过m次</span><br><span class="line">&#123;n,&#125;    匹配前一项n次或者更多次</span><br><span class="line">&#123;n&#125;     匹配前一项n次</span><br><span class="line">?       匹配前一项<span class="number">0</span>次或者<span class="number">1</span>次，等价于&#123;<span class="number">0</span>,<span class="number">1</span>&#125;</span><br><span class="line">+       匹配前一项<span class="number">1</span>次或者更多次</span><br><span class="line">*       匹配前一项<span class="number">0</span>次货值更多次</span><br><span class="line"></span><br><span class="line">/a*<span class="regexp">/和字符串"bbbb"是匹配的，因为这个字符串含有0个a</span></span><br></pre></td></tr></table></figure>
+<p><strong>费贪婪的重复</strong><br>上表中的重复匹配是一种贪婪的匹配方法，也就是说匹配重复字符是尽可能多地匹配。同时我们也可做非贪婪的匹配，只需要在这些重复符号后面添加一个问号即可：<code>??  +?  *?  {1,5}?等</code>比如说<code>/a+/</code>会匹配<code>&quot;aaa&quot;</code>字符串的三个字符；而<code>/a+?/</code>只会匹配<code>&quot;aaa&quot;</code>字符串的第一个<code>a</code>。正则表达式的模式匹配总是会寻找字符串中第一个可能匹配的位置，比如说<code>/a+?b/</code>和<code>&quot;aaab&quot;</code>匹配的话会匹配真个<code>&quot;aaab&quot;</code>字符串，而不只是单单最后两个字符<code>&quot;ab&quot;</code></p>
+<h3 id="10-1-4-选择、分组和引用"><a href="#10-1-4-选择、分组和引用" class="headerlink" title="10.1.4 选择、分组和引用"></a>10.1.4 选择、分组和引用</h3><ol>
+<li><p>正则表达式还包括指定选择项、子表达式分组和引用前一个子表达式的特殊字符。</p>
+</li>
+<li></li>
+</ol>
+<ul>
+<li><p>选择项中<code>/ab|cd|ef/</code>可以匹配字符串<code>&quot;ab&quot;</code> <code>&quot;cd&quot;</code> <code>&quot;ef&quot;</code>；<code>/\d{3}|[a-z]{4}/</code>匹配的是三位数字或者四个小写字母。</p>
+</li>
+<li><p>选择项的尝试匹配次序是从左到右，直到发现了匹配项为止，也就是说左边的匹配项的优先级是高于右边的匹配项的，比如<code>/a|ab/</code>匹配字符串<code>ab</code>只会匹配第一个字符<code>&quot;a&quot;</code></p>
+</li>
+</ul>
+<ol start="3">
+<li></li>
+</ol>
+<ul>
+<li><ol>
+<li>正则表达式中的圆括号有许多的作用，第一个就是把单独的项组合成子表达式，以便可以像处理一个独立的单元一样用<code>| * + ?</code>等符号对整个子表达式使用。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>圆括号的第二个作用是在完整的模式中定义子模式。当一个正则表达式和目标字符串匹配时，可以从目标字符串中抽出和圆括号中的子模式相匹配的部分。（后面说明具体方法的时候会讲到）</li>
+</ol>
+</li>
+<li><ol start="3">
+<li></li>
+</ol>
+</li>
+<li><ul>
+<li>圆括号还允许在同一个正则表达式的后部分引用前面的子表达式，通过<code>\</code>后面添加数字来实现。这个数字指定了带圆括号的子表达式在正则表达式中的位置。因为子<br>表达式之间是可以嵌套的，所以子表达式的位置其实是以左括号的位置来计算的。</li>
+</ul>
+</li>
+<li><ul>
+<li>对正则表达式前一个子表达式的引用不是指对子表达式模式的引用，而是指匹配成功后对匹配的那段文本的引用。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[<span class="string">'"][^'</span><span class="string">"]*['"</span>]/  不要求左侧和右侧的引号类型相同</span><br><span class="line">/([<span class="string">'"])[^'</span><span class="string">"]*\1/    要求左右两侧的引号类型相同</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这种引用方法不能用在方括号也就是字符类中</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/([<span class="string">'"])[^\1]*\1/  这种写法是非法的</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过<code>(?:  )</code>的方式也可以用于分组子表达式，但是只能用于分组，不能通过<code>\数字</code>进行引用，下标计数时会跳过这种分组</li>
+</ul>
+<ol start="4">
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|        选择，匹配左边的子表达式或者右边的子表达式</span><br><span class="line">(...)    组合，将几个项组合为一个单元，这个单元可以通过符号加以修饰，而且可以记住和这个组合相匹配的字符串以供后面的引用调用</span><br><span class="line">(?:...)  只组合，不记忆与该组合相匹配的字符</span><br><span class="line">\n       和第n个分组第一次匹配的字符串匹配</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="10-1-5-指定匹配位置"><a href="#10-1-5-指定匹配位置" class="headerlink" title="10.1.5 指定匹配位置"></a>10.1.5 指定匹配位置</h3><p>还有一些正则表达式的元素匹配的是字符之间的位置，而不是实际的字符。它们不匹配某个字符，而是指定合法的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">^  匹配字符串的开头，在多行检索中，匹配一行的开头</span><br><span class="line">$  匹配字符串的结尾，在多行检索中，匹配一行的结尾</span><br><span class="line">\b 匹配一个单词的边界，简言之，就是位于字符\w和\W之间的位置，或者位于\w和字符串开头和结尾的位置([\b]匹配的退格符)</span><br><span class="line">\B 匹配费单词边界的位置</span><br><span class="line">(?=p) 零宽正向先行断言，要求接下来的字符都要与p匹配,但匹配字符串不会包括匹配p的那些字符</span><br><span class="line">(?!p) 零宽负向先行断言，要求接下来的字符不与p匹配</span><br></pre></td></tr></table></figure></p>
-<h3 id="10-1-6-修饰符"><a href="#10-1-6-修饰符" class="headerlink" title="10.1.6 修饰符"></a>10.1.6 修饰符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i  不区分大小写</span><br><span class="line">g  执行一个全局匹配，找到所有的匹配项，而不只是第一个</span><br><span class="line">m  多行匹配，^会匹配一行的的开头和字符串的开头，$匹配一行的结尾和字符串的结尾</span><br></pre></td></tr></table></figure>
+<h3 id="10-1-5-指定匹配位置"><a href="#10-1-5-指定匹配位置" class="headerlink" title="10.1.5 指定匹配位置"></a>10.1.5 指定匹配位置</h3><p>还有一些正则表达式的元素匹配的是字符之间的位置，而不是实际的字符。它们不匹配某个字符，而是指定合法的位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">^  匹配字符串的开头，在多行检索中，匹配一行的开头</span><br><span class="line">$  匹配字符串的结尾，在多行检索中，匹配一行的结尾</span><br><span class="line">\b 匹配一个单词的边界，简言之，就是位于字符\w和\W之间的位置，或者位于\w和字符串开头和结尾的位置([\b]匹配的退格符)</span><br><span class="line">\B 匹配费单词边界的位置</span><br><span class="line">(?=p) 零宽正向先行断言，要求接下来的字符都要与p匹配,但匹配字符串不会包括匹配p的那些字符</span><br><span class="line">(?!p) 零宽负向先行断言，要求接下来的字符不与p匹配</span><br></pre></td></tr></table></figure>
+<h3 id="10-1-6-修饰符"><a href="#10-1-6-修饰符" class="headerlink" title="10.1.6 修饰符"></a>10.1.6 修饰符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i  不区分大小写</span><br><span class="line">g  执行一个全局匹配，找到所有的匹配项，而不只是第一个</span><br><span class="line">m  多行匹配，^会匹配一行的的开头和字符串的开头，$匹配一行的结尾和字符串的结尾</span><br></pre></td></tr></table></figure>
 <h2 id="10-2-String中的模式匹配方法"><a href="#10-2-String中的模式匹配方法" class="headerlink" title="10.2 String中的模式匹配方法"></a>10.2 String中的模式匹配方法</h2><p>这些方法在单独的写在了String类型中</p>
 <h2 id="10-3-RegExp对象"><a href="#10-3-RegExp对象" class="headerlink" title="10.3 RegExp对象"></a>10.3 RegExp对象</h2><ol>
-<li>RegExp构造函数：可以有两个字符串参数(第二个可选)<ul>
+<li>RegExp构造函数：可以有两个字符串参数(第二个可选)</li>
+</ol>
+<ul>
 <li>第一个参数是正则表达式的主体部分，也就是正则表达式直接量反斜杠之间的内容；注意此时的反斜杠<code>\</code>在字符串中应该写为<code>&quot;\\&quot;</code></li>
 <li>第二个参数是可选的，用于指定修饰符。只能传入g、i、m的组合</li>
 </ul>
-</li>
+<ol start="2">
 <li>构造函数的优点就在于可以动态的创建正则表达式</li>
 </ol>
-<h3 id="10-3-1-RegExp的属性"><a href="#10-3-1-RegExp的属性" class="headerlink" title="10.3.1 RegExp的属性"></a>10.3.1 RegExp的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source  一个只读的字符串，包含正则表达式的文本</span><br><span class="line">global  只读的布尔值，表示是否有修饰符g</span><br><span class="line">ignoreCase  只读的布尔值，表示是否有修饰符i</span><br><span class="line">multiline  只读的布尔值，表示是否有修饰符m</span><br><span class="line">lastIndex  可写/读的整数，如果匹配模式有g修饰符，这个属性下一次检索的开始位置 会在exec()和test()方法中使用到</span><br></pre></td></tr></table></figure>
+<h3 id="10-3-1-RegExp的属性"><a href="#10-3-1-RegExp的属性" class="headerlink" title="10.3.1 RegExp的属性"></a>10.3.1 RegExp的属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source  一个只读的字符串，包含正则表达式的文本</span><br><span class="line">global  只读的布尔值，表示是否有修饰符g</span><br><span class="line">ignoreCase  只读的布尔值，表示是否有修饰符i</span><br><span class="line">multiline  只读的布尔值，表示是否有修饰符m</span><br><span class="line">lastIndex  可写/读的整数，如果匹配模式有g修饰符，这个属性下一次检索的开始位置 会在exec()和test()方法中使用到</span><br></pre></td></tr></table></figure>
 <h3 id="10-3-2-RegExp的方法"><a href="#10-3-2-RegExp的方法" class="headerlink" title="10.3.2 RegExp的方法"></a>10.3.2 RegExp的方法</h3><ol>
-<li>exec<ol>
+<li>exec</li>
+</ol>
+<ul>
+<li><ol>
 <li>exec()方法和String的match()方法很像，只不过参数是一个字符串，会在字符串中执行匹配检查，如果没有任何匹配，返回null；找到了匹配就返回一个数组。</li>
+</ol>
+</li>
+<li><ol start="2">
 <li>这个数组第一个元素包含的是正则表达式的匹配字符串，余下的数组元素是与圆括号内的子表达式相匹配的子串；数组的属性index包含了发生匹配的字符位置，属性input指向正在检索的字符串</li>
+</ol>
+</li>
+<li><ol start="3">
 <li>和match不同的是，无论是否是全局匹配模式p，exec总是返回一个匹配结果，并提供本次匹配完整的信息。不过当有g时，lastIndex属性会发生改变，当匹配时会把lastIndex设置为匹配字符串的末尾位置+1，如果某次查询没有发现任何匹配项时，lastIndex重置为0(一般都是最后一次了，切记开始新的字符串查找前都应将lastIndex设置为0)</li>
 </ol>
 </li>
+</ul>
+<ol start="2">
+<li>test</li>
 </ol>
-<p>2.test<br> 1.test方法更为简单，它的参数是一个字符串，如果匹配成功，返回true，相当于exec结果不是null则返回true<br> 2.test也会像exec一样改变lastIndex的值</p>
+<ul>
+<li><ol>
+<li>test方法更为简单，它的参数是一个字符串，如果匹配成功，返回true，相当于exec结果不是null则返回true</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>test也会像exec一样改变lastIndex的值</li>
+</ol>
+</li>
+</ul>
 
           
         
