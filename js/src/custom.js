@@ -1,6 +1,9 @@
 // 动态壁纸
 (function () {
-  document.body.style.backgroundColor = "transparent";
+  /* 设置body的背景颜色 */
+  document.body.style.backgroundColor = "#cfe8cc"
+  /* 设置循环的动态壁纸 不过由于图片过大 会很大的影响响应速度 */
+  /* document.body.style.backgroundColor = "transparent";
   var len = 8
   var index = Math.floor(Math.random()*len)+1;
   var oDiv = document.createElement("div");
@@ -29,6 +32,6 @@
       oBack2.style.opacity = 0;
       indexBg = 1;
     }
-  }, 60000);
+  }, 60000); */
 })()
 
