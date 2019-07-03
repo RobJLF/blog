@@ -2020,7 +2020,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cbeb3c;
+  background: #75ff78;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3295,11 +3295,11 @@ ul.breadcrumb li+li:last-child {
 #header {
   opacity: 0.9;
 }
+#header .header-inner {
+  background-color: #cfe8cc;
+}
 #header .header-inner .site-meta {
   background-color: #80aebe;
-}
-#header .header-inner .site-meta .header-inner {
-  background-color: #cfe8cc;
 }
 #content {
   opacity: 0.9;
