@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+  <meta name="description" content="第8章-函数 函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数表达">
 <meta name="keywords" content="JS,method">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数">
 <meta property="og:url" content="https://robjlf.github.io/blog/2018/11/12/method/index.html">
 <meta property="og:site_name" content="J&#39;Blog">
-<meta property="og:description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+<meta property="og:description" content="第8章-函数 函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数表达">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T05:09:14.666Z">
+<meta property="og:updated_time" content="2019-07-12T07:59:11.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数">
-<meta name="twitter:description" content="#第8章-函数  函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数">
+<meta name="twitter:description" content="第8章-函数 函数也是对象 函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值 函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）  8.1 函数定义 函数定义分为函数表达式和函数声明两种，都会使用function关键字来进行定义 函数表达">
 
 
 
@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 13:09:14" itemprop="dateModified" datetime="2019-02-21T13:09:14+08:00">2019-02-21</time>
+                <time title="修改时间：2019-07-12 15:59:11" itemprop="dateModified" datetime="2019-07-12T15:59:11+08:00">2019-07-12</time>
               
             
           </span>
@@ -471,8 +471,7 @@
       
 
       
-        <p>#第8章-函数</p>
-<ol>
+        <h2 id="第8章-函数"><a href="#第8章-函数" class="headerlink" title="第8章-函数"></a>第8章-函数</h2><ol>
 <li>函数也是对象</li>
 <li>函数的形参就像在函数体中的局部变量一样，当然除了形参还会传入this值和arguments两个值</li>
 <li>函数如果是对象的一个属性的话，那么就可以成为方法，通过这个对象调用函数时，这个对象就是这个函数的调用上下文this对象的指向。（更多关于this的内容后面还会在提）</li>
@@ -526,9 +525,9 @@
 <li>函数也是对象，可以赋值给变量，存储在对象的属性或者数组的元素中，还可以作为参数传入函数中，比如Array.prototype.sort()方法；同时也可以为函数定义自己的属性</li>
 </ol>
 <h2 id="8-5-作为命名空间的函数-执行匿名函数"><a href="#8-5-作为命名空间的函数-执行匿名函数" class="headerlink" title="8.5 作为命名空间的函数-执行匿名函数"></a>8.5 作为命名空间的函数-执行匿名函数</h2><ol>
-<li>函数中的变量在函数体内是可见的，在函数体外是不可见的；不在任何函数内声明的变量都是全局变量（函数体内没有使用var声明的变量也是全局变量）；为了防止污染全局命名空间，可以执行匿名函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">  //  模块代码</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
-</li>
+<li>函数中的变量在函数体内是可见的，在函数体外是不可见的；不在任何函数内声明的变量都是全局变量（函数体内没有使用var声明的变量也是全局变量）；为了防止污染全局命名空间，可以执行匿名函数</li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//  模块代码</span></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
 <h2 id="8-6-闭包"><a href="#8-6-闭包" class="headerlink" title="8.6 闭包"></a>8.6 闭包</h2><ol>
 <li>一般来说一个函数内嵌套了另一个函数，然后返回这个嵌套的函数时就会产生闭包</li>
 <li>函数执行完后局部变量的引用将会被销毁，如果发生闭包的话那么这些引用将会保存下来</li>
@@ -546,11 +545,11 @@
 <li>call：第一个调用上下文this实参之后的所有实参代表要传入代调用函数的值；apply：与call的相比，第一个参数一样都指this，第二个参数是一个类数组或者真实数组对象，包含传入调用函数的实参</li>
 </ol>
 <h3 id="8-7-4-bind-方法"><a href="#8-7-4-bind-方法" class="headerlink" title="8.7.4 bind()方法"></a>8.7.4 bind()方法</h3><ol>
-<li><p>调用bind方法可以将传入的参数也调用该方法的函数绑定在一起并返回一个新的函数，第一个参数绑定this对象，后面的参数按照顺序绑定至调用函数的形参上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var sum = function(x, y)&#123;return x+y;&#125;</span><br><span class="line">var succ = sum.bind(null, 1);</span><br><span class="line">succ(2) = 3 //x绑定为1， 2传给</span><br><span class="line">function f(x, y) &#123;return this.x+y+z;&#125;</span><br><span class="line">var g = f.bind(&#123;x:1&#125;, 2);</span><br><span class="line">g(3) //6 this.x绑定1 y绑定2 z绑定3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>bind返回一个函数，该函数的length值等于调用bind方法的函数的形参个数减去本次bind方法绑定的实参个数；返回函数可以用做构造函数，此时忽略bind方法传入的this值；返回函数没有prototype属性，所以作为构造函数时使用原始的未绑定的函数的prototype；对于instanceof运算，返回函数也采用原始未绑定函数的类作为判断依据</p>
-</li>
+<li>调用bind方法可以将传入的参数也调用该方法的函数绑定在一起并返回一个新的函数，第一个参数绑定this对象，后面的参数按照顺序绑定至调用函数的形参上</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;<span class="keyword">return</span> x+y;&#125;</span><br><span class="line"><span class="keyword">var</span> succ = sum.bind(<span class="literal">null</span>, <span class="number">1</span>);</span><br><span class="line">succ(<span class="number">2</span>) = <span class="number">3</span> <span class="comment">//x绑定为1， 2传给</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y</span>) </span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.x+y+z;&#125;</span><br><span class="line"><span class="keyword">var</span> g = f.bind(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;, <span class="number">2</span>);</span><br><span class="line">g(<span class="number">3</span>) <span class="comment">//6 this.x绑定1 y绑定2 z绑定3</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>bind返回一个函数，该函数的length值等于调用bind方法的函数的形参个数减去本次bind方法绑定的实参个数；返回函数可以用做构造函数，此时忽略bind方法传入的this值；返回函数没有prototype属性，所以作为构造函数时使用原始的未绑定的函数的prototype；对于instanceof运算，返回函数也采用原始未绑定函数的类作为判断依据</li>
 </ol>
 <h3 id="8-7-5-toString（）方法"><a href="#8-7-5-toString（）方法" class="headerlink" title="8.7.5 toString（）方法"></a>8.7.5 toString（）方法</h3><ol>
 <li>大多数函数的toString方法会返回函数的完成代码，但是内置函数往往返回”[native code]”，因为它们的代码往往可能是C++实现的</li>
@@ -625,8 +624,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/11/12/string/" rel="prev" title="String类型">
-                String类型 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/11/12/RegExp/" rel="prev" title="RegExp类型">
+                RegExp类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -830,7 +829,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-函数定义"><span class="nav-number">1.</span> <span class="nav-text">8.1 函数定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-函数调用"><span class="nav-number">2.</span> <span class="nav-text">8.2 函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-1-函数调用"><span class="nav-number">2.1.</span> <span class="nav-text">8.2.1 函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-2-方法调用"><span class="nav-number">2.2.</span> <span class="nav-text">8.2.2 方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-构造函数的调用"><span class="nav-number">2.3.</span> <span class="nav-text">8.2.3 构造函数的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-间接调用"><span class="nav-number">2.4.</span> <span class="nav-text">8.2.4 间接调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-函数的形参和实参"><span class="nav-number">3.</span> <span class="nav-text">8.3 函数的形参和实参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-1-可选参数"><span class="nav-number">3.1.</span> <span class="nav-text">8.3.1 可选参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-2-可变长的实参列表：实参对象arguments"><span class="nav-number">3.2.</span> <span class="nav-text">8.3.2 可变长的实参列表：实参对象arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-3-将对象属性作为参数"><span class="nav-number">3.3.</span> <span class="nav-text">8.3.3 将对象属性作为参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-4-实参类型"><span class="nav-number">3.4.</span> <span class="nav-text">8.3.4 实参类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-作为值的函数"><span class="nav-number">4.</span> <span class="nav-text">8.4 作为值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-作为命名空间的函数-执行匿名函数"><span class="nav-number">5.</span> <span class="nav-text">8.5 作为命名空间的函数-执行匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-6-闭包"><span class="nav-number">6.</span> <span class="nav-text">8.6 闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-7-函数属性、方法和构造函数"><span class="nav-number">7.</span> <span class="nav-text">8.7 函数属性、方法和构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-1-length属性"><span class="nav-number">7.1.</span> <span class="nav-text">8.7.1 length属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-2-prototype属性"><span class="nav-number">7.2.</span> <span class="nav-text">8.7.2 prototype属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-3-call方法和apply方法"><span class="nav-number">7.3.</span> <span class="nav-text">8.7.3 call方法和apply方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-4-bind-方法"><span class="nav-number">7.4.</span> <span class="nav-text">8.7.4 bind()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-5-toString（）方法"><span class="nav-number">7.5.</span> <span class="nav-text">8.7.5 toString（）方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-6-Function-构造函数"><span class="nav-number">7.6.</span> <span class="nav-text">8.7.6 Function()构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-7-可调用的对象"><span class="nav-number">7.7.</span> <span class="nav-text">8.7.7 可调用的对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-8-函数式编程"><span class="nav-number">8.</span> <span class="nav-text">8.8 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-1-使用函数处理数组"><span class="nav-number">8.1.</span> <span class="nav-text">8.8.1 使用函数处理数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-2-高阶函数"><span class="nav-number">8.2.</span> <span class="nav-text">8.8.2 高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-3-不完全函数"><span class="nav-number">8.3.</span> <span class="nav-text">8.8.3 不完全函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-4-记忆"><span class="nav-number">8.4.</span> <span class="nav-text">8.8.4 记忆</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第8章-函数"><span class="nav-number">1.</span> <span class="nav-text">第8章-函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-函数定义"><span class="nav-number">2.</span> <span class="nav-text">8.1 函数定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-函数调用"><span class="nav-number">3.</span> <span class="nav-text">8.2 函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-1-函数调用"><span class="nav-number">3.1.</span> <span class="nav-text">8.2.1 函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-2-方法调用"><span class="nav-number">3.2.</span> <span class="nav-text">8.2.2 方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-构造函数的调用"><span class="nav-number">3.3.</span> <span class="nav-text">8.2.3 构造函数的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-间接调用"><span class="nav-number">3.4.</span> <span class="nav-text">8.2.4 间接调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-函数的形参和实参"><span class="nav-number">4.</span> <span class="nav-text">8.3 函数的形参和实参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-1-可选参数"><span class="nav-number">4.1.</span> <span class="nav-text">8.3.1 可选参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-2-可变长的实参列表：实参对象arguments"><span class="nav-number">4.2.</span> <span class="nav-text">8.3.2 可变长的实参列表：实参对象arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-3-将对象属性作为参数"><span class="nav-number">4.3.</span> <span class="nav-text">8.3.3 将对象属性作为参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-4-实参类型"><span class="nav-number">4.4.</span> <span class="nav-text">8.3.4 实参类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-作为值的函数"><span class="nav-number">5.</span> <span class="nav-text">8.4 作为值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-作为命名空间的函数-执行匿名函数"><span class="nav-number">6.</span> <span class="nav-text">8.5 作为命名空间的函数-执行匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-6-闭包"><span class="nav-number">7.</span> <span class="nav-text">8.6 闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-7-函数属性、方法和构造函数"><span class="nav-number">8.</span> <span class="nav-text">8.7 函数属性、方法和构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-1-length属性"><span class="nav-number">8.1.</span> <span class="nav-text">8.7.1 length属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-2-prototype属性"><span class="nav-number">8.2.</span> <span class="nav-text">8.7.2 prototype属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-3-call方法和apply方法"><span class="nav-number">8.3.</span> <span class="nav-text">8.7.3 call方法和apply方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-4-bind-方法"><span class="nav-number">8.4.</span> <span class="nav-text">8.7.4 bind()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-5-toString（）方法"><span class="nav-number">8.5.</span> <span class="nav-text">8.7.5 toString（）方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-6-Function-构造函数"><span class="nav-number">8.6.</span> <span class="nav-text">8.7.6 Function()构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-7-可调用的对象"><span class="nav-number">8.7.</span> <span class="nav-text">8.7.7 可调用的对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-8-函数式编程"><span class="nav-number">9.</span> <span class="nav-text">8.8 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-1-使用函数处理数组"><span class="nav-number">9.1.</span> <span class="nav-text">8.8.1 使用函数处理数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-2-高阶函数"><span class="nav-number">9.2.</span> <span class="nav-text">8.8.2 高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-3-不完全函数"><span class="nav-number">9.3.</span> <span class="nav-text">8.8.3 不完全函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-4-记忆"><span class="nav-number">9.4.</span> <span class="nav-text">8.8.4 记忆</span></a></li></ol></li></ol></div>
             
 
           </div>

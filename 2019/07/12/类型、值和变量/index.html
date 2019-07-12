@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="J&#39;Blog">
 <meta property="og:description" content="第3章-类型、值和变量 计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。  JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。 JS有自己的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-12T03:24:58.840Z">
+<meta property="og:updated_time" content="2019-07-12T07:38:57.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类型、值和变量">
 <meta name="twitter:description" content="第3章-类型、值和变量 计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。  JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。 JS有自己的">
@@ -402,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2019-07-12 00:00:00 / 修改时间：11:24:58" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+              <time title="创建时间：2019-07-12 00:00:00 / 修改时间：15:38:57" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
             
 
             
@@ -459,18 +459,18 @@
       
 
       
-        <h1 id="第3章-类型、值和变量"><a href="#第3章-类型、值和变量" class="headerlink" title="第3章-类型、值和变量"></a>第3章-类型、值和变量</h1><blockquote>
+        <h2 id="第3章-类型、值和变量"><a href="#第3章-类型、值和变量" class="headerlink" title="第3章-类型、值和变量"></a>第3章-类型、值和变量</h2><blockquote>
 <p>计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。</p>
 </blockquote>
 <p>JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。</p>
 <p>JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。</p>
 <p>JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。</p>
-<p>##3.1数字<br>JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。<br>小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$<br>整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度<br>但是JavaScript中实际的整数操作是基于32位整数。</p>
+<h2 id="3-1数字"><a href="#3-1数字" class="headerlink" title="3.1数字"></a>3.1数字</h2><p>JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。<br>小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$<br>整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度<br>但是JavaScript中实际的整数操作是基于32位整数。</p>
 <p>当一个数字直接出现在程序中时，我们称为数字直接量。</p>
 <h2 id="3-1-1整数直接量"><a href="#3-1-1整数直接量" class="headerlink" title="3.1.1整数直接量"></a>3.1.1整数直接量</h2><p>除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。</p>
-<h2 id="3-1-2浮点型直接量"><a href="#3-1-2浮点型直接量" class="headerlink" title="3.1.2浮点型直接量"></a>3.1.2浮点型直接量</h2><p>浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量<code>1.458e(E)-32</code><br>简洁语法：<code>[digits][.digits][(E|e)(+|-)]digits</code> </p>
+<h2 id="3-1-2浮点型直接量"><a href="#3-1-2浮点型直接量" class="headerlink" title="3.1.2浮点型直接量"></a>3.1.2浮点型直接量</h2><p>浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量<code>1.458e(E)-32</code><br>简洁语法：<code>[digits][.digits][(E|e)(+|-)]digits</code></p>
 <h2 id="3-1-3算数运算"><a href="#3-1-3算数运算" class="headerlink" title="3.1.3算数运算"></a>3.1.3算数运算</h2><p><code>+ - * / %等</code>更多的运算方法参考Math对象。数字特数量有<code>+-Infinity、+-0、NaN</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1</span><br><span class="line">-Infinity===-1/0===-Number.MAX_VALUE-1</span><br><span class="line">NaN=Number.NaN===0/0</span><br><span class="line">-0===-Number.MIN_VALUE/2===-1/Infinity===0</span><br><span class="line"></span><br><span class="line">切记：NaN不与任何相等，包括自己，所以与自己不相等的值便是NaN，函数isNaN()的原理类似。</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">Infinity</span>===<span class="built_in">Number</span>.POSITIVE_INFINITY===<span class="number">1</span>/<span class="number">0</span>===<span class="built_in">Number</span>.MAX_VALUE+<span class="number">1</span></span><br><span class="line">-<span class="literal">Infinity</span>===<span class="number">-1</span>/<span class="number">0</span>===-<span class="built_in">Number</span>.MAX_VALUE<span class="number">-1</span></span><br><span class="line"><span class="literal">NaN</span>=<span class="built_in">Number</span>.NaN===<span class="number">0</span>/<span class="number">0</span></span><br><span class="line"><span class="number">-0</span>===-<span class="built_in">Number</span>.MIN_VALUE/<span class="number">2</span>===<span class="number">-1</span>/<span class="literal">Infinity</span>===<span class="number">0</span></span><br><span class="line"></span><br><span class="line">切记：<span class="literal">NaN</span>不与任何相等，包括自己，所以与自己不相等的值便是<span class="literal">NaN</span>，函数<span class="built_in">isNaN</span>()的原理类似。</span><br></pre></td></tr></table></figure>
 <h2 id="3-1-4二进制浮点数和四舍五入"><a href="#3-1-4二进制浮点数和四舍五入" class="headerlink" title="3.1.4二进制浮点数和四舍五入"></a>3.1.4二进制浮点数和四舍五入</h2><p>根据ieee-754浮点数的存储表示方式，JavaScript中的浮点数很多时候都是一个近似值，会与理想的计算值存在偏差。</p>
 <h2 id="3-1-5日期和时间"><a href="#3-1-5日期和时间" class="headerlink" title="3.1.5日期和时间"></a>3.1.5日期和时间</h2><p>Date()构造函数用于创建表示日期和时间的对象。更多细节这里不谈。</p>
 <h2 id="3-2文本（字符串）"><a href="#3-2文本（字符串）" class="headerlink" title="3.2文本（字符串）"></a>3.2文本（字符串）</h2><p>字符串本质上是由16位值组成的不可变的有序序列。</p>
@@ -485,14 +485,15 @@
 <li>ES3中字符序列必须写在同一行上，ES5中可以通过反斜线()进行换行，但是反斜线和行结束符都不属于直接量的内容</li>
 <li>可以使用转义字符\n在直接量中表示换行</li>
 </ul>
-<h2 id="3-2-2转义字符"><a href="#3-2-2转义字符" class="headerlink" title="3.2.2转义字符"></a>3.2.2转义字符</h2><p>在JavaScript字符串中，反斜线有着特殊的用途，在反斜线后面加上一个字符可以表示别的字面意义。（转义）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\n \o \b \&quot; \&apos; \\ </span><br><span class="line">\xXX(两位16进制的Latin-1字符) </span><br><span class="line">\uXXXX(4位16进制的Unicode字符)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-2-2转义字符"><a href="#3-2-2转义字符" class="headerlink" title="3.2.2转义字符"></a>3.2.2转义字符</h2><p>在JavaScript字符串中，反斜线有着特殊的用途，在反斜线后面加上一个字符可以表示别的字面意义。（转义）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\n \o \b \<span class="string">" \' \\</span></span><br><span class="line"><span class="string">\xXX(两位16进制的Latin-1字符)</span></span><br><span class="line"><span class="string">\uXXXX(4位16进制的Unicode字符)</span></span><br></pre></td></tr></table></figure>
 <p>如果反斜杠后面没有使用规定的字符，则会忽略反斜线。比如’\#’=’#’</p>
 <h2 id="3-2-3字符串的使用"><a href="#3-2-3字符串的使用" class="headerlink" title="3.2.3字符串的使用"></a>3.2.3字符串的使用</h2><ul>
 <li>使用<code>+</code>进行字符串连接</li>
 <li>使用length属性的到16位值的个数(不是字符个数)</li>
 <li>此外还用很多可调用的方法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s = &quot;hello,world&quot;</span><br><span class="line">s.chatAt(0)</span><br><span class="line">s.charAt(s.length-1)</span><br><span class="line">···更多例子看书，或则查看资料</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"hello,world"</span></span><br><span class="line">s.chatAt(<span class="number">0</span>)</span><br><span class="line">s.charAt(s.length<span class="number">-1</span>)</span><br><span class="line">···更多例子看书，或则查看资料</span><br></pre></td></tr></table></figure>
 <p>无论执行什么方法，字符串中的值都是不变的。比如说replace()和toUpperCase()的方法都是返回新的字符串。</p>
 <ul>
 <li>字符串也可以当做只读数组，除了使用charAt()方法，也可以使用方括号访问单个字符。<code>s[0]等价于s.charAt(0)</code></li>
@@ -505,36 +506,30 @@
 <ul>
 <li>任何值都可以转化为布尔值。转化为false的值称为假值，转化为true的值称为真值。</li>
 </ul>
-<h2 id="3-4null和undefined"><a href="#3-4null和undefined" class="headerlink" title="3.4null和undefined"></a>3.4null和undefined</h2><ol>
-<li><p>null是关键字，是一个特殊值，常用来描述“空值”。 </p>
+<h2 id="3-4null和undefined"><a href="#3-4null和undefined" class="headerlink" title="3.4null和undefined"></a>3.4null和undefined</h2><p>1.null是关键字，是一个特殊值，常用来描述“空值”。</p>
 <ul>
 <li>typeof null ==&gt; object</li>
 <li>可以表示数字、字符串、对象是“无值的”</li>
 </ul>
-</li>
-<li><p>undefined是预定义的全局对象，不是关键字。用来表示更深层次的“空值”。比如没有初始化的变量；不存在的属性；没有返回值的函数；没有提供实参的函数的形参的值等都将返回undefined。</p>
+<p>2.undefined是预定义的全局对象，不是关键字。用来表示更深层次的“空值”。比如没有初始化的变量；不存在的属性；没有返回值的函数；没有提供实参的函数的形参的值等都将返回undefined。</p>
 <ul>
 <li>ES3的时候该对象是可读/写的，ES5改为了只读</li>
 <li>typeof undefined ==&gt; undefined</li>
 </ul>
-</li>
-<li>null和undefined不包含任何属性和方法使用“.”和“[]”来存取成员和方法会返回一个类型错误。</li>
-<li>undefined可能表示系统级的，出乎意料的或类似错误的空缺；而null表示程序及的，正常的意料中的空缺。如果想赋值给变量，属性或者入参，最佳选择是null。</li>
-</ol>
+<p>3.null和undefined不包含任何属性和方法使用“.”和“[]”来存取成员和方法会返回一个类型错误。</p>
+<p>4.undefined可能表示系统级的，出乎意料的或类似错误的空缺；而null表示程序及的，正常的意料中的空缺。如果想赋值给变量，属性或者入参，最佳选择是null。</p>
 <h2 id="3-5全局对象"><a href="#3-5全局对象" class="headerlink" title="3.5全局对象"></a>3.5全局对象</h2><p>这里就简单的提一下，在客户端JavaScript中，其标示的浏览器窗口中的所有JavaScript代码中，Window对象充当着全局对象。这个Window对象有一个window属性指向自身，也可以在代码最顶端（即不在任何函数内）使用this来指向Window对象。</p>
 <ul>
 <li>该对象定义了核心的全局属性，也针对Web浏览器和客服端JavaScript定义了少部分其他全局属性</li>
 <li>初次创建时，全局对象定义了JavaScript中所有的预定义全局值。代码声明的全局变量将作为全局对象的一个属性。</li>
 </ul>
-<h2 id="3-6包装对象"><a href="#3-6包装对象" class="headerlink" title="3.6包装对象"></a>3.6包装对象</h2><p>对象是一种复合值，它是属性或已命名值的集合。通过点符号来使用属性。当属性是函数的时候，称其为方法，通过o.m()来调用o中的方法。</p>
-<p>字符串又不是对象，那么他为什么可以调用这些方法呢?因为在引用字符串s的属性时(假比)，JavaScript会调用new String(s)的方式转换为一个临时对象，该对象继承了方法。一旦属性引用结束，这个临时对象就会销毁。</p>
+<h2 id="3-6包装对象"><a href="#3-6包装对象" class="headerlink" title="3.6包装对象"></a>3.6包装对象</h2><p>对象是一种复合值，它是属性或已命名值的集合。通过点符号来使用属性。当属性是函数的时候，称其为方法，通过o.m()来调用o中的方法。<br>字符串又不是对象，那么他为什么可以调用这些方法呢?因为在引用字符串s的属性时(假比)，JavaScript会调用new String(s)的方式转换为一个临时对象，该对象继承了方法。一旦属性引用结束，这个临时对象就会销毁。</p>
 <p>同字符串一样，数字和布尔值也有各自的包装类。null和undefined没有。</p>
-<p>##3.7不可变的原始值和可变的对象引用</p>
-<ul>
+<h2 id="3-7不可变的原始值和可变的对象引用"><a href="#3-7不可变的原始值和可变的对象引用" class="headerlink" title="3.7不可变的原始值和可变的对象引用"></a>3.7不可变的原始值和可变的对象引用</h2><ul>
 <li>原始值是不可变得，对象是可变的(有点不懂<a href="https://www.cnblogs.com/pssp/p/5184583.html" target="_blank" rel="noopener">帮助</a>)</li>
 <li>原始值的比较是值的比较，只有它们的值相等时它们才相等；对象的比较是引用地址是否相等（即引用的是否是同一个对象）</li>
 </ul>
-<p>##3.8类型转换<br>JavaScript取值很灵活，各种数据类型在需要时是可以相互之间进行转换的。<br>表3-2</p>
+<h2 id="3-8类型转换"><a href="#3-8类型转换" class="headerlink" title="3.8类型转换"></a>3.8类型转换</h2><p>JavaScript取值很灵活，各种数据类型在需要时是可以相互之间进行转换的。<br>表3-2</p>
 <table>
 <thead>
 <tr>
@@ -647,43 +642,41 @@
 </tbody>
 </table>
 <p><code>Note：字符串转数字允许在开始和结尾处带有空格。但是任意非空格字符都不会被当成数字直接量的一部分，进而造成结果NaN</code></p>
-<p>##3.8.1转换和相等性<br>由于JavaScript较为灵活的类型转换，因此”==”等可以操作多种数据类型的操作符会对两端的表达式进行多变的灵活转换(具体在下一章中进行说明解释)<br>比如说:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">null == undefined //返回true</span><br><span class="line">&quot;0&quot; == 0 //返回true 会将字符串转化为数字</span><br><span class="line">0 == false //返回true 会将false转化为数字0</span><br><span class="line">&quot;0&quot; == false // 返回true 会将字符串和false均转化为数字0</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-8-1转换和相等性"><a href="#3-8-1转换和相等性" class="headerlink" title="3.8.1转换和相等性"></a>3.8.1转换和相等性</h2><p>由于JavaScript较为灵活的类型转换，因此”==”等可以操作多种数据类型的操作符会对两端的表达式进行多变的灵活转换(具体在下一章中进行说明解释)<br>比如说:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//返回true</span></span><br><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">//返回true 会将字符串转化为数字</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">//返回true 会将false转化为数字0</span></span><br><span class="line"><span class="string">"0"</span> == <span class="literal">false</span> <span class="comment">// 返回true 会将字符串和false均转化为数字0</span></span><br></pre></td></tr></table></figure>
 <p>4.9.1节将会详细的讲解<code>==</code>运算符</p>
-<p>##3.8.2显示类型转换<br>尽管JavaScript可自动的做许多类型转换，但是有时仍然会需要手动的进行类型转换以替换自动转换，或者为了是代码更为清晰易读。</p>
-<p>做显示转换的方式就是通过<code>Boolean() Number() String() Object()</code>等函数实现的。当我们不使用new运算符调用这些函数时，它们会作为类型转换函数并按照3-2表所描述的规则进行类型转换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number(&apos;3&apos;) //--&gt;3</span><br><span class="line">String(false) //--&gt;&quot;false&quot;</span><br><span class="line">Boolean([]) // --&gt;true</span><br><span class="line">Oject(3) //--&gt;new Number(3)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-8-2显示类型转换"><a href="#3-8-2显示类型转换" class="headerlink" title="3.8.2显示类型转换"></a>3.8.2显示类型转换</h2><p>尽管JavaScript可自动的做许多类型转换，但是有时仍然会需要手动的进行类型转换以替换自动转换，或者为了是代码更为清晰易读。</p>
+<p>做显示转换的方式就是通过<code>Boolean() Number() String() Object()</code>等函数实现的。当我们不使用new运算符调用这些函数时，它们会作为类型转换函数并按照3-2表所描述的规则进行类型转换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'3'</span>) <span class="comment">//--&gt;3</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">false</span>) <span class="comment">//--&gt;"false"</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// --&gt;true</span></span><br><span class="line">Oject(<span class="number">3</span>) <span class="comment">//--&gt;new Number(3)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>需要注意，除了null和undefined以外的任何数据类型都是具有toString()方法的，这个方法的返回值通常来说和String()转换方法的返回结果相同。</li>
 <li>如果隐性的试图把null和undefined转换为对象，会想表3-2中描述的那样，将会抛出一个类型错误的异常。当时通过Object()方法显示转换则不会抛出类型错误，它会简单的返回一个新创建的空对象。</li>
-<li>开始提到过，JavaScript中某些运算符会做隐式的类型转换。比如说”+”运算符如果一个操作数是字符串，则会将另一个操作数转换为字符串；一元”+”会将操作数转换为数字；”!”会将操作数转为布尔类型并取反。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+x //等价于Number(x) 也可以写为x-0</span><br><span class="line">!!x //等价于Boolean(x)</span><br></pre></td></tr></table></figure>
-</li>
+<li>开始提到过，JavaScript中某些运算符会做隐式的类型转换。比如说”+”运算符如果一个操作数是字符串，则会将另一个操作数转换为字符串；一元”+”会将操作数转换为数字；”!”会将操作数转为布尔类型并取反。</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+x <span class="comment">//等价于Number(x) 也可以写为x-0</span></span><br><span class="line">!!x <span class="comment">//等价于Boolean(x)</span></span><br></pre></td></tr></table></figure>
 <p>在计算机中，数字的解析和格式化是非常普遍的工作，JavaScript提供了专门的函数和方法来更为精细的进行数字和字符串之间的相互转换。</p>
 <ul>
-<li>Number类的toString()方法可以接受转换的基数作为可选参数（不指定则默认为10进制）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var n = 17;</span><br><span class="line">n.toString(2) //&quot;10001&quot;</span><br><span class="line">n.toString(8) //&quot;021&quot;</span><br><span class="line">n.toString(16) //&quot;0x11&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Number类的toString()方法可以接受转换的基数作为可选参数（不指定则默认为10进制）</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">17</span>;</span><br><span class="line">n.toString(<span class="number">2</span>) <span class="comment">//"10001"</span></span><br><span class="line">n.toString(<span class="number">8</span>) <span class="comment">//"021"</span></span><br><span class="line">n.toString(<span class="number">16</span>) <span class="comment">//"0x11"</span></span><br></pre></td></tr></table></figure>
 <p>当处理小数可科学运算时还有以下一些方法</p>
 <blockquote>
 <p>toFixed()：根据小数点后的指定位数将数字转为字符串<br>toExponential()：使用科学计数法将数字转换为字符串，小数点前面只有一位，小数点后位数由参数指定<br>toPrecision()：根据指定的有效数字位数（从开头计）将数字转换成字符串，如果有效数字的位数少于数字整数部分的位数，会使用科学计数法</p>
 </blockquote>
 <ul>
-<li>如果使用Number()将字符串转换为数字直接量，那么首先是基于10进制的，其次不能出现非法字符（不是数字）。而parseInt()和parseFloat()函数更加的灵活(它们是全局函数，不从属于任何类)。<br>parseInt()可以解析”0x”和”0X”前缀的为16进制数。<br>parseInt()和parseFloat()均忽略任意数量的前导空格，然后尽可能的解析连续的合法数字直接量，并忽略紧跟数字后的非数字内容，如果第一个非空格字符不是合法的数字直接量，那么返回NaN。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&quot;3 blinde mide&quot;) // 3</span><br><span class="line">parseFloat(&quot;3.114 asdfasf&quot;) // 3.114</span><br><span class="line">parseInt(&quot;0xFF&quot;) //255</span><br><span class="line">parseInt(&quot;0xff&quot;) //255</span><br><span class="line">parseInt(&quot;-0XFF&quot;) //-255</span><br><span class="line">parseFloat(&quot;.1&quot;) //0.1</span><br><span class="line">parseInt(&quot;0.1&quot;) //0</span><br><span class="line">parseInt(&quot;.1&quot;) //NaN</span><br><span class="line">parseFloat(&quot;$45.64&quot;) //NaN</span><br></pre></td></tr></table></figure>
-</li>
+<li>如果使用Number()将字符串转换为数字直接量，那么首先是基于10进制的，其次不能出现非法字符（不是数字）。而parseInt()和parseFloat()函数更加的灵活(它们是全局函数，不从属于任何类)。<br>parseInt()可以解析”0x”和”0X”前缀的为16进制数。<br>parseInt()和parseFloat()均忽略任意数量的前导空格，然后尽可能的解析连续的合法数字直接量，并忽略紧跟数字后的非数字内容，如果第一个非空格字符不是合法的数字直接量，那么返回NaN。</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"3 blinde mide"</span>) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"3.114 asdfasf"</span>) <span class="comment">// 3.114</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0xFF"</span>) <span class="comment">//255</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0xff"</span>) <span class="comment">//255</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"-0XFF"</span>) <span class="comment">//-255</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">".1"</span>) <span class="comment">//0.1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0.1"</span>) <span class="comment">//0</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">".1"</span>) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"$45.64"</span>) <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 <p>parseInt()可以接受第二个参数，指定字符串数字直接量的底数，然后转换为10进制的结果，范围2-36</p>
-<p>##3.8.3对象转换为原始值</p>
-<ol>
-<li>对象到布尔类型：所有的对象转换为布尔类型的结果均为true，包括new Boolean(false)</li>
-<li>对象到字符串和数字：</li>
-</ol>
+<h2 id="3-8-3对象转换为原始值"><a href="#3-8-3对象转换为原始值" class="headerlink" title="3.8.3对象转换为原始值"></a>3.8.3对象转换为原始值</h2><p>1.对象到布尔类型：所有的对象转换为布尔类型的结果均为true，包括new Boolean(false)<br>2.对象到字符串和数字：</p>
 <ul>
 <li>所有的对象继承了两个方法一个toString()和valueOf()</li>
 <li>toString()作用是返回一个反应对象的字符串（实际可以返回任意值）。</li>
-<li><p>很多类多定义了自己特定版本的toString()。比如数组类toString()方法将每个元素根据自己的规则转换为字符串，并在元素之间添加逗号合成结果字符串；函数类的toString()方法返回函数的源代码字符串；Data类型返回一个可读的日期和时间字符串；RegExp返回正则表达式的直接量的字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].toString //&quot;1,2,3&quot;</span><br><span class="line">(function(x) &#123;f(x);&#125;).toString() //&quot;function(x) &#123;\nf(x);\n&#125;&quot;</span><br><span class="line">/\d+/g.toString() //&quot;/\\g+/g&quot;</span><br><span class="line">new Date(2010,1,1).toString() //&quot;Fri Jan 01 2010 00:00:00 GMT-0800 (PST)&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>valueOf()方法的任务没有详细的定义，对于大多数对象，这个方法简单的返回对象本身。数组、函数、正则表达式都只是简单的继承了这个方法，调用这些类的实例的valueOf()方法只会返回对象本身。但是日期对象的valueOf()方法返回一个由1970年1月1日以来的毫秒数的数字。</p>
-</li>
+<li>很多类多定义了自己特定版本的toString()。比如数组类toString()方法将每个元素根据自己的规则转换为字符串，并在元素之间添加逗号合成结果字符串；函数类的toString()方法返回函数的源代码字符串；Data类型返回一个可读的日期和时间字符串；RegExp返回正则表达式的直接量的字符串。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].toString <span class="comment">//"1,2,3"</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;f(x);&#125;).toString() <span class="comment">//"function(x) &#123;\nf(x);\n&#125;"</span></span><br><span class="line">/\d+<span class="regexp">/g.toString() /</span><span class="regexp">/"/</span>\\g+<span class="regexp">/g"</span></span><br><span class="line"><span class="regexp">new Date(2010,1,1).toString() /</span><span class="regexp">/"Fri Jan 01 2010 00:00:00 GMT-0800 (PST)"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>valueOf()方法的任务没有详细的定义，对于大多数对象，这个方法简单的返回对象本身。数组、函数、正则表达式都只是简单的继承了这个方法，调用这些类的实例的valueOf()方法只会返回对象本身。但是日期对象的valueOf()方法返回一个由1970年1月1日以来的毫秒数的数字。</li>
 </ul>
 <p>3.对象到字符串转换步骤(发生在要求转换为字符串的场合（隐式或显示）)</p>
 <ul>
@@ -703,7 +696,8 @@
 <li>大多数运算符的操作数的类型都是唯一的，比如说减号“-”要求两边都是数字，此时会隐式的将操作数转换为数字类型，对象则会调用上面的转数字的操作得到数字并返回。但是有些运算符可以操作多种类型的操作数，比如说<code>“+”、“==”</code>以及一些其他的关系运算符，此时对于对象将会使用一种有点不同的转换方式，将对象转为原始值（不会进行强制转换）</li>
 <li>对于这些运算符，任何对象都是先调用valueOf()方法来尝试返回原始值，否则，再调用toString()得到原始值。切记此时日期对象Date的调用顺序的相反的。</li>
 </ul>
-<p>##3.9变量声明<br>在JavaScript中，使用一个变量之前应当先声明。使用关键字`“var”来声明变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i;</span><br><span class="line">var i, sum;</span><br><span class="line">var message=&quot;hello&quot;</span><br><span class="line">var i =0 , j = 0, k = 0;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-9变量声明"><a href="#3-9变量声明" class="headerlink" title="3.9变量声明"></a>3.9变量声明</h2><p>在JavaScript中，使用一个变量之前应当先声明。使用关键字`“var”来声明变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">var</span> i, sum;</span><br><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span></span><br><span class="line"><span class="keyword">var</span> i =<span class="number">0</span> , j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果未在var声明时初始化变量，则变量的值将是undefined。</li>
 <li>JavaScript是动态语言，变量的类型是可变的</li>
@@ -711,26 +705,27 @@
 <li>ES5严格模式下给一个没有声明的变量赋值也会报错</li>
 <li>ES5非严格模式下给一个没有声明的变量赋值不会报错，而是会给全局对象创建一个同名属性，工作起来很像(但不是完全一样)一个正常声明的全局属性。但不是一个好习惯，会产生bug，所以应当始终使用var声明变量，不能省略var</li>
 </ul>
-<p>##3.10变量作用域<br>一个变量的作用域是程序源代码中定义这个变量的区域。</p>
+<h2 id="3-10变量作用域"><a href="#3-10变量作用域" class="headerlink" title="3.10变量作用域"></a>3.10变量作用域</h2><p>一个变量的作用域是程序源代码中定义这个变量的区域。</p>
 <ul>
 <li>全局变量拥有全局作用域，在JavaScript代码中的任何地方都是由定义的。</li>
 <li>函数内部通过var声明的变量只能在函数体内使用。他们是局部变量，只能在函数内部使用，函数参数也是局部变量，只能在函数体内有定义。</li>
-<li><p>在函数体内，局部变量的优先级高于同名的全局变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global&quot;;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  var scope = &quot;local&quot;;</span><br><span class="line">  return scope;</span><br><span class="line">&#125;</span><br><span class="line">checkscope();//&quot;local&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>虽然全局变量可以省略var语句，但是声明局部变量时必须使用var语句，否则将会创建全局变量，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global&quot;;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  scope = &quot;local&quot;; //修改了全局变量</span><br><span class="line">  myscope = &quot;local&quot;; //创建了新的全局变量</span><br><span class="line">  return [scope,myscope];</span><br><span class="line">&#125;</span><br><span class="line">checkscope();//[&quot;local&quot;,&quot;local&quot;]</span><br><span class="line">scope //&quot;local&quot; 被修改了</span><br><span class="line">myscope //&quot;local&quot; 多出一个全局变量 全局命名空间乱了</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数定义是可以嵌套的，每个函数都有自己的作用域，因此会出现几个局部作用域嵌套的情况。</p>
-</li>
+<li>在函数体内，局部变量的优先级高于同名的全局变量。</li>
 </ul>
-<p>##3.10.1函数作用域和声明提前<br>在C语言中，花括号内的代码都有自己的作用域，称为块级作用域。而JavaScript没有块级作用域，取而代之的是函数作用域。可以由内向外的调用变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  <span class="keyword">var</span> scope = <span class="string">"local"</span>;</span><br><span class="line">  <span class="keyword">return</span> scope;</span><br><span class="line">&#125;</span><br><span class="line">checkscope();<span class="comment">//"local"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>虽然全局变量可以省略var语句，但是声明局部变量时必须使用var语句，否则将会创建全局变量，如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  scope = <span class="string">"local"</span>; <span class="comment">//修改了全局变量</span></span><br><span class="line">  myscope = <span class="string">"local"</span>; <span class="comment">//创建了新的全局变量</span></span><br><span class="line">  <span class="keyword">return</span> [scope,myscope];</span><br><span class="line">&#125;</span><br><span class="line">checkscope();<span class="comment">//["local","local"]</span></span><br><span class="line">scope <span class="comment">//"local" 被修改了</span></span><br><span class="line">myscope <span class="comment">//"local" 多出一个全局变量 全局命名空间乱了</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数定义是可以嵌套的，每个函数都有自己的作用域，因此会出现几个局部作用域嵌套的情况。</li>
+</ul>
+<h2 id="3-10-1函数作用域和声明提前"><a href="#3-10-1函数作用域和声明提前" class="headerlink" title="3.10.1函数作用域和声明提前"></a>3.10.1函数作用域和声明提前</h2><p>在C语言中，花括号内的代码都有自己的作用域，称为块级作用域。而JavaScript没有块级作用域，取而代之的是函数作用域。可以由内向外的调用变量。</p>
 <ul>
 <li>JavaScript同级函数作用域内的变量声明和函数声明都会在当级作用域内被提前，但不涉及到声明后的赋值操作，也就是说都为undefined。该特性是在JavaScript引擎的“预编译”时执行的，在代码执行前执行。具体看这份<a href="http://www.slideshare.net/lijing00333/javascript-engine" target="_blank" rel="noopener">ppt文档</a></li>
 </ul>
-<p>##作为属性的变量<br>当声明全局变量时其实是定义了全局对象的一个属性，当使用var声明时，创建的属性是不可配置的(6.7),也就是说改属性是无法被delete运算符删除的。在非严格模式下，不使用var创建的全局对象的属性是可配置，可以通过delete删除。</p>
+<h2 id="作为属性的变量"><a href="#作为属性的变量" class="headerlink" title="作为属性的变量"></a>作为属性的变量</h2><p>当声明全局变量时其实是定义了全局对象的一个属性，当使用var声明时，创建的属性是不可配置的(6.7),也就是说改属性是无法被delete运算符删除的。在非严格模式下，不使用var创建的全局对象的属性是可配置，可以通过delete删除。</p>
 <p>那么局部变量是否具有这种变量作为对象属性的特质呢?可以想象，局部变量当做函数调用相关的某个对象的属性，ES3中叫“调用对象”，ES5中叫“声明上下文”。但是去无法通过this来引用该对象。对我们而言是一种不可见的内部实现。具体会在之后讲解。</p>
-<p>##3.10.3作用域链<br>局部变量同级函数体内和嵌套的函数内是由定义的，这都是作用域链的功能。这个概念之后再详细介绍。</p>
+<h2 id="3-10-3作用域链"><a href="#3-10-3作用域链" class="headerlink" title="3.10.3作用域链"></a>3.10.3作用域链</h2><p>局部变量同级函数体内和嵌套的函数内是由定义的，这都是作用域链的功能。这个概念之后再详细介绍。</p>
 
       
     </div>
@@ -982,7 +977,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-类型、值和变量"><span class="nav-number">1.</span> <span class="nav-text">第3章-类型、值和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-1整数直接量"><span class="nav-number">1.1.</span> <span class="nav-text">3.1.1整数直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-2浮点型直接量"><span class="nav-number">1.2.</span> <span class="nav-text">3.1.2浮点型直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-3算数运算"><span class="nav-number">1.3.</span> <span class="nav-text">3.1.3算数运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-4二进制浮点数和四舍五入"><span class="nav-number">1.4.</span> <span class="nav-text">3.1.4二进制浮点数和四舍五入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-5日期和时间"><span class="nav-number">1.5.</span> <span class="nav-text">3.1.5日期和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2文本（字符串）"><span class="nav-number">1.6.</span> <span class="nav-text">3.2文本（字符串）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-1字符串直接量"><span class="nav-number">1.7.</span> <span class="nav-text">3.2.1字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-2转义字符"><span class="nav-number">1.8.</span> <span class="nav-text">3.2.2转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-3字符串的使用"><span class="nav-number">1.9.</span> <span class="nav-text">3.2.3字符串的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-4模式匹配"><span class="nav-number">1.10.</span> <span class="nav-text">3.2.4模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3布尔值"><span class="nav-number">1.11.</span> <span class="nav-text">3.3布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4null和undefined"><span class="nav-number">1.12.</span> <span class="nav-text">3.4null和undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5全局对象"><span class="nav-number">1.13.</span> <span class="nav-text">3.5全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6包装对象"><span class="nav-number">1.14.</span> <span class="nav-text">3.6包装对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-类型、值和变量"><span class="nav-number">1.</span> <span class="nav-text">第3章-类型、值和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1数字"><span class="nav-number">2.</span> <span class="nav-text">3.1数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-1整数直接量"><span class="nav-number">3.</span> <span class="nav-text">3.1.1整数直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-2浮点型直接量"><span class="nav-number">4.</span> <span class="nav-text">3.1.2浮点型直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-3算数运算"><span class="nav-number">5.</span> <span class="nav-text">3.1.3算数运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-4二进制浮点数和四舍五入"><span class="nav-number">6.</span> <span class="nav-text">3.1.4二进制浮点数和四舍五入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-5日期和时间"><span class="nav-number">7.</span> <span class="nav-text">3.1.5日期和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2文本（字符串）"><span class="nav-number">8.</span> <span class="nav-text">3.2文本（字符串）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-1字符串直接量"><span class="nav-number">9.</span> <span class="nav-text">3.2.1字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-2转义字符"><span class="nav-number">10.</span> <span class="nav-text">3.2.2转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-3字符串的使用"><span class="nav-number">11.</span> <span class="nav-text">3.2.3字符串的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-4模式匹配"><span class="nav-number">12.</span> <span class="nav-text">3.2.4模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3布尔值"><span class="nav-number">13.</span> <span class="nav-text">3.3布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4null和undefined"><span class="nav-number">14.</span> <span class="nav-text">3.4null和undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5全局对象"><span class="nav-number">15.</span> <span class="nav-text">3.5全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6包装对象"><span class="nav-number">16.</span> <span class="nav-text">3.6包装对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7不可变的原始值和可变的对象引用"><span class="nav-number">17.</span> <span class="nav-text">3.7不可变的原始值和可变的对象引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8类型转换"><span class="nav-number">18.</span> <span class="nav-text">3.8类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-1转换和相等性"><span class="nav-number">19.</span> <span class="nav-text">3.8.1转换和相等性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-2显示类型转换"><span class="nav-number">20.</span> <span class="nav-text">3.8.2显示类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-3对象转换为原始值"><span class="nav-number">21.</span> <span class="nav-text">3.8.3对象转换为原始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9变量声明"><span class="nav-number">22.</span> <span class="nav-text">3.9变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10变量作用域"><span class="nav-number">23.</span> <span class="nav-text">3.10变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-1函数作用域和声明提前"><span class="nav-number">24.</span> <span class="nav-text">3.10.1函数作用域和声明提前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为属性的变量"><span class="nav-number">25.</span> <span class="nav-text">作为属性的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-3作用域链"><span class="nav-number">26.</span> <span class="nav-text">3.10.3作用域链</span></a></li></ol></div>
             
 
           </div>
