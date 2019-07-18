@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="J&#39;Blog">
 <meta property="og:description" content="Unicode编码参考博客：彻底搞懂Unicode编码 ASCII码在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-17T04:46:33.286Z">
+<meta property="og:updated_time" content="2019-07-15T02:18:20.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unicode编码UTF-8-16">
 <meta name="twitter:description" content="Unicode编码参考博客：彻底搞懂Unicode编码 ASCII码在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。">
@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-17 12:46:33" itemprop="dateModified" datetime="2019-02-17T12:46:33+08:00">2019-02-17</time>
+                <time title="修改时间：2019-07-15 10:18:20" itemprop="dateModified" datetime="2019-07-15T10:18:20+08:00">2019-07-15</time>
               
             
           </span>
@@ -534,6 +534,7 @@
 <p>汉字”𠮷”的 Unicode 码点为 0x20BB7，该码点显然超出了基本平面的范围（0x0000 - 0xFFFF），因此需要使用四个字节表示。首先用 0x20BB7 - 0x10000 计算出超出的部分，然后将其用 20 个二进制位表示（不足前面补 0 ），结果为0001000010 1110110111。接着，将前 10 位映射到 U+D800 到 U+DBFF 之间，后 10 位映射到 U+DC00 到 U+DFFF 即可。U+D800 对应的二进制数为 1101100000000000，直接填充后面的 10 个二进制位即可，得到 1101100001000010，转成 16 进制数则为 0xD842。同理可得，低位为 0xDFB7。因此得出汉字”𠮷”的 UTF-16 编码为 0xD842 0xDFB7。</p>
 <p>Unicode3.0 中给出了辅助平面字符的转换公式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">H = Math.floor((c-0x10000) / 0x400)+0xD800</span><br><span class="line"></span><br><span class="line">L = (c - 0x10000) % 0x400 + 0xDC00</span><br><span class="line">难道没有移位运算吗？</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -569,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/11/12/RegExp/" rel="next" title="RegExp类型">
-                <i class="fa fa-chevron-left"></i> RegExp类型
+              <a href="/blog/2018/11/12/string/" rel="next" title="犀牛-String类型">
+                <i class="fa fa-chevron-left"></i> 犀牛-String类型
               </a>
             
           </div>
@@ -579,8 +580,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/02/10/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/11/12/Array/" rel="prev" title="犀牛-第7章-数组类型">
+                犀牛-第7章-数组类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -955,6 +956,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

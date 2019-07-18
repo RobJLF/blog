@@ -97,16 +97,16 @@
 
 
   <meta name="description" content="第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。 5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。 12345greeting = &quot;hello&quot;+name;i *= 3;delete o.x;alert(greeting);window.close();">
-<meta name="keywords" content="JS">
+<meta name="keywords" content="JS,犀牛书">
 <meta property="og:type" content="article">
-<meta property="og:title" content="语句">
+<meta property="og:title" content="犀牛-第5章-语句">
 <meta property="og:url" content="https://robjlf.github.io/blog/2019/07/12/语句/index.html">
 <meta property="og:site_name" content="J&#39;Blog">
 <meta property="og:description" content="第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。 5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。 12345greeting = &quot;hello&quot;+name;i *= 3;delete o.x;alert(greeting);window.close();">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-12T07:46:07.262Z">
+<meta property="og:updated_time" content="2019-07-17T03:27:49.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="语句">
+<meta name="twitter:title" content="犀牛-第5章-语句">
 <meta name="twitter:description" content="第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。 5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。 12345greeting = &quot;hello&quot;+name;i *= 3;delete o.x;alert(greeting);window.close();">
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>语句 | J'Blog</title>
+  <title>犀牛-第5章-语句 | J'Blog</title>
   
 
 
@@ -376,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">语句
+          <h1 class="post-title" itemprop="name headline">犀牛-第5章-语句
 
               
             
@@ -402,12 +402,24 @@
                 
               
 
-              <time title="创建时间：2019-07-12 00:00:00 / 修改时间：15:46:07" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-17 11:27:49" itemprop="dateModified" datetime="2019-07-17T11:27:49+08:00">2019-07-17</time>
               
             
           </span>
@@ -475,26 +487,25 @@
 <li>多次声明同一个变量是没有意义的，无所谓的。</li>
 </ol>
 <h3 id="5-3-2-function"><a href="#5-3-2-function" class="headerlink" title="5.3.2 function"></a>5.3.2 function</h3><ol>
-<li>分为函数声明语句和函数定义表达式</li>
-</ol>
+<li><p>分为函数声明语句和函数定义表达式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;<span class="comment">//表达式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//声明 f是一个函数名也是变量名，指向此函数对象</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
+</li>
 <li><p>声明和定义并不会执行函数体内的语句</p>
 </li>
-<li><p>函数声明必须出现在顶层或者嵌套函数顶部，函数定义表达式则不介意这些</p>
+<li><p>函数定义表达式必须出现在顶层或者嵌套函数顶部，函数声明表达式则不介意这些</p>
 </li>
 <li><p>函数声明同var定义变量一样会提前声明，但是其初始化也会提前；函数定义表达式(var c=function(){})只有声明提前，初始化留在原地，这点表现的和var一致。</p>
 </li>
 </ol>
 <h2 id="5-4条件语句"><a href="#5-4条件语句" class="headerlink" title="5.4条件语句"></a>5.4条件语句</h2><p>条件语句是指通过判断指定表达式的值来决定执行还是跳过某些语句。</p>
-<h3 id="5-4-1-if"><a href="#5-4-1-if" class="headerlink" title="5.4.1 if"></a>5.4.1 if</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果计算expression的值为真值，则执行statement；否则为假值不执行。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">如果计算expression的值为真值，则执行statement1；否则为假值执行statement2。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement1</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  statement2</span><br></pre></td></tr></table></figure>
+<h3 id="5-4-1-if"><a href="#5-4-1-if" class="headerlink" title="5.4.1 if"></a>5.4.1 if</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果计算expression的值为真值，则执行statement；否则为假值不执行。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">如果计算expression的值为真值，则执行statement1；否则为假值执行statement2。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  statement2</span><br></pre></td></tr></table></figure>
 <p>else总是和就近的if语句匹配</p>
 <h3 id="5-4-2-else-if"><a href="#5-4-2-else-if" class="headerlink" title="5.4.2 else if"></a>5.4.2 else if</h3><p>if/else语句是通过判断表达式然后在两条分支中选择一条进行执行；而使用else和if的就近匹配规则可以在else语句中嵌套if/else语句来达到多分支的效果。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5-4-3switch"><a href="#5-4-3switch" class="headerlink" title="5.4.3switch"></a>5.4.3switch</h3><p>else if的嵌套使用可以达到多分支选择的效果；但是结构上较为复杂，且如果说所有的分支有依赖于同一条表达式的值，那么该表达式会重复的在每条if中计算，此时使用switch是更适合的解决办法。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: statement; <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">break</span>语句可以使解释器跳出<span class="keyword">switch</span>语句或者循环语句。</span><br></pre></td></tr></table></figure>
 <ol>
-<li>步骤：先计算出switch表达式的值，然后重上往下计算一个case表达式的值，如果说两者严格相等(<code>===</code>)，那么进入该case节点，并从上往下执行语句(没有break则会执行所有case和default)；否则计算下一个case表达式。如果没有case表达式与switch表达严格相等，进入default节点，然后从上往下执行语句(default可以不用放在最后)。</li>
+<li>步骤：先计算出switch表达式的值，然后从上往下计算一个case表达式的值，如果说两者严格相等(<code>===</code>)，那么进入该case节点，并从上往下执行语句(没有break则会执行所有case和default)；否则计算下一个case表达式。如果没有case表达式与switch表达严格相等，进入default节点，然后从上往下执行语句(default可以不用放在最后)。</li>
 <li>并不是所有的case表达式都会执行</li>
 <li>JavaScript中的case是运行时计算的，可以不是常量(但是最好还是使用常量)；而C C++ Java中的case表达式是编译时计算的同类型常量，而且会编译一个跳转表，使得switch语句特别高效。</li>
 </ol>
@@ -505,7 +516,11 @@
 <li>判断在语句底部，所以必定执行一次statement</li>
 <li>末尾有分号</li>
 </ol>
-<h3 id="5-5-3-for"><a href="#5-5-3-for" class="headerlink" title="5.5.3 for"></a>5.5.3 for</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="keyword">for</span>循环自带三个表达式，分别表示初始化、循环条件判断和计数器变量的更新</span><br><span class="line">（可以有逗号运算符比如<span class="keyword">var</span> i=<span class="number">0</span>,j=<span class="number">0</span>;test;i++, j++）</span><br><span class="line"><span class="number">2.</span><span class="keyword">for</span>循环的三个表达式都可以省略，但是两个分号不能省略；如果说省略了test语句，那么<span class="keyword">for</span>变成死循环(<span class="keyword">for</span>(;;))</span><br><span class="line"><span class="keyword">for</span>(initialize; test; increment)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">基本上等价的<span class="keyword">while</span>语句</span><br><span class="line">initialize;</span><br><span class="line"><span class="keyword">while</span>(test) &#123;</span><br><span class="line">  statement;</span><br><span class="line">    increment;</span><br><span class="line">&#125;</span><br><span class="line">如果说使用了<span class="keyword">continue</span>语句，那么<span class="keyword">while</span>中的increase语句可以被跳过，但是<span class="keyword">for</span>中的increase则不会跳过</span><br></pre></td></tr></table></figure>
+<h3 id="5-5-3-for"><a href="#5-5-3-for" class="headerlink" title="5.5.3 for"></a>5.5.3 for</h3><ol>
+<li>for循环自带三个表达式，分别表示初始化、循环条件判断和计数器变量的更新<br>（可以有逗号运算符比如var i=0,j=0;test;i++, j++）</li>
+<li>for循环的三个表达式都可以省略，但是两个分号不能省略；如果说省略了test语句，那么for变成死循环(for(;;))</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(initialize; test; increment)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">基本上等价的<span class="keyword">while</span>语句</span><br><span class="line">initialize;</span><br><span class="line"><span class="keyword">while</span>(test) &#123;</span><br><span class="line">  statement;</span><br><span class="line">  increment;</span><br><span class="line">&#125;</span><br><span class="line">如果说使用了<span class="keyword">continue</span>语句，那么<span class="keyword">while</span>中的increase语句可以被跳过，但是<span class="keyword">for</span>中的increase则不会跳过</span><br></pre></td></tr></table></figure>
 <h3 id="5-5-4-for-in"><a href="#5-5-4-for-in" class="headerlink" title="5.5.4 for/in"></a>5.5.4 for/in</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">variable是返回左值的表达式(一般是变量)</span><br><span class="line">object是返回对象类型的表达式</span><br><span class="line"><span class="keyword">for</span> (variable <span class="keyword">in</span> object) &#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>判断逻辑：先计算object表达式，如果为null undefined则跳出循环；如果是原始值，转换为包装类；否则object本身指向对象。然后JavaScript枚举该对象属性名(字符串)，并在每次循环开始前计算variable表达式的值(所以会多次计算)，并将该属性名赋值给表达式返回值。</li>
@@ -550,17 +565,15 @@
 <h3 id="5-6-3-continue语句"><a href="#5-6-3-continue语句" class="headerlink" title="5.6.3 continue语句"></a>5.6.3 continue语句</h3><ol>
 <li>用处跳出此次循环，进入下一次循环</li>
 <li>同break一样可以带标签或者不带标签，但是无论是哪种情况都只能放在循环体内使用，否则会报错</li>
-<li>continue执行后，不同类型的循环中的跳转稍有不同</li>
-</ol>
-<ul>
+<li>continue执行后，不同类型的循环中的跳转稍有不同<ul>
 <li>while：重新检测expression</li>
 <li>do/while:重新检测expression</li>
 <li>for：先计算自增表达式，然后再检测test表达式</li>
 <li>for/in：遍历下一个属性名并赋值给指定表达式返回值</li>
 </ul>
-<ol start="4">
+</li>
 <li>continue时while和for的区别就在于for多了一个increment表达式。</li>
-<li>带标签continue用在嵌套循环中调出多层循环；同break一样不能再continue和labelname之间换行</li>
+<li>带标签continue用在嵌套循环中调出多层循环；同break一样不能在continue和labelname之间换行</li>
 </ol>
 <h3 id="5-6-4-return语句"><a href="#5-6-4-return语句" class="headerlink" title="5.6.4 return语句"></a>5.6.4 return语句</h3><p><code>return expression;</code></p>
 <ol>
@@ -585,7 +598,7 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="comment">//通常来讲，这里的代码执行时不会报错</span></span><br><span class="line">  <span class="comment">//但有时会抛出异常：1.通过throw直接抛出 2.调用方法间接抛出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="comment">//当try中语句块抛出异常，执行这里的代码</span></span><br><span class="line">  <span class="comment">//可以通过局部变量e来获取Error对象或者抛出的其他值</span></span><br><span class="line">    <span class="comment">//但是这个e是块级作用域，在catch之内才有定义</span></span><br><span class="line">  <span class="comment">//这里可以：1.处理异常 2.忽略异常 3.通过throw再次抛出异常 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">  <span class="comment">//无论try中是否有异常，这里都会执行</span></span><br><span class="line">    <span class="comment">//终止try语句块的方式：</span></span><br><span class="line">  <span class="comment">//1.正常终止，及执行每一条语句</span></span><br><span class="line">  <span class="comment">//2.通过break，continue或return语句</span></span><br><span class="line">  <span class="comment">//3.抛出异常，被catch捕获</span></span><br><span class="line">  <span class="comment">//4.抛出异常，没有被捕获，继续向外抛</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>没有异常抛出，那么执行完try变执行finally；如果异常抛出，则先执行catch中的语句在执行finally，没有catch的话则先执行finally在向外抛处异常</li>
+<li>没有异常抛出，那么执行完try便执行finally；如果异常抛出，则先执行catch中的语句在执行finally，没有catch的话则先执行finally再向外抛处异常</li>
 <li>finally中的throw会覆盖之前抛出的异常，finally中return会忽略之前抛出的异常，覆盖try/catch的return值，然后让函数正常返回。</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//抛出异常</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>；<span class="comment">//函数正常返回，忽略向外抛出异常</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -595,7 +608,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">initialize;</span><br><span class="line"><span class="keyword">while</span>(test) &#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;statement&#125;;</span><br><span class="line">  <span class="keyword">finally</span>&#123;increment;&#125;</span><br><span class="line">&#125;</span><br><span class="line">这时statement中即使有<span class="keyword">continue</span>，也会执行increment了，和<span class="keyword">for</span>循环一致。</span><br><span class="line">但是statement中有<span class="keyword">break</span>，也会执行increment，这和<span class="keyword">for</span>循环不一致，因为此时<span class="keyword">for</span>循环中不执行increment</span><br></pre></td></tr></table></figure>
 <h2 id="5-7-其他与句"><a href="#5-7-其他与句" class="headerlink" title="5.7 其他与句"></a>5.7 其他与句</h2><p>with、debugger、use strict</p>
 <h3 id="5-7-1-with语句"><a href="#5-7-1-with语句" class="headerlink" title="5.7.1  with语句"></a>5.7.1  with语句</h3><p>with语句用于临时扩展作用域链，严格模式中不能使用，最好也不要用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">将object添加到作用域链的顶部，然后执行statement，最后回复作用域链</span><br><span class="line">width(object)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">可用于简化代码：比如访问HTML表单中的元素</span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].address.value</span><br><span class="line">可以简化为</span><br><span class="line">width(<span class="built_in">document</span>.forms[<span class="number">0</span>]) &#123;</span><br><span class="line">  name.value = <span class="string">""</span>;</span><br><span class="line">  address.value = <span class="string">""</span>;</span><br><span class="line">  email.value = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line">这样便可以不用再写dmeocunt.forms[<span class="number">0</span>]这个前缀</span><br><span class="line"></span><br><span class="line">不用<span class="keyword">with</span>语句可以将<span class="built_in">document</span>.forms[<span class="number">0</span>]赋值给变量达到简化效果</span><br><span class="line"><span class="keyword">var</span> f = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br><span class="line">f.name.value = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">切记：<span class="keyword">with</span>语句只是读取属性的简便方式(可以赋值)，不能创建属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">将object添加到作用域链的顶部，然后执行statement，最后恢复作用域链</span><br><span class="line">width(object)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">可用于简化代码：比如访问HTML表单中的元素</span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].address.value</span><br><span class="line">可以简化为</span><br><span class="line">width(<span class="built_in">document</span>.forms[<span class="number">0</span>]) &#123;</span><br><span class="line">  name.value = <span class="string">""</span>;</span><br><span class="line">  address.value = <span class="string">""</span>;</span><br><span class="line">  email.value = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line">这样便可以不用再写dmeocunt.forms[<span class="number">0</span>]这个前缀</span><br><span class="line"></span><br><span class="line">不用<span class="keyword">with</span>语句可以将<span class="built_in">document</span>.forms[<span class="number">0</span>]赋值给变量达到简化效果</span><br><span class="line"><span class="keyword">var</span> f = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br><span class="line">f.name.value = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">切记：<span class="keyword">with</span>语句只是读取属性的简便方式(可以赋值)，不能创建属性</span><br></pre></td></tr></table></figure>
 <h3 id="5-7-2-debugger语句"><a href="#5-7-2-debugger语句" class="headerlink" title="5.7.2 debugger语句"></a>5.7.2 debugger语句</h3><p>debugger语句用于产生断点，方便调试代码(F12下才起作用)</p>
 <h3 id="5-7-3-“use-strict”"><a href="#5-7-3-“use-strict”" class="headerlink" title="5.7.3 “use strict”"></a>5.7.3 “use strict”</h3><p>“use strict”是一条指令，不是语句，用于开启严格模式。</p>
 <ul>
@@ -628,6 +641,8 @@
           
             <a href="/blog/tags/JS/" rel="tag"># JS</a>
           
+            <a href="/blog/tags/犀牛书/" rel="tag"># 犀牛书</a>
+          
         </div>
       
 
@@ -639,8 +654,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/07/12/js概述/" rel="next" title="第1章JavaScript概述">
-                <i class="fa fa-chevron-left"></i> 第1章JavaScript概述
+              <a href="/blog/2019/07/12/类型、值和变量/" rel="next" title="犀牛-第3章-类型、值和变量">
+                <i class="fa fa-chevron-left"></i> 犀牛-第3章-类型、值和变量
               </a>
             
           </div>
@@ -649,8 +664,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/07/12/类型、值和变量/" rel="prev" title="类型、值和变量">
-                类型、值和变量 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/07/12/词法结构/" rel="prev" title="犀牛-第2章-词法结构">
+                犀牛-第2章-词法结构 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

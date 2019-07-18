@@ -97,18 +97,18 @@
 
 
   <meta name="description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
-<meta name="keywords" content="JS">
+<meta name="keywords" content="JS,犀牛书">
 <meta property="og:type" content="article">
-<meta property="og:title" content="表达式和运算符">
+<meta property="og:title" content="犀牛-第4章-表达式和运算符">
 <meta property="og:url" content="https://robjlf.github.io/blog/2019/07/12/表达式和运算符/index.html">
 <meta property="og:site_name" content="J&#39;Blog">
 <meta property="og:description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3左移.jpg">
 <meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3右移.jpg">
-<meta property="og:updated_time" content="2019-07-12T07:32:42.573Z">
+<meta property="og:updated_time" content="2019-07-16T08:34:16.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="表达式和运算符">
+<meta name="twitter:title" content="犀牛-第4章-表达式和运算符">
 <meta name="twitter:description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
 <meta name="twitter:image" content="https://robjlf.github.io/blog/images/js/4-8-3左移.jpg">
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>表达式和运算符 | J'Blog</title>
+  <title>犀牛-第4章-表达式和运算符 | J'Blog</title>
   
 
 
@@ -379,7 +379,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">表达式和运算符
+          <h1 class="post-title" itemprop="name headline">犀牛-第4章-表达式和运算符
 
               
             
@@ -405,12 +405,24 @@
                 
               
 
-              <time title="创建时间：2019-07-12 00:00:00 / 修改时间：15:32:42" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-16 16:34:16" itemprop="dateModified" datetime="2019-07-16T16:34:16+08:00">2019-07-16</time>
               
             
           </span>
@@ -468,7 +480,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">直接量</span><br><span class="line"><span class="number">1.23</span></span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line">/pattern/</span><br><span class="line"></span><br><span class="line">保留字</span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="keyword">this</span><span class="comment">//不是常量</span></span><br><span class="line"></span><br><span class="line">变量</span><br><span class="line">i<span class="comment">//返回变量i的值</span></span><br><span class="line">sum<span class="comment">//返回变量sum的值</span></span><br><span class="line"><span class="literal">undefined</span><span class="comment">//undefined是全局变量，和null不同，他不是关键字</span></span><br></pre></td></tr></table></figure>
 <p>在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。</p>
 <h2 id="4-2对象和数组的初始化表达式"><a href="#4-2对象和数组的初始化表达式" class="headerlink" title="4.2对象和数组的初始化表达式"></a>4.2对象和数组的初始化表达式</h2><p>对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">数组(子表达式会进行计算)</span><br><span class="line">[]</span><br><span class="line">[<span class="number">1</span>+<span class="number">2</span>,<span class="number">3</span>+<span class="number">4</span>]</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>][<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>][<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">逗号之间的元素省略会填充<span class="literal">undefined</span></span><br><span class="line">末尾逗号不会创建一个新的<span class="literal">undefined</span>元素</span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>]<span class="comment">//三个undefined</span></span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>,]<span class="comment">//三个undefined</span></span><br><span class="line"></span><br><span class="line">对象直接量（子表达式进行计算）</span><br><span class="line"><span class="keyword">var</span> p = &#123;&#125;；</span><br><span class="line"><span class="keyword">var</span> q = &#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> rectangle=&#123;upperleft&#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;,<span class="attr">lowerRight</span>:&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">5</span>&#125;&#125;<span class="comment">//可以是任意的JavaScript表达式</span></span><br><span class="line"></span><br><span class="line">对象的属性名称可以不使用标识符，而使用字符串</span><br><span class="line"><span class="keyword">var</span> scope=&#123;<span class="string">"upperleft"</span>:&#123;<span class="attr">x</span>:p.x,<span class="attr">y</span>:p.y&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">数组(子表达式会进行计算)</span><br><span class="line">[]</span><br><span class="line">[<span class="number">1</span>+<span class="number">2</span>,<span class="number">3</span>+<span class="number">4</span>]</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>][<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>][<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">逗号之间的元素省略会填充<span class="literal">undefined</span></span><br><span class="line">末尾逗号不会创建一个新的<span class="literal">undefined</span>元素</span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>]<span class="comment">//三个undefined</span></span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>,]<span class="comment">//三个undefined</span></span><br><span class="line"></span><br><span class="line">对象直接量（子表达式进行计算）</span><br><span class="line"><span class="keyword">var</span> p = &#123;&#125;；</span><br><span class="line"><span class="keyword">var</span> q = &#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> rectangle=&#123;<span class="attr">upperleft</span>:&#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;,<span class="attr">lowerRight</span>:&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">5</span>&#125;&#125;<span class="comment">//可以是任意的JavaScript表达式</span></span><br><span class="line"></span><br><span class="line">对象的属性名称可以不使用标识符，而使用字符串</span><br><span class="line"><span class="keyword">var</span> scope=&#123;<span class="string">"upperleft"</span>:&#123;<span class="attr">x</span>:p.x,<span class="attr">y</span>:p.y&#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>这里只是初步讨论，之后会在对象和数组章节进行详细的介绍。</p>
 <h2 id="4-3函数定义表达式（函数直接量）"><a href="#4-3函数定义表达式（函数直接量）" class="headerlink" title="4.3函数定义表达式（函数直接量）"></a>4.3函数定义表达式（函数直接量）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;函数表达式</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;函数声明语句</span><br></pre></td></tr></table></figure>
 <p>后面会详细将，自己也可以看看<code>潭州/08-函数.md</code></p>
@@ -488,7 +500,7 @@
 <li>不能在代码中动态生成</li>
 <li>所有这些在<code>[expression]</code>中都是可行的。哈哈</li>
 </ul>
-<h2 id="4-5调用表达式"><a href="#4-5调用表达式" class="headerlink" title="4.5调用表达式"></a>4.5调用表达式</h2><p>一种调用或者执行函数或者方法的语法表现。<code>（返回函数对象的）函数表达式(参数)</code></p>
+<h2 id="4-5调用表达式"><a href="#4-5调用表达式" class="headerlink" title="4.5调用表达式"></a>4.5调用表达式</h2><p>一种调用/执行函数或者方法的语法表现。<code>（返回函数对象的）函数表达式(参数)</code></p>
 <ol>
 <li>先计算函数表达式，然后计算参数表达式得到实参。（然后实参会赋值给形参）</li>
 <li>函数表达式的值不是一个可调用的对象，则抛出一个类型错误异常（8.7.7可调用对象）</li>
@@ -499,7 +511,7 @@
 <p>构造函数的细节查看9章</p>
 <h2 id="4-7运算符概述-哇，表达式终于完了"><a href="#4-7运算符概述-哇，表达式终于完了" class="headerlink" title="4.7运算符概述(哇，表达式终于完了)"></a>4.7运算符概述(哇，表达式终于完了)</h2><ol>
 <li>算术/比较/逻辑/赋值等</li>
-<li>大部分运算符有标点符号表示，有一些则由关键字表示，比如delete 和 instanceof</li>
+<li>大部分运算符由标点符号表示，有一些则由关键字表示，比如delete 和 instanceof</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">运算符优先级</a></li>
 </ol>
 <ul>
@@ -528,7 +540,7 @@
 </ol>
 <h3 id="4-8-1-quot-quot-运算符"><a href="#4-8-1-quot-quot-运算符" class="headerlink" title="4.8.1&quot;+&quot;运算符"></a>4.8.1<code>&quot;+&quot;</code>运算符</h3><p>计算时的行为表现如下：</p>
 <ol>
-<li>如果有操作数是数字，对遵循对象到原始值的转换规则转换为原始值(具体看这里3.8.3):日期对象toString()，其他对象valueOf()<br>没有valueOf()则调用toString</li>
+<li>如果有操作数是对象，遵循对象到原始值的转换规则转换为原始值(具体看这里3.8.3):日期对象toString()，其他对象valueOf()<br>没有valueOf()则调用toString</li>
 <li>当操作数都是原始值以后，如果有一个操作数是字符串，那么另一个操作数也会转换为字符串，然后进行字符串的拼接</li>
 <li>否则，两个操作数都转化为数字(或者NaN)，然后相加</li>
 </ol>
@@ -538,7 +550,7 @@
 <h3 id="4-8-2一元运算符"><a href="#4-8-2一元运算符" class="headerlink" title="4.8.2一元运算符"></a>4.8.2一元运算符</h3><p>作用于单个操作数，并产生一个新值。一般来说具有高优先级，右结合性，且会将操作转为<code>数字</code></p>
 <ol>
 <li><code>+和-</code>：操作数转为数字</li>
-<li>“++和–”：操作数转为数字；操作数必须是左值；分为前增量和后增量。<code>a=1;b=1;a+++b;//(a++)+b</code></li>
+<li><code>&quot;++和--&quot;</code>：操作数转为数字；操作数必须是左值；分为前增量和后增量。<code>a=1;b=1;a+++b;//(a++)+b</code></li>
 </ol>
 <h3 id="4-8-3位运算符"><a href="#4-8-3位运算符" class="headerlink" title="4.8.3位运算符"></a>4.8.3位运算符</h3><p>这里归为算术运算，JavaScript中不常用。</p>
 <ol>
@@ -555,7 +567,7 @@
 <p><strong>无符号右移&gt;&gt;&gt;</strong><br>和带符号右移&gt;&gt;相似，只是新位由0补充，而不是符号位。<br>此时正数规则同<code>&gt;&gt;</code>一样，不变；负数相比于原来的结果在数值上会加上一个<code>|MIN|</code></p>
 <h2 id="4-9关系运算符"><a href="#4-9关系运算符" class="headerlink" title="4.9关系运算符"></a>4.9关系运算符</h2><p>关系运算符用于测试两个值之间的关系，根据关系是否存在返回true或者false。(in 和 instanceof也是关系运算符)</p>
 <h2 id="4-9-1相等和不相等运算符"><a href="#4-9-1相等和不相等运算符" class="headerlink" title="4.9.1相等和不相等运算符"></a>4.9.1相等和不相等运算符</h2><p><code>==</code>:相等运算符<code>===</code>：严格相等运算符。<code>!=</code> <code>!==</code>是这两个运算符的结果取反。</p>
-<p>3.7节提到过，对象比较的是引用，而不是之本身。例如两个不同的对象具有相同的属性名和值，它们依然不相等；值相同的两个数组依旧是不相等的。</p>
+<p>3.7节提到过，对象比较的是引用，而不是值本身。例如两个不同的对象具有相同的属性名和值，它们依然不相等；值相同的两个数组依旧是不相等的。</p>
 <p><strong>严格相等运算符<code>===</code></strong></p>
 <ul>
 <li>会先计算表达式得出两个操作数的值，然后比较这两个值，过程中<code>===</code>不会对操作数进行类型转换。</li>
@@ -566,7 +578,7 @@
 <li>如果两个操作数都是布尔值true或者都是false，返回true</li>
 <li>其中一个是NaN，或者两个都是NaN，返回false。（NaN和任何值包括<code>自己</code>都是不相等的。通过<code>x!==x</code>来判断x是不是NaN）</li>
 <li>如果两个操作数都是数字，且相等，返回true；0和-0也返回true</li>
-<li>如果两个操作数都是字符串，且所含的对应位上的16位Unicode(3.2)相等，则返回true。<br>因为JavaScript没有进行标准化Unicode转换，所以有时两个字符串显示一样，但是具有不同的编码，导致返回false。String.localeCompare()提供了另外一种比较字符串的方法。</li>
+<li>如果两个操作数都是字符串，且对应位上的16位Unicode(3.2)相等，则返回true。<br>因为JavaScript没有进行标准化Unicode转换，所以有时两个字符串显示一样，但是具有不同的编码，导致返回false。String.localeCompare()提供了另外一种比较字符串的方法。</li>
 <li>如果两个引用指向同一个对象、数组或函数，则它们是相等的，返回true。如果引用指向不同的对象，则返回false，尽管它们包含的内容一样。</li>
 </ol>
 <p><strong>相等运算符<code>===</code></strong></p>
@@ -624,11 +636,11 @@
 <ol>
 <li>左操作数必须是一个左值，右操作数可以任何类型的任意值；返回值为赋值给左操作数的值（说白了就是右操作数的运算值）；结合性从右往左；具有副作用；优先级基本最低</li>
 </ol>
-<p><strong>代操作的赋值运算</strong><code>+= -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= |= ^=</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">下列两个表达式是有不同的</span><br><span class="line">a op= b <span class="comment">//表达式a只计算了一次，计算表达式a，表达式b，然后计算a*b并赋值给a</span></span><br><span class="line">a = a op b <span class="comment">//表达式a计算了两次，计算表达式a1, 表达式a2，表达式b 然后计算a2*b赋值给a1(a1表示左边的a，a2表示右边的)</span></span><br><span class="line"></span><br><span class="line">比如</span><br><span class="line">data[i++] *= <span class="number">2</span> <span class="comment">//等价于data[i]=date[i]*2</span></span><br><span class="line">data[i+<span class="number">1</span>]=data[i+<span class="number">1</span>] * <span class="number">2</span> <span class="comment">//等价于data[i]=date[i+1]*2</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-12表达式计算-eval"><a href="#4-12表达式计算-eval" class="headerlink" title="4.12表达式计算(eval)"></a>4.12表达式计算(eval)</h2><p>JavaScript可以动态的解释运行由JavaScript源代码组成的字符串，并长生一个值。这些都通过全局函数eval()来完成。</p>
+<p><strong>带操作的赋值运算</strong><code>+= -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= |= ^=</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">下列两个表达式是有不同的</span><br><span class="line">a op= b <span class="comment">//表达式a只计算了一次，计算表达式a，表达式b，然后计算a*b并赋值给a</span></span><br><span class="line">a = a op b <span class="comment">//表达式a计算了两次，计算表达式a1, 表达式a2，表达式b 然后计算a2*b赋值给a1(a1表示左边的a，a2表示右边的)</span></span><br><span class="line"></span><br><span class="line">比如</span><br><span class="line">data[i++] *= <span class="number">2</span> <span class="comment">//等价于data[i]=date[i]*2</span></span><br><span class="line">data[i++]=data[i++] * <span class="number">2</span> <span class="comment">//等价于data[i]=date[i+1]*2</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-12表达式计算-eval"><a href="#4-12表达式计算-eval" class="headerlink" title="4.12表达式计算(eval)"></a>4.12表达式计算(eval)</h2><p>JavaScript可以动态的解释运行由JavaScript源代码组成的字符串，并产生一个值。这些都通过全局函数eval()来完成。</p>
 <p>这是一个强大的语言特性，几乎没有必要在开发中使用。</p>
-<p>现在我这里测试得知evel是一个函数，可以复制给任何变量，然后再通过变量调用该函数。</p>
+<p>通过测试得知eval是一个函数，可以复制给任何变量，然后再通过变量调用该函数。</p>
 <h3 id="4-12-1-eval"><a href="#4-12-1-eval" class="headerlink" title="4.12.1 eval()"></a>4.12.1 eval()</h3><ol>
 <li>eval()函数只有一个参数，如果不是字符串则直接返回这个参数。</li>
 <li>参数是字符串则会当做JavaScript代码编译，编译失败会抛出语法错误异常。</li>
@@ -649,11 +661,11 @@
 <h3 id="4-13-2-typeof运算符"><a href="#4-13-2-typeof运算符" class="headerlink" title="4.13.2 typeof运算符"></a>4.13.2 typeof运算符</h3><p>是一元运算符，操作数可以是任何类型，返回值为一个操作数类型的字符串。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span>     <span class="string">"undefined"</span></span><br><span class="line"><span class="literal">null</span>          <span class="string">"object"</span></span><br><span class="line"><span class="literal">true</span>或<span class="literal">false</span>   <span class="string">"boolean"</span></span><br><span class="line">数字或<span class="literal">NaN</span>      <span class="string">"number"</span></span><br><span class="line">字符串         <span class="string">"string"</span></span><br><span class="line">函数           <span class="string">"function"</span>（包括可执行对象）</span><br><span class="line">内置对象(非函数) <span class="string">"object"</span></span><br><span class="line">宿主对象        浏览器厂商各自的编译器决定的字符串</span><br><span class="line">               不能是<span class="string">"undefined boolean number string"</span></span><br></pre></td></tr></table></figure>
 <p>可以带括号<code>typeof(???)</code></p>
-<p>相区分对象的类，则需要使用其他手段，比如instanceof class特性 constructor属性。</p>
+<p>想区分对象的类，则需要使用其他手段，比如instanceof class特性 constructor属性。</p>
 <h3 id="4-13-3-delete运算符"><a href="#4-13-3-delete运算符" class="headerlink" title="4.13.3 delete运算符"></a>4.13.3 delete运算符</h3><p>一元运算符，用于删除对象的属性或者数组元素；有副作用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x; <span class="comment">//删除一个属性</span></span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> o;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> a[<span class="number">2</span>]; <span class="comment">//删除最后一个数组元素</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">in</span> a;  <span class="comment">//false</span></span><br><span class="line">a.length <span class="comment">//3:长度比并未有变化，删除操作留下了一个'洞',而并没有改变数组的长度。</span></span><br></pre></td></tr></table></figure>
 <ol>
-<li>delete不是说将属性设置为undefined，而是真个属性都不存在了。（虽然读取不存在的属性或赋值为undefined的属性都返回undefined，但是可以通过 in 运算符来检测这个属性是否存在）</li>
+<li>delete不是说将属性设置为undefined，而是整个属性都不存在了。（虽然读取不存在的属性或赋值为undefined的属性都返回undefined，但是可以通过 in 运算符来检测这个属性是否存在）</li>
 <li>delete希望操作数是一个左值，不是左值则不进行任何操作并返回true；是左值则试图删除，成功返回true，失败返回false；不能删除var 定义的变量(var定义的全局变量?)，function语句定义的函数和函数参数（最后一句有点没懂,只知道属性的可配置性与delete相关）。</li>
 <li>严格模式 。。。。</li>
 </ol>
@@ -684,6 +696,8 @@
           
             <a href="/blog/tags/JS/" rel="tag"># JS</a>
           
+            <a href="/blog/tags/犀牛书/" rel="tag"># 犀牛书</a>
+          
         </div>
       
 
@@ -695,8 +709,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/07/12/词法结构/" rel="next" title="词法结构">
-                <i class="fa fa-chevron-left"></i> 词法结构
+              <a href="/blog/2019/02/21/js/第9章-类和模块/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -704,6 +718,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/07/12/类型、值和变量/" rel="prev" title="犀牛-第3章-类型、值和变量">
+                犀牛-第3章-类型、值和变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
