@@ -256,7 +256,7 @@
       
     
 
-    <a href="/blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
+    <a href="/blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">9</span></a>
 
   </li>
         
@@ -294,7 +294,7 @@
       
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">14</span></a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">15</span></a>
 
   </li>
 
@@ -355,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/js概述/">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/19/面向对象的程序设计/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RobJ">
@@ -375,7 +375,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/07/12/js概述/" class="post-title-link" itemprop="url">犀牛-第1章-JavaScript概述</a>
+                <a href="/blog/2019/07/19/面向对象的程序设计/" class="post-title-link" itemprop="url">红宝书-第6章-面向对象的程序设计</a>
               
             
           </h1>
@@ -400,24 +400,12 @@
                 
               
 
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+              <time title="创建时间：2019-07-19 00:00:00 / 修改时间：17:20:42" itemprop="dateCreated datePublished" datetime="2019-07-19T00:00:00+08:00">2019-07-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-15 10:21:09" itemprop="dateModified" datetime="2019-07-15T10:21:09+08:00">2019-07-15</time>
               
             
           </span>
@@ -471,532 +459,27 @@
       
         
           
-            <h1 id="第1章JavaScript概述"><a href="#第1章JavaScript概述" class="headerlink" title="第1章JavaScript概述"></a>第1章JavaScript概述</h1><h2 id="历史相关"><a href="#历史相关" class="headerlink" title="历史相关"></a>历史相关</h2><p>说实话，我觉得红宝书的这一章要写的好一点。</p>
-<blockquote>
-<p>JavaScript是由网景公司创建的，并有使用网景公司这门语言的初版为标准提交给了ECMA，由ECMA管理，由于商标上的冲突，语言的标准版本改名为ECMAScript。目前最新发布的版本是ES6，已经被很多的主流浏览器基本的实现了。100%实现的是ES5。每个浏览器都有自己的JavaScript解释器或者说是引擎，也有相应的版本号。<br>通常来说每一门编程语言都有自己的开发平台、标准库和API函数，用来提供诸如基本输入输出的功能。JavaScript语言针对文本、数组、日期、正则表达式的操作定义和很多好的API，但是这些API不包括输入输出功能(类似网络、存储和图像相关的复杂特性)。这些功能都是由JavaScript所谓的‘宿主环境’提供的，通常就是我们说的WEB浏览器(当然还可以是别的宿主)。可以认为ECMAScript+DOM+BOM组成了我们现在所说的JavaScipt，而核心部分是ECMAScript，客服端部分便是BOM和DOM的API讲解了。</p>
-</blockquote>
+            <p>
+              6.1 理解对象6.1.1 属性类型ECMA-262 第5版通过内部才用的特性（attribute）来描述属性（property）的各种特征。ECMA-262 定义这些特性（attribute）是为了实现JavaScript 引擎用的，因此在JavaScript 中不能直接访问它们。为了表示特性是内部值，该规范把它们放在了两对儿方括号中例如[[Enumerable]]。ECMAScript 中有两种属性：数据属性和访问器属性。
+1. 数据属性
+[[Configurable]]：表示能否通过delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。直接在对象上定义的属性，它们的这个特性默认值为true。
+[[Enumerable]]：表示能否通过for-in 循环返回属性。直接在对象上定义的属性，它们的这个特性默认值为true。
+[[Writable]]：表示能否修改属性的值。直接在对象上定义的属性，它们的这个特性默认值为true。
+[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为undefined。
 
+直接在对象上定义的属性，它们的[[Configurable]]、[[Enumerable]]和[[Writable]]特性都被设置为true，而[[Value]]特性被设置为指定的值。要修改属性默认的特性，必须使用ECMAScript 5 的Object.defineProperty()方法。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。其中，描述符（descriptor）对象的属性必须是：configurable、enumerable、writable 和value。设置其中的一或多个值，可以修改对应的特性值。例如：
+var person
+              ...
+            </p>
+          <!--noindex-->
           
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/词法结构/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/07/12/词法结构/" class="post-title-link" itemprop="url">犀牛-第2章-词法结构</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-15 10:21:05" itemprop="dateModified" datetime="2019-07-15T10:21:05+08:00">2019-07-15</time>
-              
-            
-          </span>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/19/面向对象的程序设计/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第二章-词法结构"><a href="#第二章-词法结构" class="headerlink" title="第二章 词法结构"></a>第二章 词法结构</h1><h2 id="2-1字符集"><a href="#2-1字符集" class="headerlink" title="2.1字符集"></a>2.1字符集</h2><p>JavaScript程序的内容使用Unicode编码编写保存。</p>
-<h2 id="2-1-1区分大小写"><a href="#2-1-1区分大小写" class="headerlink" title="2.1.1区分大小写"></a>2.1.1区分大小写</h2><p>HTML是不区分大小写的语言，但是JavaScript是区分大小写的，也就是说，关键字、变量、函数名和所有的标识符都必须采用一致的大小写形式。</p>
-<h2 id="2-1-2空格、换行符和格式控制符"><a href="#2-1-2空格、换行符和格式控制符" class="headerlink" title="2.1.2空格、换行符和格式控制符"></a>2.1.2空格、换行符和格式控制符</h2><p>JS会忽略程序中标识之间的空格。具体有哪些Unicode码看书。</p>
-<h2 id="2-1-3Unicode转义字符"><a href="#2-1-3Unicode转义字符" class="headerlink" title="2.1.3Unicode转义字符"></a>2.1.3Unicode转义字符</h2><p>转义字符使用6个ASCII码表示任意的16位的Unicode内码。使用<code>\u</code>开头，其后跟随4个16进制的数。这种Unicode转义字符可以在JS的字符串直接量、正则表达式直接量和标识符中使用(关键字除外)。当然也可以出现在注释中，但是会被忽略，不会再显示时解析为Unicode字符，保持6个ASCII码进行显示。</p>
-<h2 id="2-1-4标准化"><a href="#2-1-4标准化" class="headerlink" title="2.1.4标准化"></a>2.1.4标准化</h2><p>Unicode允许使用多种方式对同一个内码(字符)进行编码。例子看书。也就是说同一个内码保存在计算机内存上的二进制编码是不同的，但是解析后在屏幕上显示结果一样。Unicode为所有的字符都定义了一个首选的编码格式，并给出了一个标准化的处理方式来将文本转化为一种比较标准的格式，但是JS认为其解析的所有程序代码都是这种标准格式，不会再对其标识符、字符串或正则表达式做标准化处理。</p>
-<h2 id="2-2注释"><a href="#2-2注释" class="headerlink" title="2.2注释"></a>2.2注释</h2><p>两种注释：多行注释/**/和单行注释//</p>
-<h2 id="2-3直接量"><a href="#2-3直接量" class="headerlink" title="2.3直接量"></a>2.3直接量</h2><p>所谓直接量，就是直接在程序中能够直接使用的数据值。不同数据类型的都有自己直接量的写法。后面会详细讲解。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">12</span><br><span class="line">1.2</span><br><span class="line">&quot;hello world&quot;</span><br><span class="line">&apos;Hi&apos;</span><br><span class="line">true false</span><br><span class="line">/javascript/gi</span><br><span class="line">null NaN undefined</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-4标识符和保留字"><a href="#2-4标识符和保留字" class="headerlink" title="2.4标识符和保留字"></a>2.4标识符和保留字</h2><p>标识符就是一个名字，用来对变量和函数进行命名，或者作为循环中跳转位子的标记。</p>
-<p>标识符由字母、数字、下划线(_)和美元符号($)组成，同时数字不当头。虽然JS允许使用Unicode字符全集中的字母和数字，但通常我们只是用ASCII码和数字来书写标识符。</p>
-<p>保留字不能作为普通的标识符。</p>
-<p><strong>保留字</strong></p>
-<ul>
-<li><p>JS把一些标识符拿出来作为自己的关键字。具体哪些看书。</p>
-</li>
-<li><p>严格模式下保留字列表稍有不同。</p>
-</li>
-<li><p>JS预定义和很多全局变量和函数。避免标识符与其重复。</p>
-</li>
-<li><p>JS具体实现可能会有更多的全局变量和函数。每一个运行环境都有自己的一套变量和函数。DOM+BOM</p>
-</li>
-</ul>
-<h2 id="2-5可选的分号"><a href="#2-5可选的分号" class="headerlink" title="2.5可选的分号"></a>2.5可选的分号</h2><p>使用分号分割语句。</p>
-<p>当不使用分号时的会自动解析并在换行处添加分号。规则如下</p>
-<ol>
-<li><p>一般来说，如果换行处缺失了分号，且在换行处无法与下一行正确合并解析的时候，才会添加分号一般来说( <code>(</code> <code>[</code> <code>+</code> <code>-</code> <code>/</code>等符号)容易与上一行合并解析。</p>
-</li>
-<li><p><code>return break continue</code>后换行会直接添加分号</p>
-</li>
-<li><p><code>++</code> <code>--</code>运算符可以作为前缀和后缀，在换行合并解析时，如果要解析为后缀，那么必须与表达式在同一行，否则将添加分号作为下一行代码的前缀(说实话这些内容对开发来说都不重要)</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/语句/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/07/12/语句/" class="post-title-link" itemprop="url">犀牛-第5章-语句</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 11:27:49" itemprop="dateModified" datetime="2019-07-17T11:27:49+08:00">2019-07-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第5章-语句"><a href="#第5章-语句" class="headerlink" title="第5章-语句"></a>第5章-语句</h2><p>表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。</p>
-<h2 id="5-1表达式语句"><a href="#5-1表达式语句" class="headerlink" title="5.1表达式语句"></a>5.1表达式语句</h2><p>具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">greeting = <span class="string">"hello"</span>+name;</span><br><span class="line">i *= <span class="number">3</span>;</span><br><span class="line"><span class="keyword">delete</span> o.x;</span><br><span class="line">alert(greeting);</span><br><span class="line"><span class="built_in">window</span>.close();</span><br></pre></td></tr></table></figure>
-<p>调用没有副作用的函数一般是没有意义的。如<code>Math.cos(x)</code></p>
-<h2 id="5-2复合语句和空语句"><a href="#5-2复合语句和空语句" class="headerlink" title="5.2复合语句和空语句"></a>5.2复合语句和空语句</h2><p>可以用逗号将几个表达式连接起来，形成一个表达式；也可以用花括号<code>{}</code>将多条语句括起来，形成一条复合语句。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">x = <span class="built_in">Math</span>.Pr;</span><br><span class="line">cx = <span class="built_in">Math</span>.cos(x);</span><br><span class="line">consoel.log(<span class="string">"cos(pi)="</span>+cx);</span><br><span class="line">&#125;</span><br><span class="line">语句块后面不需要分号</span><br></pre></td></tr></table></figure>
-<p>空语句：<code>;</code>可以放在for循环后面表示空的循环体，但一般不这么干，如果这么写了记得加注释说明。</p>
-<h2 id="5-3声明语句"><a href="#5-3声明语句" class="headerlink" title="5.3声明语句"></a>5.3声明语句</h2><p>var和function都是声明语句，用于声明变量和函数。更多细节这里不说了。</p>
-<h3 id="5-3-1-var"><a href="#5-3-1-var" class="headerlink" title="5.3.1 var"></a>5.3.1 var</h3><p>var 语句声明 一个或多个变量，语法如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">初始化是可选操作。</span><br><span class="line"><span class="keyword">var</span> name_1 [=value_1][,...,name_n][=value_n]</span><br></pre></td></tr></table></figure>
-<ol>
-<li>var出现在函数体内则声明局部变量，作用域为这个函数；var 出现在顶层代码中则声明全局变量，全局变量是全局对象window的属性，不过通过var声明的全局属性是无法delete的；没有用var声明的全局属性是可delete的</li>
-<li>var声明时没有初始化的变量值为undefined；切记变量声明会被提前到函数顶部(3.10.1),但是初始化操作留在var语句的位置（for中的var也会提前到for循环外）</li>
-<li>多次声明同一个变量是没有意义的，无所谓的。</li>
-</ol>
-<h3 id="5-3-2-function"><a href="#5-3-2-function" class="headerlink" title="5.3.2 function"></a>5.3.2 function</h3><ol>
-<li><p>分为函数声明语句和函数定义表达式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;<span class="comment">//表达式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//声明 f是一个函数名也是变量名，指向此函数对象</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>声明和定义并不会执行函数体内的语句</p>
-</li>
-<li><p>函数定义表达式必须出现在顶层或者嵌套函数顶部，函数声明表达式则不介意这些</p>
-</li>
-<li><p>函数声明同var定义变量一样会提前声明，但是其初始化也会提前；函数定义表达式(var c=function(){})只有声明提前，初始化留在原地，这点表现的和var一致。</p>
-</li>
-</ol>
-<h2 id="5-4条件语句"><a href="#5-4条件语句" class="headerlink" title="5.4条件语句"></a>5.4条件语句</h2><p>条件语句是指通过判断指定表达式的值来决定执行还是跳过某些语句。</p>
-<h3 id="5-4-1-if"><a href="#5-4-1-if" class="headerlink" title="5.4.1 if"></a>5.4.1 if</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果计算expression的值为真值，则执行statement；否则为假值不执行。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">如果计算expression的值为真值，则执行statement1；否则为假值执行statement2。</span><br><span class="line"><span class="keyword">if</span>(expression)</span><br><span class="line">  statement1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  statement2</span><br></pre></td></tr></table></figure>
-<p>else总是和就近的if语句匹配</p>
-<h3 id="5-4-2-else-if"><a href="#5-4-2-else-if" class="headerlink" title="5.4.2 else if"></a>5.4.2 else if</h3><p>if/else语句是通过判断表达式然后在两条分支中选择一条进行执行；而使用else和if的就近匹配规则可以在else语句中嵌套if/else语句来达到多分支的效果。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(exp)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5-4-3switch"><a href="#5-4-3switch" class="headerlink" title="5.4.3switch"></a>5.4.3switch</h3><p>else if的嵌套使用可以达到多分支选择的效果；但是结构上较为复杂，且如果说所有的分支有依赖于同一条表达式的值，那么该表达式会重复的在每条if中计算，此时使用switch是更适合的解决办法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> exp: statement; <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: statement; <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">break</span>语句可以使解释器跳出<span class="keyword">switch</span>语句或者循环语句。</span><br></pre></td></tr></table></figure>
-<ol>
-<li>步骤：先计算出switch表达式的值，然后从上往下计算一个case表达式的值，如果说两者严格相等(<code>===</code>)，那么进入该case节点，并从上往下执行语句(没有break则会执行所有case和default)；否则计算下一个case表达式。如果没有case表达式与switch表达严格相等，进入default节点，然后从上往下执行语句(default可以不用放在最后)。</li>
-<li>并不是所有的case表达式都会执行</li>
-<li>JavaScript中的case是运行时计算的，可以不是常量(但是最好还是使用常量)；而C C++ Java中的case表达式是编译时计算的同类型常量，而且会编译一个跳转表，使得switch语句特别高效。</li>
-</ol>
-<h2 id="5-5-循环-while-do-while-for-for-in"><a href="#5-5-循环-while-do-while-for-for-in" class="headerlink" title="5.5 循环(while do/while for for/in)"></a>5.5 循环(while do/while for for/in)</h2><h3 id="5-5-1-while"><a href="#5-5-1-while" class="headerlink" title="5.5.1 while"></a>5.5.1 while</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(expression)&#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br><span class="line">expression如果为假值跳出循环；为真值执行表达式并再次判断expression的值，以此循环。</span><br></pre></td></tr></table></figure>
-<h3 id="5-5-2-do-while"><a href="#5-5-2-do-while" class="headerlink" title="5.5.2 do while"></a>5.5.2 do while</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">  statement</span><br><span class="line"><span class="keyword">while</span>(expression);</span><br></pre></td></tr></table></figure>
-<p>与while相比：</p>
-<ol>
-<li>判断在语句底部，所以必定执行一次statement</li>
-<li>末尾有分号</li>
-</ol>
-<h3 id="5-5-3-for"><a href="#5-5-3-for" class="headerlink" title="5.5.3 for"></a>5.5.3 for</h3><ol>
-<li>for循环自带三个表达式，分别表示初始化、循环条件判断和计数器变量的更新<br>（可以有逗号运算符比如var i=0,j=0;test;i++, j++）</li>
-<li>for循环的三个表达式都可以省略，但是两个分号不能省略；如果说省略了test语句，那么for变成死循环(for(;;))</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(initialize; test; increment)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">基本上等价的<span class="keyword">while</span>语句</span><br><span class="line">initialize;</span><br><span class="line"><span class="keyword">while</span>(test) &#123;</span><br><span class="line">  statement;</span><br><span class="line">  increment;</span><br><span class="line">&#125;</span><br><span class="line">如果说使用了<span class="keyword">continue</span>语句，那么<span class="keyword">while</span>中的increase语句可以被跳过，但是<span class="keyword">for</span>中的increase则不会跳过</span><br></pre></td></tr></table></figure>
-<h3 id="5-5-4-for-in"><a href="#5-5-4-for-in" class="headerlink" title="5.5.4 for/in"></a>5.5.4 for/in</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">variable是返回左值的表达式(一般是变量)</span><br><span class="line">object是返回对象类型的表达式</span><br><span class="line"><span class="keyword">for</span> (variable <span class="keyword">in</span> object) &#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>判断逻辑：先计算object表达式，如果为null undefined则跳出循环；如果是原始值，转换为包装类；否则object本身指向对象。然后JavaScript枚举该对象属性名(字符串)，并在每次循环开始前计算variable表达式的值(所以会多次计算)，并将该属性名赋值给表达式返回值。</li>
-<li>数组的索引也是属性，会被枚举</li>
-<li>枚举范围：可继承、可枚举属性</li>
-<li>如果说循环的statement删除了还没有枚举的属性，那么该属性不会再被枚举；如果定义了新属性，这些属性通常不会枚举到(有一些引擎可以枚举增加的继承属性)</li>
-</ol>
-<p><strong>枚举顺序</strong></p>
-<ol>
-<li><p>ES5没有指定以何种顺序枚举对象属性。实际上主流的方式是按照属性定义的顺序枚举。</p>
-</li>
-<li><p>一下情况枚举顺序取决于具体实现</p>
-</li>
-</ol>
-<ul>
-<li>对象继承了可枚举属性</li>
-<li>对象具有整数数组索引的属性</li>
-<li>使用delete删除对象已有属性</li>
-<li>使用Object.defineProperty()或类似的方法改变了对象的属性</li>
-</ul>
-<h2 id="5-6跳转"><a href="#5-6跳转" class="headerlink" title="5.6跳转"></a>5.6跳转</h2><p>使得JavaScript执行可以从一个位置跳转到另一个位置.</p>
-<ol>
-<li>break:跳转到循环或者其他语句的结束处</li>
-<li>continue:终止本次循环,进入下一次循环的执行</li>
-<li>语句可以进行命名, break continue都可以标识当前循环或者其他语句标签</li>
-<li>return语句跳出函数执行</li>
-<li>throw语句抛出异常,一般和try/catch/finally语句一起使用。抛出异常的时候，程序会跳转到最近的闭合异常处理程序，可以在当前函数中，也可以更高层的调用栈中。</li>
-</ol>
-<h3 id="5-6-1标签语句"><a href="#5-6-1标签语句" class="headerlink" title="5.6.1标签语句"></a>5.6.1标签语句</h3><p>语句是可以添加标签的:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identifier: statement</span><br></pre></td></tr></table></figure>
-<ol>
-<li>只有break和continue可以使用标签</li>
-<li>identifier必须是合法的标识符，它的命名空间和变量函数名不同，所以可以与变量函数名重名。</li>
-<li>语句标签只在它作用的语句内有定义，所以不能和它内部的语句标签重名，但是在不相互嵌套的情况下可以出现同名标签</li>
-<li>语句可以多标签</li>
-</ol>
-<h3 id="5-6-2-break语句"><a href="#5-6-2-break语句" class="headerlink" title="5.6.2 break语句"></a>5.6.2 break语句</h3><ol>
-<li>不带标签的break：跳出就近的循环或者switch语句</li>
-<li>带标签的break：<code>break labelname;</code>跳转labelname标签表示的外部语句块的结束处，可以是任何闭合的语句块，不在只能是循环和switch（一般用于跳出多层循环）。之间不能换行</li>
-<li>break带不带标签都无法跳出函数体(不能出现在函数体的顶层)</li>
-</ol>
-<h3 id="5-6-3-continue语句"><a href="#5-6-3-continue语句" class="headerlink" title="5.6.3 continue语句"></a>5.6.3 continue语句</h3><ol>
-<li>用处跳出此次循环，进入下一次循环</li>
-<li>同break一样可以带标签或者不带标签，但是无论是哪种情况都只能放在循环体内使用，否则会报错</li>
-<li>continue执行后，不同类型的循环中的跳转稍有不同<ul>
-<li>while：重新检测expression</li>
-<li>do/while:重新检测expression</li>
-<li>for：先计算自增表达式，然后再检测test表达式</li>
-<li>for/in：遍历下一个属性名并赋值给指定表达式返回值</li>
-</ul>
-</li>
-<li>continue时while和for的区别就在于for多了一个increment表达式。</li>
-<li>带标签continue用在嵌套循环中调出多层循环；同break一样不能在continue和labelname之间换行</li>
-</ol>
-<h3 id="5-6-4-return语句"><a href="#5-6-4-return语句" class="headerlink" title="5.6.4 return语句"></a>5.6.4 return语句</h3><p><code>return expression;</code></p>
-<ol>
-<li>return只能出现在函数体内，否则报错</li>
-<li>return后没有表达式，返回undefined</li>
-<li>函数没有return，那么只是简单的执行内部的语句，返回undefined</li>
-<li>切记return和expression之间不要换行</li>
-</ol>
-<h3 id="5-6-5-throw语句"><a href="#5-6-5-throw语句" class="headerlink" title="5.6.5 throw语句"></a>5.6.5 throw语句</h3><p>所谓异常就是指某种异常情况或者错误时产生的信号。抛出异常就是通知发生了错误，捕获异常就是处理这个错误。<br>JavaScript中通过throw语句来抛出异常，使用try/catch/finally来捕获异常</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> expression;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>expression可以是任何类型的表达式，当然JavaScript抛出的异常通常采用Error类型或者其子类型。</li>
-<li>一个Error对象包含name属性表示错误类型，一个message属性用于描述错误(可以通过Error()构造函数赋值message)</li>
-<li>抛出异常后，JavaScript解释器立即停止当前正在执行的逻辑，并跳转到就近的异常处理程序，异常处理程序就是用try/catch/finally语句的catch从句书写的。</li>
-<li>如果当前没有catch从句，则会将异常向外抛，即往更高的闭合代码块和函数调用栈抛。如果没有任何的处理程序，那么JavaScript将异常当做程序错误处理，并报告给用户。</li>
-</ol>
-<h3 id="5-6-6-try-catch-finally语句"><a href="#5-6-6-try-catch-finally语句" class="headerlink" title="5.6.6 try/catch/finally语句"></a>5.6.6 try/catch/finally语句</h3><p>try/catch/finally语句是JavaScript的异常处理机制。</p>
-<ol>
-<li>try中定义需要处理的异常所在的代码；在try中发生异常时调用catch从句内的代码逻辑；finally中放入清理代码，无论是否有异常，finally块内的逻辑均会执行。</li>
-<li>catch和finally是可选的，但是必须二选一组成完整语句</li>
-<li>花括号是必须有的</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="comment">//通常来讲，这里的代码执行时不会报错</span></span><br><span class="line">  <span class="comment">//但有时会抛出异常：1.通过throw直接抛出 2.调用方法间接抛出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="comment">//当try中语句块抛出异常，执行这里的代码</span></span><br><span class="line">  <span class="comment">//可以通过局部变量e来获取Error对象或者抛出的其他值</span></span><br><span class="line">    <span class="comment">//但是这个e是块级作用域，在catch之内才有定义</span></span><br><span class="line">  <span class="comment">//这里可以：1.处理异常 2.忽略异常 3.通过throw再次抛出异常 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">  <span class="comment">//无论try中是否有异常，这里都会执行</span></span><br><span class="line">    <span class="comment">//终止try语句块的方式：</span></span><br><span class="line">  <span class="comment">//1.正常终止，及执行每一条语句</span></span><br><span class="line">  <span class="comment">//2.通过break，continue或return语句</span></span><br><span class="line">  <span class="comment">//3.抛出异常，被catch捕获</span></span><br><span class="line">  <span class="comment">//4.抛出异常，没有被捕获，继续向外抛</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>没有异常抛出，那么执行完try便执行finally；如果异常抛出，则先执行catch中的语句在执行finally，没有catch的话则先执行finally再向外抛处异常</li>
-<li>finally中的throw会覆盖之前抛出的异常，finally中return会忽略之前抛出的异常，覆盖try/catch的return值，然后让函数正常返回。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//抛出异常</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>；<span class="comment">//函数正常返回，忽略向外抛出异常</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>使用try/finally语句可以让while正确模拟continue的for循环：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">initialize;</span><br><span class="line"><span class="keyword">while</span>(test) &#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;statement&#125;;</span><br><span class="line">  <span class="keyword">finally</span>&#123;increment;&#125;</span><br><span class="line">&#125;</span><br><span class="line">这时statement中即使有<span class="keyword">continue</span>，也会执行increment了，和<span class="keyword">for</span>循环一致。</span><br><span class="line">但是statement中有<span class="keyword">break</span>，也会执行increment，这和<span class="keyword">for</span>循环不一致，因为此时<span class="keyword">for</span>循环中不执行increment</span><br></pre></td></tr></table></figure>
-<h2 id="5-7-其他与句"><a href="#5-7-其他与句" class="headerlink" title="5.7 其他与句"></a>5.7 其他与句</h2><p>with、debugger、use strict</p>
-<h3 id="5-7-1-with语句"><a href="#5-7-1-with语句" class="headerlink" title="5.7.1  with语句"></a>5.7.1  with语句</h3><p>with语句用于临时扩展作用域链，严格模式中不能使用，最好也不要用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">将object添加到作用域链的顶部，然后执行statement，最后恢复作用域链</span><br><span class="line">width(object)</span><br><span class="line">  statement</span><br><span class="line"></span><br><span class="line">可用于简化代码：比如访问HTML表单中的元素</span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].address.value</span><br><span class="line">可以简化为</span><br><span class="line">width(<span class="built_in">document</span>.forms[<span class="number">0</span>]) &#123;</span><br><span class="line">  name.value = <span class="string">""</span>;</span><br><span class="line">  address.value = <span class="string">""</span>;</span><br><span class="line">  email.value = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line">这样便可以不用再写dmeocunt.forms[<span class="number">0</span>]这个前缀</span><br><span class="line"></span><br><span class="line">不用<span class="keyword">with</span>语句可以将<span class="built_in">document</span>.forms[<span class="number">0</span>]赋值给变量达到简化效果</span><br><span class="line"><span class="keyword">var</span> f = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br><span class="line">f.name.value = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">切记：<span class="keyword">with</span>语句只是读取属性的简便方式(可以赋值)，不能创建属性</span><br></pre></td></tr></table></figure>
-<h3 id="5-7-2-debugger语句"><a href="#5-7-2-debugger语句" class="headerlink" title="5.7.2 debugger语句"></a>5.7.2 debugger语句</h3><p>debugger语句用于产生断点，方便调试代码(F12下才起作用)</p>
-<h3 id="5-7-3-“use-strict”"><a href="#5-7-3-“use-strict”" class="headerlink" title="5.7.3 “use strict”"></a>5.7.3 “use strict”</h3><p>“use strict”是一条指令，不是语句，用于开启严格模式。</p>
-<ul>
-<li>指令：不包含任何的关键字，只是一个包含特殊字符串直接量的表达式；出现在代码的开始或者函数体的开始处、任何实体语句之前，当不一定是第一行，因为起之前只有都可以有其他字符串直接量表达式；JavaScript具体实现将他们解析为解释器自有的指令；第一条常规语句之后的字符串直接量语句只会当做普通的语句对待。</li>
-<li>具体有哪些限制看书</li>
-</ul>
-<h2 id="5-8-JavaScript语句小节"><a href="#5-8-JavaScript语句小节" class="headerlink" title="5.8 JavaScript语句小节"></a>5.8 JavaScript语句小节</h2><p>看书</p>
-
-          
+          <!--/noindex-->
         
       
     </div>
@@ -1167,275 +650,30 @@
       
         
           
-            <h2 id="第3章-类型、值和变量"><a href="#第3章-类型、值和变量" class="headerlink" title="第3章-类型、值和变量"></a>第3章-类型、值和变量</h2><blockquote>
-<p>计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。</p>
-</blockquote>
-<p>JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。</p>
-<p>JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。</p>
-<p>JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。</p>
-<h2 id="3-1数字"><a href="#3-1数字" class="headerlink" title="3.1数字"></a>3.1数字</h2><p>JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。<br>小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$<br>整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度<br>但是JavaScript中实际的整数操作是基于32位整数。</p>
-<p>当一个数字直接出现在程序中时，我们称为数字直接量。</p>
-<h2 id="3-1-1整数直接量"><a href="#3-1-1整数直接量" class="headerlink" title="3.1.1整数直接量"></a>3.1.1整数直接量</h2><p>除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。</p>
-<h2 id="3-1-2浮点型直接量"><a href="#3-1-2浮点型直接量" class="headerlink" title="3.1.2浮点型直接量"></a>3.1.2浮点型直接量</h2><p>浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量<code>1.458e(E)-32</code><br>简洁语法：<code>[digits][.digits][(E|e)(+|-)]digits</code></p>
-<h2 id="3-1-3算数运算"><a href="#3-1-3算数运算" class="headerlink" title="3.1.3算数运算"></a>3.1.3算数运算</h2><p><code>+ - * / %等</code>更多的运算方法参考Math对象。数字特数量有<code>+-Infinity、+-0、NaN</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">Infinity</span>===<span class="built_in">Number</span>.POSITIVE_INFINITY===<span class="number">1</span>/<span class="number">0</span>===<span class="built_in">Number</span>.MAX_VALUE+<span class="number">1</span></span><br><span class="line">-<span class="literal">Infinity</span>===<span class="number">-1</span>/<span class="number">0</span>===-<span class="built_in">Number</span>.MAX_VALUE<span class="number">-1</span></span><br><span class="line"><span class="literal">NaN</span>=<span class="built_in">Number</span>.NaN===<span class="number">0</span>/<span class="number">0</span></span><br><span class="line"><span class="number">-0</span>===-<span class="built_in">Number</span>.MIN_VALUE/<span class="number">2</span>===<span class="number">-1</span>/<span class="literal">Infinity</span>===<span class="number">0</span></span><br><span class="line"></span><br><span class="line">切记：<span class="literal">NaN</span>不与任何相等，包括自己，所以与自己不相等的值便是<span class="literal">NaN</span>，函数<span class="built_in">isNaN</span>()的原理类似。</span><br></pre></td></tr></table></figure>
-<h2 id="3-1-4二进制浮点数和四舍五入"><a href="#3-1-4二进制浮点数和四舍五入" class="headerlink" title="3.1.4二进制浮点数和四舍五入"></a>3.1.4二进制浮点数和四舍五入</h2><p>根据ieee-754浮点数的存储方式，JavaScript中的浮点数很多时候都是一个近似值，会与理想的计算值存在偏差。</p>
-<h2 id="3-1-5日期和时间"><a href="#3-1-5日期和时间" class="headerlink" title="3.1.5日期和时间"></a>3.1.5日期和时间</h2><p>Date()构造函数用于创建表示日期和时间的对象。更多细节这里不谈。</p>
-<h2 id="3-2文本（字符串）"><a href="#3-2文本（字符串）" class="headerlink" title="3.2文本（字符串）"></a>3.2文本（字符串）</h2><p>字符串本质上是由16位值组成的不可变的有序序列。</p>
-<ul>
-<li>索引从0开始</li>
-<li>没有char的单字符数据类型</li>
-<li>采用UTF-16编码方式存储Unicode内码</li>
-</ul>
-<h2 id="3-2-1字符串直接量"><a href="#3-2-1字符串直接量" class="headerlink" title="3.2.1字符串直接量"></a>3.2.1字符串直接量</h2><p>字符串直接量由单引号或者双引号括起来的字符序列</p>
-<ul>
-<li>单引号中可以包含双引号；双引号中可以包含单引号。</li>
-<li>ES3中字符序列必须写在同一行上，ES5中可以通过反斜线()进行换行，但是反斜线和行结束符都不属于直接量的内容</li>
-<li>可以使用转义字符\n在直接量中表示换行</li>
-</ul>
-<h2 id="3-2-2转义字符"><a href="#3-2-2转义字符" class="headerlink" title="3.2.2转义字符"></a>3.2.2转义字符</h2><p>在JavaScript字符串中，反斜线有着特殊的用途，在反斜线后面加上一个字符可以表示别的字面意义。（转义）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\n \o \b \<span class="string">" \' \\</span></span><br><span class="line"><span class="string">\xXX(两位16进制的Latin-1字符)</span></span><br><span class="line"><span class="string">\uXXXX(4位16进制的Unicode字符)</span></span><br></pre></td></tr></table></figure>
-<p>如果反斜杠后面没有使用规定的字符，则会忽略反斜线。比如’\#’=’#’</p>
-<h2 id="3-2-3字符串的使用"><a href="#3-2-3字符串的使用" class="headerlink" title="3.2.3字符串的使用"></a>3.2.3字符串的使用</h2><ul>
-<li>使用<code>+</code>进行字符串连接</li>
-<li>使用length属性得到16位值的个数(不是字符个数)</li>
-<li>此外还用很多可调用的方法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"hello,world"</span></span><br><span class="line">s.chatAt(<span class="number">0</span>)</span><br><span class="line">s.charAt(s.length<span class="number">-1</span>)</span><br><span class="line">···更多例子看书，或者查看资料</span><br></pre></td></tr></table></figure>
-<p>无论执行什么方法，字符串中的值都是不变的。比如说replace()和toUpperCase()的方法都是返回新的字符串。</p>
-<ul>
-<li>字符串也可以当做只读数组，除了使用charAt()方法，也可以使用方括号访问单个字符。<code>s[0]等价于s.charAt(0)</code></li>
-</ul>
-<h2 id="3-2-4模式匹配"><a href="#3-2-4模式匹配" class="headerlink" title="3.2.4模式匹配"></a>3.2.4模式匹配</h2><p>RegExp()构造函数，用来创建表示文本匹配模式的对象（正则表达式）。</p>
-<ul>
-<li>RegExp对象定义了很多有用的方法，同时字符串也具有接受RegExp为参数的方法。比如<code>text.search(pattern) text.match(pattern) text.replace(pattern, &quot;#&quot;) text.split(pattern)</code></li>
-</ul>
-<h2 id="3-3布尔值"><a href="#3-3布尔值" class="headerlink" title="3.3布尔值"></a>3.3布尔值</h2><p>布尔类型就两个值，保留字true和false。通常用在控制结构之中。</p>
-<ul>
-<li>任何值都可以转化为布尔值。转化为false的值称为假值，转化为true的值称为真值。</li>
-</ul>
-<h2 id="3-4null和undefined"><a href="#3-4null和undefined" class="headerlink" title="3.4null和undefined"></a>3.4null和undefined</h2><p>1.null是关键字，是一个特殊值，常用来描述“空值”。</p>
-<ul>
-<li>typeof null ==&gt; object</li>
-<li>可以表示数字、字符串、对象是“无值的”</li>
-</ul>
-<p>2.undefined是预定义的全局对象，不是关键字。用来表示更深层次的“空值”。比如没有初始化的变量；不存在的属性；没有返回值的函数；没有提供实参的函数的形参的值等都将返回undefined。</p>
-<ul>
-<li>ES3的时候该对象是可读/写的，ES5改为了只读</li>
-<li>typeof undefined ==&gt; undefined</li>
-</ul>
-<p>3.null和undefined不包含任何属性和方法使用“.”和“[]”来存取成员和方法会返回一个类型错误。</p>
-<p>4.undefined可能表示系统级的，出乎意料的或类似错误的空缺；而null表示程序及的，正常的意料中的空缺。如果想赋值给变量，属性或者入参，最佳选择是null。</p>
-<h2 id="3-5全局对象"><a href="#3-5全局对象" class="headerlink" title="3.5全局对象"></a>3.5全局对象</h2><p>这里就简单的提一下，在客户端JavaScript中（浏览器窗口中的JavaScript代码），Window对象充当着全局对象。这个Window对象有一个window属性指向自身，也可以在代码最顶端（即不在任何函数内）使用this来指向Window对象。</p>
-<ul>
-<li>该对象定义了核心的全局属性，也针对Web浏览器和客服端JavaScript定义了少部分其他全局属性</li>
-<li>初次创建时，全局对象定义了JavaScript中所有的预定义全局值。代码声明的全局变量将作为全局对象的一个属性。</li>
-</ul>
-<h2 id="3-6包装对象"><a href="#3-6包装对象" class="headerlink" title="3.6包装对象"></a>3.6包装对象</h2><p>对象是一种复合值，它是属性或已命名值的集合。通过点符号来使用属性。当属性是函数的时候，称其为方法，通过o.m()来调用o中的方法。<br>字符串又不是对象，那么他为什么可以调用这些方法呢?因为在引用字符串s的属性时(假比)，JavaScript会调用new String(s)的方式转换为一个临时对象，该对象继承了方法。一旦属性引用结束，这个临时对象就会销毁。</p>
-<p>同字符串一样，数字和布尔值也有各自的包装类。null和undefined没有。</p>
-<h2 id="3-7不可变的原始值和可变的对象引用"><a href="#3-7不可变的原始值和可变的对象引用" class="headerlink" title="3.7不可变的原始值和可变的对象引用"></a>3.7不可变的原始值和可变的对象引用</h2><ul>
-<li>原始值是不可变得，对象是可变的(有点不懂<a href="https://www.cnblogs.com/pssp/p/5184583.html" target="_blank" rel="noopener">帮助</a>)</li>
-<li>原始值的比较是值的比较，只有它们的值相等时它们才相等；对象的比较是引用地址是否相等（即引用的是否是同一个对象）</li>
-</ul>
-<h2 id="3-8类型转换"><a href="#3-8类型转换" class="headerlink" title="3.8类型转换"></a>3.8类型转换</h2><p>JavaScript取值很灵活，各种数据类型在需要时是可以相互之间进行转换的。<br>表3-2</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th style="text-align:left">字符串</th>
-<th style="text-align:left">数字</th>
-<th style="text-align:left">布尔值</th>
-<th style="text-align:left">对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">“undefined”</td>
-<td style="text-align:left">NaN</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">throws TypeError</td>
-</tr>
-<tr>
-<td style="text-align:left">null</td>
-<td style="text-align:left">“null”</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">throws TypeError</td>
-</tr>
-<tr>
-<td style="text-align:left">true</td>
-<td style="text-align:left">“true”</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new Boolean(true)</td>
-</tr>
-<tr>
-<td style="text-align:left">false</td>
-<td style="text-align:left">“false”</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">new Boolean(false)</td>
-</tr>
-<tr>
-<td style="text-align:left">“”（空串）</td>
-<td style="text-align:left">“”</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">new String(“”)</td>
-</tr>
-<tr>
-<td style="text-align:left">“1.2”（非空，数字）</td>
-<td style="text-align:left">“1.2”</td>
-<td style="text-align:left">1.2</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new String(“1.2”)</td>
-</tr>
-<tr>
-<td style="text-align:left">“one”（非空，非数字）</td>
-<td style="text-align:left">“one”</td>
-<td style="text-align:left">NaN</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new String(“one”)</td>
-</tr>
-<tr>
-<td style="text-align:left">0</td>
-<td style="text-align:left">“0”</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">new Number(0)</td>
-</tr>
-<tr>
-<td style="text-align:left">-0</td>
-<td style="text-align:left">“0”</td>
-<td style="text-align:left">-0</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">new Number(-0)</td>
-</tr>
-<tr>
-<td style="text-align:left">NaN</td>
-<td style="text-align:left">“NaN”</td>
-<td style="text-align:left">NaN</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">new Number(NaN)</td>
-</tr>
-<tr>
-<td style="text-align:left">Infinity</td>
-<td style="text-align:left">“Infinity”</td>
-<td style="text-align:left">Infinity</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new Number(Infinity)</td>
-</tr>
-<tr>
-<td style="text-align:left">-Infinity</td>
-<td style="text-align:left">“-Infinity”</td>
-<td style="text-align:left">-Infinity</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new Number(-Infinity)</td>
-</tr>
-<tr>
-<td style="text-align:left">1（无穷大，非0）</td>
-<td style="text-align:left">“1”</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">new Number(1)</td>
-</tr>
-<tr>
-<td style="text-align:left">对象</td>
-<td style="text-align:left">3.8.3</td>
-<td style="text-align:left">3.8.3</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">对象</td>
-</tr>
-</tbody>
-</table>
-<p><code>Note：字符串转数字允许在开始和结尾处带有空格。但是任意非空格字符都不会被当成数字直接量的一部分，进而造成结果NaN</code></p>
-<h2 id="3-8-1转换和相等性"><a href="#3-8-1转换和相等性" class="headerlink" title="3.8.1转换和相等性"></a>3.8.1转换和相等性</h2><p>由于JavaScript较为灵活的类型转换，因此<code>&quot;==&quot;</code>等可以操作多种数据类型的操作符会对两端的表达式进行多变的灵活转换(具体在下一章中进行说明解释)<br>比如说:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//返回true</span></span><br><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">//返回true 会将字符串转化为数字</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">//返回true 会将false转化为数字0</span></span><br><span class="line"><span class="string">"0"</span> == <span class="literal">false</span> <span class="comment">// 返回true 会将字符串和false均转化为数字0</span></span><br></pre></td></tr></table></figure>
-<p>4.9.1节将会详细的讲解<code>==</code>运算符</p>
-<h2 id="3-8-2显示类型转换"><a href="#3-8-2显示类型转换" class="headerlink" title="3.8.2显示类型转换"></a>3.8.2显示类型转换</h2><p>尽管JavaScript可自动的做许多类型转换，但是有时仍然会需要手动的进行类型转换以替换自动转换，或者为了使代码更为清晰易读。</p>
-<p>做显示转换的方式就是通过<code>Boolean() Number() String() Object()</code>等函数实现的。当我们不使用new运算符调用这些函数时，它们会作为类型转换函数并按照3-2表所描述的规则进行类型转换。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">'3'</span>) <span class="comment">//--&gt;3</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">false</span>) <span class="comment">//--&gt;"false"</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// --&gt;true</span></span><br><span class="line">Oject(<span class="number">3</span>) <span class="comment">//--&gt;new Number(3)</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>需要注意，除了null和undefined以外的任何数据类型都是具有toString()方法的，这个方法的返回值通常来说和String()转换方法的返回结果相同。</li>
-<li>如果隐性的试图把null和undefined转换为对象，会想表3-2中描述的那样，将会抛出一个类型错误的异常。当时通过Object()方法显示转换则不会抛出类型错误，它会简单的返回一个新创建的空对象。</li>
-<li>开始提到过，JavaScript中某些运算符会做隐式的类型转换。比如说”+”运算符如果一个操作数是字符串，则会将另一个操作数转换为字符串；一元”+”会将操作数转换为数字；”!”会将操作数转为布尔类型并取反。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+x <span class="comment">//等价于Number(x) 也可以写为x-0</span></span><br><span class="line">!!x <span class="comment">//等价于Boolean(x)</span></span><br></pre></td></tr></table></figure>
-<p>在计算机中，数字的解析和格式化是非常普遍的工作，JavaScript提供了专门的函数和方法来更为精细的进行数字和字符串之间的相互转换。</p>
-<ul>
-<li>Number类的toString()方法可以接受转换的基数作为可选参数（不指定则默认为10进制）</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">17</span>;</span><br><span class="line">n.toString(<span class="number">2</span>) <span class="comment">//"10001"</span></span><br><span class="line">n.toString(<span class="number">8</span>) <span class="comment">//"021"</span></span><br><span class="line">n.toString(<span class="number">16</span>) <span class="comment">//"0x11"</span></span><br></pre></td></tr></table></figure>
-<p>当处理小数和科学运算时还有以下一些方法</p>
-<blockquote>
-<p>toFixed()：根据小数点后的指定位数将数字转为字符串<br>toExponential()：使用科学计数法将数字转换为字符串，小数点前面只有一位，小数点后位数由参数指定<br>toPrecision()：根据指定的有效数字位数（从开头计）将数字转换成字符串，如果有效数字的位数少于数字整数部分的位数，会使用科学计数法</p>
-</blockquote>
-<ul>
-<li>如果使用Number()将字符串转换为数字直接量，那么首先是基于10进制的，其次不能出现非法字符（不是数字）。而parseInt()和parseFloat()函数更加的灵活(它们是全局函数，不从属于任何类)。<br>parseInt()可以解析”0x”和”0X”前缀的为16进制数。<br>parseInt()和parseFloat()均忽略任意数量的前导空格，然后尽可能的解析连续的合法数字直接量，并忽略紧跟数字后的非数字内容，如果第一个非空格字符不是合法的数字直接量，那么返回NaN。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"3 blinde mide"</span>) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"3.114 asdfasf"</span>) <span class="comment">// 3.114</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0xFF"</span>) <span class="comment">//255</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0xff"</span>) <span class="comment">//255</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"-0XFF"</span>) <span class="comment">//-255</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">".1"</span>) <span class="comment">//0.1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0.1"</span>) <span class="comment">//0</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">".1"</span>) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"$45.64"</span>) <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
-<p>parseInt()可以接受第二个参数，指定字符串数字直接量的底数，然后转换为10进制的结果，范围2-36</p>
-<h2 id="3-8-3对象转换为原始值"><a href="#3-8-3对象转换为原始值" class="headerlink" title="3.8.3对象转换为原始值"></a>3.8.3对象转换为原始值</h2><p>1.对象到布尔类型：所有的对象转换为布尔类型的结果均为true，包括new Boolean(false)<br>2.对象到字符串和数字：</p>
-<ul>
-<li>所有的对象继承了两个方法一个toString()和valueOf()</li>
-<li>toString()作用是返回一个反应对象的字符串（实际可以返回任意值）。</li>
-<li>很多类多定义了自己特定版本的toString()。比如数组类toString()方法将每个元素根据自己的规则转换为字符串，并在元素之间添加逗号合成结果字符串；函数类的toString()方法返回函数的源代码字符串；Data类型返回一个可读的日期和时间字符串；RegExp返回正则表达式的直接量的字符串。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].toString <span class="comment">//"1,2,3"</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;f(x);&#125;).toString() <span class="comment">//"function(x) &#123;\nf(x);\n&#125;"</span></span><br><span class="line">/\d+<span class="regexp">/g.toString() /</span><span class="regexp">/"/</span>\\g+<span class="regexp">/g"</span></span><br><span class="line"><span class="regexp">new Date(2010,1,1).toString() /</span><span class="regexp">/"Fri Jan 01 2010 00:00:00 GMT-0800 (PST)"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>valueOf()方法的任务没有详细的定义，对于大多数对象，这个方法简单的返回对象本身。数组、函数、正则表达式都只是简单的继承了这个方法，调用这些类的实例的valueOf()方法只会返回对象本身。但是日期对象的valueOf()方法返回一个由1970年1月1日以来的毫秒数的数字。</li>
-</ul>
-<p>3.对象到字符串转换步骤<code>发生在要求转换为字符串的场合（隐式或显示）</code></p>
-<ul>
-<li>如果对象有toString()方法，调用该方法。如果返回值是原始值，则将该值转换为字符串类型（表3-2）（如果原始值不是字符串的话），然后返回该字符串</li>
-<li>如果对象没有toString()方法，或者该方法返回值不是原始值，那么将会调用valueOf()方法(如果存在)。如果返回值是原始值，同样的将该值转换为字符串类型（表3-2）（如果原始值不是字符串的话），然后返回该字符串</li>
-<li>否则JavaScript无法从这两个方法中获得一个原始值，因此抛出类型错误异常</li>
-</ul>
-<p>4.对象到数字的转化步骤<code>同转换为字符串步骤相同，只是调换了两个方法的次序</code></p>
-<ul>
-<li>如果对象有valueOf()方法，且返回一个原始值，将该原始值转为数字，并返回数字</li>
-<li>否则，如果对象有toString()方法，且返回一个原始值，将该原始值转为数字，并返回数字</li>
-<li>否则JavaScript无法从这两个方法中获得一个原始值，因此抛出类型错误异常</li>
-</ul>
-<p>这也就解释了为什么空数组转换为数字的结果是0，首先调用valueOf()返回对象，舍去；然后调用toString()返回空字符串””,””转为数字便是0</p>
-<p>5.对象转换为原始值<code>不会强转为数字或字符串，而是保持原始值返回</code></p>
-<ul>
-<li>大多数运算符的操作数的类型都是唯一的，比如说减号“-”要求两边都是数字，此时会隐式的将操作数转换为数字类型，对象则会调用上面的转数字的操作得到数字并返回。但是有些运算符可以操作多种类型的操作数，比如说<code>“+”、“==”</code>以及一些其他的关系运算符，此时对于对象将会使用一种有点不同的转换方式，将对象转为原始值（不会进行强制转换）</li>
-<li>对于这些运算符，任何对象都是先调用valueOf()方法来尝试返回原始值，否则，再调用toString()得到原始值。切记此时日期对象Date的调用顺序的相反的。</li>
-</ul>
-<h2 id="3-9变量声明"><a href="#3-9变量声明" class="headerlink" title="3.9变量声明"></a>3.9变量声明</h2><p>在JavaScript中，使用一个变量之前应当先声明。使用关键字`“var”来声明变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">var</span> i, sum;</span><br><span class="line"><span class="keyword">var</span> message=<span class="string">"hello"</span></span><br><span class="line"><span class="keyword">var</span> i =<span class="number">0</span> , j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果未在var声明时初始化变量，则变量的值将是undefined。</li>
-<li>JavaScript是动态语言，变量的类型是可变的</li>
-<li>读取一个没有声明的变量会报错<code>Uncaught ReferenceError: i is not defined</code></li>
-<li>ES5严格模式下给一个没有声明的变量赋值也会报错</li>
-<li>ES5非严格模式下给一个没有声明的变量赋值不会报错，而是会给全局对象创建一个同名属性，工作起来很像(但不是完全一样)一个正常声明的全局属性。但不是一个好习惯，会产生bug，所以应当始终使用var声明变量，不能省略var</li>
-</ul>
-<h2 id="3-10变量作用域"><a href="#3-10变量作用域" class="headerlink" title="3.10变量作用域"></a>3.10变量作用域</h2><p>一个变量的作用域是程序源代码中定义这个变量的区域。</p>
-<ul>
-<li>全局变量拥有全局作用域，在JavaScript代码中的任何地方都是由定义的。</li>
-<li>函数内部通过var声明的变量只能在函数体内使用。他们是局部变量，只能在函数内部使用，函数参数也是局部变量，只能在函数体内有定义。</li>
-<li>在函数体内，局部变量的优先级高于同名的全局变量。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  <span class="keyword">var</span> scope = <span class="string">"local"</span>;</span><br><span class="line">  <span class="keyword">return</span> scope;</span><br><span class="line">&#125;</span><br><span class="line">checkscope();<span class="comment">//"local"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>虽然全局变量可以省略var语句，但是声明局部变量时必须使用var语句，否则将会创建全局变量，如下：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line">funciton checkscope() &#123;</span><br><span class="line">  scope = <span class="string">"local"</span>; <span class="comment">//修改了全局变量</span></span><br><span class="line">  myscope = <span class="string">"local"</span>; <span class="comment">//创建了新的全局变量</span></span><br><span class="line">  <span class="keyword">return</span> [scope,myscope];</span><br><span class="line">&#125;</span><br><span class="line">checkscope();<span class="comment">//["local","local"]</span></span><br><span class="line">scope <span class="comment">//"local" 被修改了</span></span><br><span class="line">myscope <span class="comment">//"local" 多出一个全局变量 全局命名空间乱了</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>函数定义是可以嵌套的，每个函数都有自己的作用域，因此会出现几个局部作用域嵌套的情况。</li>
-</ul>
-<h2 id="3-10-1函数作用域和声明提前"><a href="#3-10-1函数作用域和声明提前" class="headerlink" title="3.10.1函数作用域和声明提前"></a>3.10.1函数作用域和声明提前</h2><p>在C语言中，花括号内的代码都有自己的作用域，称为块级作用域。而JavaScript没有块级作用域，取而代之的是函数作用域。可以由内向外的调用变量。</p>
-<ul>
-<li>JavaScript同级函数作用域内的变量声明和函数声明都会在当级作用域内被提前，但不涉及到声明后的赋值操作，也就是说都为undefined。该特性是在JavaScript引擎的“预编译”时执行的，在代码执行前执行。具体看这份<a href="http://www.slideshare.net/lijing00333/javascript-engine" target="_blank" rel="noopener">ppt文档</a></li>
-</ul>
-<h2 id="作为属性的变量"><a href="#作为属性的变量" class="headerlink" title="作为属性的变量"></a>作为属性的变量</h2><p>当声明全局变量时其实是定义了全局对象的一个属性，当使用var声明时，创建的属性是不可配置的(6.7),也就是说该属性是无法被delete运算符删除的。在非严格模式下，不使用var创建的全局对象的属性是可配置，可以通过delete删除。</p>
-<p>那么局部变量是否具有这种变量作为对象属性的特质呢?可以想象，局部变量当做函数调用相关的某个对象的属性，ES3中叫“调用对象”，ES5中叫“声明上下文”。但是去无法通过this来引用该对象。对我们而言是一种不可见的内部实现。具体会在之后讲解。</p>
-<h2 id="3-10-3作用域链"><a href="#3-10-3作用域链" class="headerlink" title="3.10.3作用域链"></a>3.10.3作用域链</h2><p>局部变量同级函数体内和嵌套的函数内是由定义的，这都是作用域链的功能。这个概念之后再详细介绍。</p>
+            <p>
+              第3章-类型、值和变量
+计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。
 
+JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。
+JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。
+JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。
+3.1数字JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度但是JavaScript中实际的整数操作是基于32位整数。
+当一个数字直接出现在程序中时，我们称为数字直接量。
+3.1.1整数直接量除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。
+3.1.2浮点型直接量浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量1.458e(E)-32简洁语法：[digits][.digits][(E|e)(+|-)]digits
+3.1.3算数运算+ - * / %等更多的运算方法参考Math对象。数字特数量有+-Infinity、+-0、NaN
+Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1-Inf
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/类型、值和变量/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1606,205 +844,25 @@
       
         
           
-            <h2 id="第4章-表达式和运算符"><a href="#第4章-表达式和运算符" class="headerlink" title="第4章-表达式和运算符"></a>第4章-表达式和运算符</h2><p>什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为<code>一个数组表达式[一个整数表达式]</code>；同样的函数调用表达式<code>一个函数表达式[0个或多个参数表达式]</code></p>
-<p>将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指定的运算规则对操作数进行计算，并返回结果值。</p>
-<h2 id="4-1原始表达式"><a href="#4-1原始表达式" class="headerlink" title="4.1原始表达式"></a>4.1原始表达式</h2><p>最简单的表达式是“原始表达式”。原始表达式是表达式的最小单位-它们不能再包含其他表达式。JavaScript中原始表达式包括常量或直接量、关键字和变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">直接量</span><br><span class="line"><span class="number">1.23</span></span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line">/pattern/</span><br><span class="line"></span><br><span class="line">保留字</span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="keyword">this</span><span class="comment">//不是常量</span></span><br><span class="line"></span><br><span class="line">变量</span><br><span class="line">i<span class="comment">//返回变量i的值</span></span><br><span class="line">sum<span class="comment">//返回变量sum的值</span></span><br><span class="line"><span class="literal">undefined</span><span class="comment">//undefined是全局变量，和null不同，他不是关键字</span></span><br></pre></td></tr></table></figure>
-<p>在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。</p>
-<h2 id="4-2对象和数组的初始化表达式"><a href="#4-2对象和数组的初始化表达式" class="headerlink" title="4.2对象和数组的初始化表达式"></a>4.2对象和数组的初始化表达式</h2><p>对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">数组(子表达式会进行计算)</span><br><span class="line">[]</span><br><span class="line">[<span class="number">1</span>+<span class="number">2</span>,<span class="number">3</span>+<span class="number">4</span>]</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>][<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>][<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">逗号之间的元素省略会填充<span class="literal">undefined</span></span><br><span class="line">末尾逗号不会创建一个新的<span class="literal">undefined</span>元素</span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>]<span class="comment">//三个undefined</span></span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>,]<span class="comment">//三个undefined</span></span><br><span class="line"></span><br><span class="line">对象直接量（子表达式进行计算）</span><br><span class="line"><span class="keyword">var</span> p = &#123;&#125;；</span><br><span class="line"><span class="keyword">var</span> q = &#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> rectangle=&#123;<span class="attr">upperleft</span>:&#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;,<span class="attr">lowerRight</span>:&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">5</span>&#125;&#125;<span class="comment">//可以是任意的JavaScript表达式</span></span><br><span class="line"></span><br><span class="line">对象的属性名称可以不使用标识符，而使用字符串</span><br><span class="line"><span class="keyword">var</span> scope=&#123;<span class="string">"upperleft"</span>:&#123;<span class="attr">x</span>:p.x,<span class="attr">y</span>:p.y&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>这里只是初步讨论，之后会在对象和数组章节进行详细的介绍。</p>
-<h2 id="4-3函数定义表达式（函数直接量）"><a href="#4-3函数定义表达式（函数直接量）" class="headerlink" title="4.3函数定义表达式（函数直接量）"></a>4.3函数定义表达式（函数直接量）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;函数表达式</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;函数声明语句</span><br></pre></td></tr></table></figure>
-<p>后面会详细将，自己也可以看看<code>潭州/08-函数.md</code></p>
-<h2 id="4-4属性访问表达式"><a href="#4-4属性访问表达式" class="headerlink" title="4.4属性访问表达式"></a>4.4属性访问表达式</h2><p>该表达式运算得到对象属性值或一个数组元素的值。有一下两中语法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expression.identifier<span class="comment">//对象属性的名称</span></span><br><span class="line">expression[expression]<span class="comment">//对象的属性或者数组的下标</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:&#123;<span class="attr">z</span>:<span class="number">3</span>&#125;&#125;</span><br><span class="line"><span class="keyword">var</span> a=&#123;o,<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>]&#125;</span><br><span class="line">o.x<span class="comment">//1</span></span><br><span class="line">o.y.z<span class="comment">//3</span></span><br><span class="line">o[<span class="string">"x"</span>]<span class="comment">//1</span></span><br><span class="line">a[<span class="number">1</span>]<span class="comment">//4</span></span><br><span class="line">a[<span class="number">2</span>][<span class="string">"1"</span>]<span class="comment">//6</span></span><br><span class="line">a[<span class="number">0</span>].x<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>两种访问方式（.和[ ]）都是先计算其之前的表达式，如果计算结果为null或者undefined，那么抛出类型错误异常</li>
-<li>如果结果不是对象类型，JavaScript会将其转换为对象类型(3.6)。但是1不会被识别为直接量，而是会被识别为非法的标识符。</li>
-<li>.符号会查找标识符指定的属性值，[]则会计算括号内的表达式并将其转换为<code>字符串</code></li>
-<li>只要命名的属性不存在，那么整个属性访问表达式返回undefined</li>
-<li><code>.identifier</code>写法更简单，但是功能更受限：</li>
-</ol>
-<ul>
-<li>访问的属性名称必须是合法的标识符(数字不当头)</li>
-<li>不能是一个保留字或者包含空格和标点符号</li>
-<li>不能在代码中动态生成</li>
-<li>所有这些在<code>[expression]</code>中都是可行的。哈哈</li>
-</ul>
-<h2 id="4-5调用表达式"><a href="#4-5调用表达式" class="headerlink" title="4.5调用表达式"></a>4.5调用表达式</h2><p>一种调用/执行函数或者方法的语法表现。<code>（返回函数对象的）函数表达式(参数)</code></p>
-<ol>
-<li>先计算函数表达式，然后计算参数表达式得到实参。（然后实参会赋值给形参）</li>
-<li>函数表达式的值不是一个可调用的对象，则抛出一个类型错误异常（8.7.7可调用对象）</li>
-<li>如果函数表达式是属性访问表达式，那么称为方法调用，方法调用的this指向该方法的对象 （严格模式中this不指向全局对象）</li>
-</ol>
-<h2 id="4-6对象创建表达式"><a href="#4-6对象创建表达式" class="headerlink" title="4.6对象创建表达式"></a>4.6对象创建表达式</h2><p>对象创建表达式通过调用一个函数(构造函数)初始化对象的属性来创建对象。对象创建表达式和函数调用表达式非常类似，但是函数调用没有new关键字：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">new</span> Point(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">如果不需要传入任何参数，那么括号可以省略</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>;</span><br></pre></td></tr></table></figure>
-<p>构造函数的细节查看9章</p>
-<h2 id="4-7运算符概述-哇，表达式终于完了"><a href="#4-7运算符概述-哇，表达式终于完了" class="headerlink" title="4.7运算符概述(哇，表达式终于完了)"></a>4.7运算符概述(哇，表达式终于完了)</h2><ol>
-<li>算术/比较/逻辑/赋值等</li>
-<li>大部分运算符由标点符号表示，有一些则由关键字表示，比如delete 和 instanceof</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">运算符优先级</a></li>
-</ol>
-<ul>
-<li>圆括号(n/a)&gt;成员访问(L).=(L)成员访问[]=new带参数(n/a)=函数调用(L)&gt;new无参(R)</li>
-<li>单目运算符优先级比较高，且都是从右往左(R)</li>
-<li>…++=…–&gt;++…=–…</li>
-<li>具体内容看书</li>
-</ul>
-<h3 id="4-7-1操作数的个数"><a href="#4-7-1操作数的个数" class="headerlink" title="4.7.1操作数的个数"></a>4.7.1操作数的个数</h3><p>分为一元运算符(++)、二元运算符(+)、三元运算符(?:)</p>
-<h3 id="4-7-2操作数的类型和结果类型"><a href="#4-7-2操作数的类型和结果类型" class="headerlink" title="4.7.2操作数的类型和结果类型"></a>4.7.2操作数的类型和结果类型</h3><ol>
-<li>一些运算符希望操作数是指定的类型，并且返回指定的类型值。</li>
-<li>通常来说运算符会根据操作数进行类型转换(3.8)</li>
-<li>有一些运算符依赖于操作数的类型来进行不同的类型转换和返回不同的类型值</li>
-</ol>
-<h3 id="4-7-3左值-lval"><a href="#4-7-3左值-lval" class="headerlink" title="4.7.3左值(lval)"></a>4.7.3左值(lval)</h3><p>指可以出现在赋值运算符左侧的值。一般就是变量、对象属性和数组元素等。</p>
-<h3 id="4-7-4运算符的副作用"><a href="#4-7-4运算符的副作用" class="headerlink" title="4.7.4运算符的副作用"></a>4.7.4运算符的副作用</h3><p>指”++” “=” delete等会运算符会改变操作数(变量)的值，从而产生副作用</p>
-<h3 id="4-7-5运算符优先级"><a href="#4-7-5运算符优先级" class="headerlink" title="4.7.5运算符优先级"></a>4.7.5运算符优先级</h3><p>优先级高的运算符的执行总是优先于优先级低的运算符。优先级相同的运算符按照运算顺序执行。<br>可以使用圆括号“()”来改变运算符的执行顺序，因为圆括号有着最高的优先级(当然，此圆括号不是指函数调用，new有参时的圆括号),但不是说<code>a*(b+c)</code>是先计算b+c，更像是将圆括号内的表达式们看做了一个整体的自表达式，对外界而言其内部的运算符运行顺序不受外界影响。</p>
-<h3 id="4-7-6运算符的结合性"><a href="#4-7-6运算符的结合性" class="headerlink" title="4.7.6运算符的结合性"></a>4.7.6运算符的结合性</h3><p>L表示从左往右结合，R表示从右往左结合。结合性指定了同一表达式中的多个具有相同优先级的运算符的运算顺序。</p>
-<p>一般来说一元运算符、赋值和三目运算符都具有R–&gt;的结合性</p>
-<h3 id="4-7-7运算顺序"><a href="#4-7-7运算顺序" class="headerlink" title="4.7.7运算顺序"></a>4.7.7运算顺序</h3><p>运算符的优先级和结合性规定了运算符在复杂表达式中的运算顺序，但是并没有规定运算符的操作数或者说子表达式的运算顺序。JavaScript总是严格按照从左往右的顺序来计算子表达式。比如，<code>w=x+y*z</code>中先计算表达式w，然后依次计算x，y，z表达式，然后才是运算符计算表达式的返回结果，即y*z然后+x最后赋值给w表达式的返回值。<br>对于副作用的运算符，比如<code>a=1;b=(a++)+a</code>最终b等于3</p>
-<h2 id="算术表达式"><a href="#算术表达式" class="headerlink" title="算术表达式"></a>算术表达式</h2><ol>
-<li>基本的算术运算符包括<code>+ - * / %</code></li>
-<li>除去<code>+</code>运算符外，剩余4个运算符都是将操作数先转化为数字然后进行相应的计算。无法转为数字的操作数转为NaN，操作数是NaN将导致算符运算符的结果也是NaN（<code>+除外 NaN+&quot;a&quot;//&quot;NaNa&quot;</code>）。</li>
-<li>运算符<code>/</code>：结果都是浮点型；<code>?/0</code>可能返回无穷大和无穷小，<code>0/0</code>返回NaN，所有运算均不报错</li>
-<li>运算符<code>%</code>：<code>?%?</code>结果的符号和第一个操作数的符号保持一致；第二个操作数是负数可以直接取绝对值变作正数使用。一般用于正数，也可以用于浮点数(注意精度不准)</li>
-</ol>
-<h3 id="4-8-1-quot-quot-运算符"><a href="#4-8-1-quot-quot-运算符" class="headerlink" title="4.8.1&quot;+&quot;运算符"></a>4.8.1<code>&quot;+&quot;</code>运算符</h3><p>计算时的行为表现如下：</p>
-<ol>
-<li>如果有操作数是对象，遵循对象到原始值的转换规则转换为原始值(具体看这里3.8.3):日期对象toString()，其他对象valueOf()<br>没有valueOf()则调用toString</li>
-<li>当操作数都是原始值以后，如果有一个操作数是字符串，那么另一个操作数也会转换为字符串，然后进行字符串的拼接</li>
-<li>否则，两个操作数都转化为数字(或者NaN)，然后相加</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>+<span class="literal">null</span><span class="comment">//0</span></span><br><span class="line"><span class="number">2</span>+<span class="literal">undefined</span><span class="comment">//NaN</span></span><br><span class="line"><span class="literal">true</span>+<span class="literal">true</span><span class="comment">//2</span></span><br><span class="line"><span class="number">1</span>+&#123;&#125;<span class="comment">//"1[object Object]"</span></span><br></pre></td></tr></table></figure>
-<p>注意运算符结合性和优先级的问题</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">2</span>+<span class="string">"3"</span><span class="comment">//"33"</span></span><br><span class="line"><span class="number">1</span>+(<span class="number">2</span>+<span class="string">"3"</span>)<span class="comment">//"123"</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-8-2一元运算符"><a href="#4-8-2一元运算符" class="headerlink" title="4.8.2一元运算符"></a>4.8.2一元运算符</h3><p>作用于单个操作数，并产生一个新值。一般来说具有高优先级，右结合性，且会将操作转为<code>数字</code></p>
-<ol>
-<li><code>+和-</code>：操作数转为数字</li>
-<li><code>&quot;++和--&quot;</code>：操作数转为数字；操作数必须是左值；分为前增量和后增量。<code>a=1;b=1;a+++b;//(a++)+b</code></li>
-</ol>
-<h3 id="4-8-3位运算符"><a href="#4-8-3位运算符" class="headerlink" title="4.8.3位运算符"></a>4.8.3位运算符</h3><p>这里归为算术运算，JavaScript中不常用。</p>
-<ol>
-<li>要求操作数是整数，由32位整数表示，而不是64位浮点数</li>
-<li>先将操作数转为数字，然后强制表示为32整数，忽略小数部分和超过32位的部分。（不是很清楚）并且舍弃第5位之后的二进制位，一边生成一个正确的数字。</li>
-<li><code>NaN Infinity -Infinity</code>转为0</li>
-</ol>
-<p><strong>按位与&amp;</strong><br>对两边的整形操作数执行按位与（and）操作，<code>0x1234&amp;0x00ff=0x0034</code></p>
-<p><strong>按位或|</strong><br>对两边的整形操作数执行按位或（or）操作，<code>0x1234&amp;0x00ff=0x12ff</code></p>
-<p><strong>按位异或^</strong><br>对两边的整形操作数执行按位异或（xor）操作，对应为位不同返回1，相同返回0<code>0xff00&amp;0xf0f0=0x0f0f</code></p>
-<p><strong>按位非~</strong><br>对两边的整形操作数执行按位非操作，<code>~0xff=0xfffffff0(32位)或者-16</code>。相当于数值上取反-1，<code>取反+1=取负号（0和最小负数除外）</code></p>
-<p><strong>左移&lt;&lt;</strong><br>32位整数，舍去左边的移除位，其余位依次左移动，新位由0补充。相当于乘以2。<code>7&lt;&lt;2=28</code>：简单说只要没有超过范围就简单的乘以2，超过了相当于减去(加上)<code>|MIN|</code>然后在乘以2(详细细节看图)<br><img src="/blog/images/js/4-8-3左移.jpg" alt="左移"></p>
-<p><strong>带符号位右移&gt;&gt;</strong><br>32位整数，舍去右边的移除位，其余位依次右移动，新位由符号位补充。(详细看图)<br><img src="/blog/images/js/4-8-3右移.jpg" alt="右移"></p>
-<p><strong>无符号右移&gt;&gt;&gt;</strong><br>和带符号右移&gt;&gt;相似，只是新位由0补充，而不是符号位。<br>此时正数规则同<code>&gt;&gt;</code>一样，不变；负数相比于原来的结果在数值上会加上一个<code>|MIN|</code></p>
-<h2 id="4-9关系运算符"><a href="#4-9关系运算符" class="headerlink" title="4.9关系运算符"></a>4.9关系运算符</h2><p>关系运算符用于测试两个值之间的关系，根据关系是否存在返回true或者false。(in 和 instanceof也是关系运算符)</p>
-<h2 id="4-9-1相等和不相等运算符"><a href="#4-9-1相等和不相等运算符" class="headerlink" title="4.9.1相等和不相等运算符"></a>4.9.1相等和不相等运算符</h2><p><code>==</code>:相等运算符<code>===</code>：严格相等运算符。<code>!=</code> <code>!==</code>是这两个运算符的结果取反。</p>
-<p>3.7节提到过，对象比较的是引用，而不是值本身。例如两个不同的对象具有相同的属性名和值，它们依然不相等；值相同的两个数组依旧是不相等的。</p>
-<p><strong>严格相等运算符<code>===</code></strong></p>
-<ul>
-<li>会先计算表达式得出两个操作数的值，然后比较这两个值，过程中<code>===</code>不会对操作数进行类型转换。</li>
-</ul>
-<ol>
-<li>如果两个操作数类型不相同，返回fasle（所以后面只讨论类型相同的情况）</li>
-<li>如果两个操作数都是null或者都是undefined，返回true</li>
-<li>如果两个操作数都是布尔值true或者都是false，返回true</li>
-<li>其中一个是NaN，或者两个都是NaN，返回false。（NaN和任何值包括<code>自己</code>都是不相等的。通过<code>x!==x</code>来判断x是不是NaN）</li>
-<li>如果两个操作数都是数字，且相等，返回true；0和-0也返回true</li>
-<li>如果两个操作数都是字符串，且对应位上的16位Unicode(3.2)相等，则返回true。<br>因为JavaScript没有进行标准化Unicode转换，所以有时两个字符串显示一样，但是具有不同的编码，导致返回false。String.localeCompare()提供了另外一种比较字符串的方法。</li>
-<li>如果两个引用指向同一个对象、数组或函数，则它们是相等的，返回true。如果引用指向不同的对象，则返回false，尽管它们包含的内容一样。</li>
-</ol>
-<p><strong>相等运算符<code>===</code></strong></p>
-<ul>
-<li>相比于<code>===</code>，<code>==</code>有一点不严格。即如果两个操作数不是同一类型，会进行类型转换。</li>
-</ul>
-<ol>
-<li>类型相同则依照<code>===</code>的规则判断（否则类型不同，进入如下步骤）</li>
-<li>如果一个是null，一个是undefined，返回true</li>
-<li>一个是数字，一个字符串，字符串转为数字，然后比较。</li>
-<li><code>true false</code>均转为数字<code>1 0</code>后再比较</li>
-<li>如果一个是对象，另外一个是数字或者字符串，那么对象先转为原始值，在比较。（对象怎么转为原始值看第3章）</li>
-<li>其他情况返回false</li>
-</ol>
-<h3 id="4-9-2比较运算符（-lt-gt-lt-gt-）"><a href="#4-9-2比较运算符（-lt-gt-lt-gt-）" class="headerlink" title="4.9.2比较运算符（&lt; &gt; &lt;= &gt;=）"></a>4.9.2比较运算符（<code>&lt; &gt; &lt;= &gt;=</code>）</h3><ul>
-<li>所有的操作数会转化为数字和字符串（当然除去数字和字符串）</li>
-</ul>
-<ol>
-<li>如果操作数是对象，转为原始值(3.8.3)</li>
-<li>对象转换为原始后，如果操作数都是字符串，依照16Unicode码进行比较</li>
-<li>对象转换为原始后，如果至少有一个操作数不是字符串，那么两个操作数都转为数字。NaN永远返回false，0 -0相等，Infinity最大-Infinity最小。</li>
-</ol>
-<ul>
-<li>“+”偏爱字符串，比较运算偏爱数字。</li>
-<li>String.localCompare()比较字符串更为的健壮；使用String.toLowerCase(),String.toUpperCase()做大小写转换</li>
-<li><code>&lt;= &gt;=</code>在判断相等的时候并不依赖于<code>==和===</code>，只是简单的‘不大于’或者‘不小于’</li>
-</ul>
-<h3 id="4-9-3in运算符"><a href="#4-9-3in运算符" class="headerlink" title="4.9.3in运算符"></a>4.9.3<code>in</code>运算符</h3><ul>
-<li><code>in</code>希望左边操作数是字符串（或者转换为字符串），希望右边是一个对象。</li>
-<li>如果右侧对象有名为左侧操作数的值的属性，返回true。</li>
-</ul>
-<h3 id="4-9-4instanceof运算符"><a href="#4-9-4instanceof运算符" class="headerlink" title="4.9.4instanceof运算符"></a>4.9.4<code>instanceof</code>运算符</h3><ul>
-<li><code>instanceof</code>希望左边是一个对象，右边是一个表示对象的类（函数）。如果左边对象是右边对象的实例，返回true。</li>
-<li>如果左操作数不是对象，返回false<code>&quot;a&quot; instanceof String//false 不会进行包装类转化</code>；右操作数不是函数，抛出类型错误异常。</li>
-<li>instanceof运算符的工作原理和原型链相关。<code>i instanceof f</code>中会先计算f.prototype 然后在o的原型链中寻找f.prototype，找到就返回true，找不到返回false。</li>
-</ul>
-<h2 id="4-10逻辑运算符（-amp-amp-）"><a href="#4-10逻辑运算符（-amp-amp-）" class="headerlink" title="4.10逻辑运算符（&amp;&amp; || !）"></a>4.10逻辑运算符（<code>&amp;&amp; || !</code>）</h2><p><code>&amp;&amp; || !</code>对操作数进行布尔计算。优先级低于关系运算符</p>
-<h3 id="4-10-1逻辑与-amp-amp"><a href="#4-10-1逻辑与-amp-amp" class="headerlink" title="4.10.1逻辑与(&amp;&amp;)"></a>4.10.1逻辑与(&amp;&amp;)</h3><p>可以分为三个不同的层次理解（先计算左边表达式）</p>
-<ol>
-<li>当操作数都是布尔值时，返回布尔与运算(AND)的结果</li>
-<li>操作数不一定非要是布尔值，因为操作数分为真值和假值，所以最终的返回值也为真值和假值，而不一定是true和false</li>
-<li>逻辑与运算&amp;&amp;存在短路，如果第一个操作数是假值，则返回第一个操作数，且第二个操作数不会进行运算；否则第一个操作数是真值，返回第二个操作数运算结果。</li>
-</ol>
-<p>例子</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;；</span><br><span class="line"><span class="keyword">var</span> p=<span class="literal">null</span>；</span><br><span class="line">o &amp;&amp; o.x<span class="comment">//1 返回o.x</span></span><br><span class="line">p &amp;&amp; p.x<span class="comment">//null ：p是假值，将其返回，并不计算p.x,所以不报错</span></span><br><span class="line"></span><br><span class="line">以下运行流程等价（只是后一个表达式由返回值，前一个<span class="keyword">if</span>语句没有返回值）</span><br><span class="line"><span class="keyword">if</span>(a==b) stop();</span><br><span class="line">(a==b)&amp;&amp;stop();</span><br><span class="line">所以可以替代<span class="keyword">if</span>语句，只有条件全部成立才执行最后的语句。</span><br></pre></td></tr></table></figure>
-<p>多数情况下，&amp;&amp;仅用来做真值和假值的布尔运算。</p>
-<h3 id="4-10-2逻辑或"><a href="#4-10-2逻辑或" class="headerlink" title="4.10.2逻辑或||"></a>4.10.2逻辑或||</h3><p>和&amp;&amp;运算一样具有三层意思，常用用于从一组备选表达式中选出第一个真值表达式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在前面两个值都为假值的情况下，提供一个<span class="number">500</span>的默认参数。</span><br><span class="line"><span class="keyword">var</span> max = max_width||preferences.max_width||<span class="number">500</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">o, p</span>) </span>&#123;</span><br><span class="line">  p = p || &#123;&#125;;<span class="comment">//没有传入参数p，则默认赋值为一个空对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-10-3逻辑非"><a href="#4-10-3逻辑非" class="headerlink" title="4.10.3逻辑非(!)"></a>4.10.3逻辑非(!)</h3><ul>
-<li>!运算符是一个单目运算符，用于将操作数的布尔值取反。如果x是真值那么<code>!x</code>返回<code>false</code>，如果x是假值那么<code>!x</code>返回<code>true</code></li>
-<li>和<code>&amp;&amp; ||</code>运算符不同，<code>!</code>会将操作数转化为布尔值，然后在取反。<code>!!x等价于Boolean(x)</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!(p &amp;&amp; q)===!p || !q</span><br><span class="line">!(p || q)===!p &amp;&amp; !q</span><br></pre></td></tr></table></figure>
-<h2 id="4-11赋值表达式"><a href="#4-11赋值表达式" class="headerlink" title="4.11赋值表达式"></a>4.11赋值表达式</h2><p>JavaScript使用<code>=</code>运算符来给变量或者属性赋值。</p>
-<ol>
-<li>左操作数必须是一个左值，右操作数可以任何类型的任意值；返回值为赋值给左操作数的值（说白了就是右操作数的运算值）；结合性从右往左；具有副作用；优先级基本最低</li>
-</ol>
-<p><strong>带操作的赋值运算</strong><code>+= -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= |= ^=</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">下列两个表达式是有不同的</span><br><span class="line">a op= b <span class="comment">//表达式a只计算了一次，计算表达式a，表达式b，然后计算a*b并赋值给a</span></span><br><span class="line">a = a op b <span class="comment">//表达式a计算了两次，计算表达式a1, 表达式a2，表达式b 然后计算a2*b赋值给a1(a1表示左边的a，a2表示右边的)</span></span><br><span class="line"></span><br><span class="line">比如</span><br><span class="line">data[i++] *= <span class="number">2</span> <span class="comment">//等价于data[i]=date[i]*2</span></span><br><span class="line">data[i++]=data[i++] * <span class="number">2</span> <span class="comment">//等价于data[i]=date[i+1]*2</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-12表达式计算-eval"><a href="#4-12表达式计算-eval" class="headerlink" title="4.12表达式计算(eval)"></a>4.12表达式计算(eval)</h2><p>JavaScript可以动态的解释运行由JavaScript源代码组成的字符串，并产生一个值。这些都通过全局函数eval()来完成。</p>
-<p>这是一个强大的语言特性，几乎没有必要在开发中使用。</p>
-<p>通过测试得知eval是一个函数，可以复制给任何变量，然后再通过变量调用该函数。</p>
-<h3 id="4-12-1-eval"><a href="#4-12-1-eval" class="headerlink" title="4.12.1 eval()"></a>4.12.1 eval()</h3><ol>
-<li>eval()函数只有一个参数，如果不是字符串则直接返回这个参数。</li>
-<li>参数是字符串则会当做JavaScript代码编译，编译失败会抛出语法错误异常。</li>
-<li>编译成功则会开始执行这段代码，并返回字符串中最后一个表达式或语句的值，如果最后一个表达式或语句没有值，则最终返回undefined，如果运行时抛出异常，则会往外抛出。</li>
-<li>eval()函数的变量作用域环境由调用所在地决定。放在最顶层就是全局环境</li>
-<li>eval函数的执行上下文环境和调用上下文环境是一样的。</li>
-</ol>
-<h3 id="4-12-2全局eval"><a href="#4-12-2全局eval" class="headerlink" title="4.12.2全局eval()"></a>4.12.2全局eval()</h3><p>eval如果通过别名调用，只能在全局上下文中执行(不能访问局部变量和函数)；如果直接调用eval,则在调用它的上下文作用域中执行(可以访问局部变量和函数)。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例子看书吧。。HIA</span><br></pre></td></tr></table></figure>
-<p>IE中没有eval() 只有execScript(),不详述</p>
-<h3 id="4-12-3严格eval"><a href="#4-12-3严格eval" class="headerlink" title="4.12.3严格eval()"></a>4.12.3严格eval()</h3><p>“use strict”:eval不能别名…不详述</p>
-<h2 id="4-13其他运算符"><a href="#4-13其他运算符" class="headerlink" title="4.13其他运算符"></a>4.13其他运算符</h2><h3 id="4-13-1条件运算符"><a href="#4-13-1条件运算符" class="headerlink" title="4.13.1条件运算符(?:)"></a>4.13.1条件运算符(?:)</h3><ol>
-<li>有三个操作数，都可以为任何值。</li>
-<li>如果第一个操作数是真值，那么计算第二个操作数，并返回结果；如果是假值，那么计算第三个操作数，并返回结果；不能两个操作数都计算。</li>
-<li>和使用if一样?:只会一种简写。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">常用场景:判断一个值是否用定义(准确来说是判断是为真值还是假值)，没有定义设置为默认值</span><br><span class="line">greeting = <span class="string">"hello"</span> + (username ? username : <span class="string">"there"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="4-13-2-typeof运算符"><a href="#4-13-2-typeof运算符" class="headerlink" title="4.13.2 typeof运算符"></a>4.13.2 typeof运算符</h3><p>是一元运算符，操作数可以是任何类型，返回值为一个操作数类型的字符串。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span>     <span class="string">"undefined"</span></span><br><span class="line"><span class="literal">null</span>          <span class="string">"object"</span></span><br><span class="line"><span class="literal">true</span>或<span class="literal">false</span>   <span class="string">"boolean"</span></span><br><span class="line">数字或<span class="literal">NaN</span>      <span class="string">"number"</span></span><br><span class="line">字符串         <span class="string">"string"</span></span><br><span class="line">函数           <span class="string">"function"</span>（包括可执行对象）</span><br><span class="line">内置对象(非函数) <span class="string">"object"</span></span><br><span class="line">宿主对象        浏览器厂商各自的编译器决定的字符串</span><br><span class="line">               不能是<span class="string">"undefined boolean number string"</span></span><br></pre></td></tr></table></figure>
-<p>可以带括号<code>typeof(???)</code></p>
-<p>想区分对象的类，则需要使用其他手段，比如instanceof class特性 constructor属性。</p>
-<h3 id="4-13-3-delete运算符"><a href="#4-13-3-delete运算符" class="headerlink" title="4.13.3 delete运算符"></a>4.13.3 delete运算符</h3><p>一元运算符，用于删除对象的属性或者数组元素；有副作用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x; <span class="comment">//删除一个属性</span></span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> o;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> a[<span class="number">2</span>]; <span class="comment">//删除最后一个数组元素</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">in</span> a;  <span class="comment">//false</span></span><br><span class="line">a.length <span class="comment">//3:长度比并未有变化，删除操作留下了一个'洞',而并没有改变数组的长度。</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>delete不是说将属性设置为undefined，而是整个属性都不存在了。（虽然读取不存在的属性或赋值为undefined的属性都返回undefined，但是可以通过 in 运算符来检测这个属性是否存在）</li>
-<li>delete希望操作数是一个左值，不是左值则不进行任何操作并返回true；是左值则试图删除，成功返回true，失败返回false；不能删除var 定义的变量(var定义的全局变量?)，function语句定义的函数和函数参数（最后一句有点没懂,只知道属性的可配置性与delete相关）。</li>
-<li>严格模式 。。。。</li>
-</ol>
-<h3 id="4-13-4-void运算符"><a href="#4-13-4-void运算符" class="headerlink" title="4.13.4 void运算符"></a>4.13.4 void运算符</h3><p>一元运算符，出现在操作数之前，操作数类型任意。可以让操作数正常计算，但是会忽略计算结果并将返回值变为undefined。</p>
-<h3 id="4-13-5-逗号运算符"><a href="#4-13-5-逗号运算符" class="headerlink" title="4.13.5 逗号运算符(,)"></a>4.13.5 逗号运算符(,)</h3><p>二元运算符，操作数类型任意，结合性为L。先计算左操作数，在计算右操作数，最后返回右操作数。优先级比赋值<code>=</code>还要低。<br><code>i=0, j=1, k=2;  //结果是2</code></p>
-
+            <p>
+              第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式]
+将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指定的运算规则对操作数进行计算，并返回结果值。
+4.1原始表达式最简单的表达式是“原始表达式”。原始表达式是表达式的最小单位-它们不能再包含其他表达式。JavaScript中原始表达式包括常量或直接量、关键字和变量。
+直接量1.23"hello"/pattern/保留字truefalsenullthis//不是常量变量i//返回变量i的值sum//返回变量sum的值undefined//undefined是全局变量，和null不同，他不是关键字
+在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。
+4.2对象和数组的初始化表达式对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。
+数组(子表达式会进行计算)[][1+2,3+4][[1,2,3][4,5,6][7,8,9]]逗号之间的元素省略会填充undefined末尾逗号不会创建一个新的undefined元素[1,,,,5]//三个undefined[1,,,,5,]//三个undefined对象直接量（子表达式进行计算）var p = &#123;&#125;；var q = &#123;x:2,y:3&#125;;var rectangle=&#123;upperleft:&#123;x:2,y:3&#125;
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/表达式和运算符/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1859,7 +917,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/02/21/js/第9章-类和模块/">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/词法结构/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RobJ">
@@ -1879,7 +937,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/02/21/js/第9章-类和模块/" class="post-title-link" itemprop="url">未命名</a>
+                <a href="/blog/2019/07/12/词法结构/" class="post-title-link" itemprop="url">犀牛-第2章-词法结构</a>
               
             
           </h1>
@@ -1904,7 +962,7 @@
                 
               
 
-              <time title="创建时间：2019-02-21 13:02:03" itemprop="dateCreated datePublished" datetime="2019-02-21T13:02:03+08:00">2019-02-21</time>
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
             
 
             
@@ -1921,11 +979,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-10 11:52:08" itemprop="dateModified" datetime="2018-11-10T11:52:08+08:00">2018-11-10</time>
+                <time title="修改时间：2019-07-15 10:21:05" itemprop="dateModified" datetime="2019-07-15T10:21:05+08:00">2019-07-15</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1957,9 +1033,413 @@
       
         
           
-            <p>#第9章-类和模块</p>
+            <p>
+              第二章 词法结构2.1字符集JavaScript程序的内容使用Unicode编码编写保存。
+2.1.1区分大小写HTML是不区分大小写的语言，但是JavaScript是区分大小写的，也就是说，关键字、变量、函数名和所有的标识符都必须采用一致的大小写形式。
+2.1.2空格、换行符和格式控制符JS会忽略程序中标识之间的空格。具体有哪些Unicode码看书。
+2.1.3Unicode转义字符转义字符使用6个ASCII码表示任意的16位的Unicode内码。使用\u开头，其后跟随4个16进制的数。这种Unicode转义字符可以在JS的字符串直接量、正则表达式直接量和标识符中使用(关键字除外)。当然也可以出现在注释中，但是会被忽略，不会再显示时解析为Unicode字符，保持6个ASCII码进行显示。
+2.1.4标准化Unicode允许使用多种方式对同一个内码(字符)进行编码。例子看书。也就是说同一个内码保存在计算机内存上的二进制编码是不同的，但是解析后在屏幕上显示结果一样。Unicode为所有的字符都定义了一个首选的编码格式，并给出了一个标准化的处理方式来将文本转化为一种比较标准的格式，但是JS认为其解析的所有程序代码都是这种标准格式，不会再对其标识符、字符串或正则表达式做标准化处理。
+2.2注释两种注释：多行注释/**/和单行注释//
+2.3直接量所谓直接量，就是直接在程序中能够直接使用的数据值。不同数据类型的都有自己直接量的写法。后面会详细讲解。比如：121.2&quot;hello world&quot;&apos;Hi&apos;true false/javascript/ginull NaN undefined
+2.4标识符和保留字标识符就是一个名字，用来对变量和函数进行命名，或者作为循环中跳转位子的标记。
+标识符由字母、数字、下划线(_)和美元符号($)组成，同时数字不当
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/词法结构/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/语句/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/07/12/语句/" class="post-title-link" itemprop="url">犀牛-第5章-语句</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-17 11:27:49" itemprop="dateModified" datetime="2019-07-17T11:27:49+08:00">2019-07-17</time>
+              
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。
+5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。
+greeting = "hello"+name;i *= 3;delete o.x;alert(greeting);window.close();
+调用没有副作用的函数一般是没有意义的。如Math.cos(x)
+5.2复合语句和空语句可以用逗号将几个表达式连接起来，形成一个表达式；也可以用花括号{}将多条语句括起来，形成一条复合语句。
+&#123;x = Math.Pr;cx = Math.cos(x);consoel.log("cos(pi)="+cx);&#125;语句块后面不需要分号
+空语句：;可以放在for循环后面表示空的循环体，但一般不这么干，如果这么写了记得加注释说明。
+5.3声明语句var和function都是声明语句，用于声明变量和函数。更多细节这里不说了。
+5.3.1 varvar 语句声明 一个或多个变量，语法如下:
+初始化是可选操作。var name_1 [=value_1][,...,name_n][=value_n]
+
+var出现在函数体内则声明局部变量，作用域为这个函数；var 出现在顶层代码中则声明全局变量，全局变量是全局对象window的属性，不过通过var声明的全局属性是无法delete的；没有用var声明的全局属性是可delete的
+var声明时没有初始化的变量值为undefined；切记变量声明会被提前到函数顶部(3.10.1),但是初始化操作留在var语句的位置（for中的var也会提前到for循环外）
+多次声明同一个变量是没有意义的，无所谓的。
+
+5.3.2 function
+分为函数声明语句和
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/语句/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/js概述/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/07/12/js概述/" class="post-title-link" itemprop="url">犀牛-第1章-JavaScript概述</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-15 10:21:09" itemprop="dateModified" datetime="2019-07-15T10:21:09+08:00">2019-07-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              第1章JavaScript概述历史相关说实话，我觉得红宝书的这一章要写的好一点。
+
+JavaScript是由网景公司创建的，并有使用网景公司这门语言的初版为标准提交给了ECMA，由ECMA管理，由于商标上的冲突，语言的标准版本改名为ECMAScript。目前最新发布的版本是ES6，已经被很多的主流浏览器基本的实现了。100%实现的是ES5。每个浏览器都有自己的JavaScript解释器或者说是引擎，也有相应的版本号。通常来说每一门编程语言都有自己的开发平台、标准库和API函数，用来提供诸如基本输入输出的功能。JavaScript语言针对文本、数组、日期、正则表达式的操作定义和很多好的API，但是这些API不包括输入输出功能(类似网络、存储和图像相关的复杂特性)。这些功能都是由JavaScript所谓的‘宿主环境’提供的，通常就是我们说的WEB浏览器(当然还可以是别的宿主)。可以认为ECMAScript+DOM+BOM组成了我们现在所说的JavaScipt，而核心部分是ECMAScript，客服端部分便是BOM和DOM的API讲解了。
+
+
+              
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/js概述/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2048,7 +1528,7 @@
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2094,7 +1574,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2182,7 +1664,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
