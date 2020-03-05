@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3左移.jpg">
 <meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3右移.jpg">
-<meta property="og:updated_time" content="2019-07-16T08:34:16.903Z">
+<meta property="og:updated_time" content="2020-03-03T13:08:36.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="犀牛-第4章-表达式和运算符">
 <meta name="twitter:description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 16:34:16" itemprop="dateModified" datetime="2019-07-16T16:34:16+08:00">2019-07-16</time>
+                <time title="修改时间：2020-03-03 21:08:36" itemprop="dateModified" datetime="2020-03-03T21:08:36+08:00">2020-03-03</time>
               
             
           </span>
@@ -517,7 +517,7 @@
 <ul>
 <li>圆括号(n/a)&gt;成员访问(L).=(L)成员访问[]=new带参数(n/a)=函数调用(L)&gt;new无参(R)</li>
 <li>单目运算符优先级比较高，且都是从右往左(R)</li>
-<li>…++=…–&gt;++…=–…</li>
+<li><code>...++=...--&gt;++...=--...</code></li>
 <li>具体内容看书</li>
 </ul>
 <h3 id="4-7-1操作数的个数"><a href="#4-7-1操作数的个数" class="headerlink" title="4.7.1操作数的个数"></a>4.7.1操作数的个数</h3><p>分为一元运算符(++)、二元运算符(+)、三元运算符(?:)</p>
@@ -581,7 +581,7 @@
 <li>如果两个操作数都是字符串，且对应位上的16位Unicode(3.2)相等，则返回true。<br>因为JavaScript没有进行标准化Unicode转换，所以有时两个字符串显示一样，但是具有不同的编码，导致返回false。String.localeCompare()提供了另外一种比较字符串的方法。</li>
 <li>如果两个引用指向同一个对象、数组或函数，则它们是相等的，返回true。如果引用指向不同的对象，则返回false，尽管它们包含的内容一样。</li>
 </ol>
-<p><strong>相等运算符<code>===</code></strong></p>
+<p><strong>相等运算符<code>==</code></strong></p>
 <ul>
 <li>相比于<code>===</code>，<code>==</code>有一点不严格。即如果两个操作数不是同一类型，会进行类型转换。</li>
 </ul>
@@ -709,8 +709,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/07/12/词法结构/" rel="next" title="犀牛-第2章-词法结构">
-                <i class="fa fa-chevron-left"></i> 犀牛-第2章-词法结构
+              <a href="/blog/2019/07/12/类型、值和变量/" rel="next" title="犀牛-第3章-类型、值和变量">
+                <i class="fa fa-chevron-left"></i> 犀牛-第3章-类型、值和变量
               </a>
             
           </div>
@@ -719,8 +719,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/07/12/类型、值和变量/" rel="prev" title="犀牛-第3章-类型、值和变量">
-                犀牛-第3章-类型、值和变量 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/07/12/类和模块/" rel="prev" title="类和模块">
+                类和模块 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

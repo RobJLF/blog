@@ -1,7 +1,7 @@
 // 动态壁纸
 (function () {
   /* 设置body的背景颜色 */
-  document.body.style.backgroundColor = "#cfe8cc"
+  // document.body.style.backgroundColor = "#cfe8cc"
   /* 设置循环的动态壁纸 不过由于图片过大 会很大的影响响应速度 */
   /* document.body.style.backgroundColor = "transparent";
   var len = 8

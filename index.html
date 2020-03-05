@@ -375,7 +375,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/07/19/面向对象的程序设计/" class="post-title-link" itemprop="url">红宝书-第6章-面向对象的程序设计</a>
+                <a href="/blog/2019/07/19/面向对象的程序设计/" class="post-title-link" itemprop="url">第6章-红宝书-面向对象的程序设计</a>
               
             
           </h1>
@@ -400,12 +400,24 @@
                 
               
 
-              <time title="创建时间：2019-07-19 00:00:00 / 修改时间：17:20:42" itemprop="dateCreated datePublished" datetime="2019-07-19T00:00:00+08:00">2019-07-19</time>
+              <time title="创建时间：2019-07-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-19T00:00:00+08:00">2019-07-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-04 23:44:25" itemprop="dateModified" datetime="2020-03-04T23:44:25+08:00">2020-03-04</time>
               
             
           </span>
@@ -460,7 +472,9 @@
         
           
             <p>
-              6.1 理解对象6.1.1 属性类型ECMA-262 第5版通过内部才用的特性（attribute）来描述属性（property）的各种特征。ECMA-262 定义这些特性（attribute）是为了实现JavaScript 引擎用的，因此在JavaScript 中不能直接访问它们。为了表示特性是内部值，该规范把它们放在了两对儿方括号中例如[[Enumerable]]。ECMAScript 中有两种属性：数据属性和访问器属性。
+              6.1 理解对象6.1.1 属性类型
+ECMA-262 第5版通过内部才用的特性（attribute）来描述属性（property）的各种特征。ECMA-262 定义这些特性（attribute）是为了实现JavaScript 引擎用的，因此在JavaScript 中不能直接访问它们。为了表示特性是内部值，该规范把它们放在了两对儿方括号中例如[[Enumerable]]。ECMAScript 中有两种属性：数据属性和访问器属性。
+
 1. 数据属性
 [[Configurable]]：表示能否通过delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。直接在对象上定义的属性，它们的这个特性默认值为true。
 [[Enumerable]]：表示能否通过for-in 循环返回属性。直接在对象上定义的属性，它们的这个特性默认值为true。
@@ -468,396 +482,13 @@
 [[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为undefined。
 
 直接在对象上定义的属性，它们的[[Configurable]]、[[Enumerable]]和[[Writable]]特性都被设置为true，而[[Value]]特性被设置为指定的值。要修改属性默认的特性，必须使用ECMAScript 5 的Object.defineProperty()方法。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。其中，描述符（descriptor）对象的属性必须是：configurable、enumerable、writable 和value。设置其中的一或多个值，可以修改对应的特性值。例如：
-var person
+var pers
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/blog/2019/07/19/面向对象的程序设计/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/类型、值和变量/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/07/12/类型、值和变量/" class="post-title-link" itemprop="url">犀牛-第3章-类型、值和变量</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-15 17:02:37" itemprop="dateModified" datetime="2019-07-15T17:02:37+08:00">2019-07-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              第3章-类型、值和变量
-计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。
-
-JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。
-JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。
-JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。
-3.1数字JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度但是JavaScript中实际的整数操作是基于32位整数。
-当一个数字直接出现在程序中时，我们称为数字直接量。
-3.1.1整数直接量除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。
-3.1.2浮点型直接量浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量1.458e(E)-32简洁语法：[digits][.digits][(E|e)(+|-)]digits
-3.1.3算数运算+ - * / %等更多的运算方法参考Math对象。数字特数量有+-Infinity、+-0、NaN
-Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1-Inf
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/blog/2019/07/12/类型、值和变量/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/表达式和运算符/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/07/12/表达式和运算符/" class="post-title-link" itemprop="url">犀牛-第4章-表达式和运算符</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-16 16:34:16" itemprop="dateModified" datetime="2019-07-16T16:34:16+08:00">2019-07-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式]
-将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指定的运算规则对操作数进行计算，并返回结果值。
-4.1原始表达式最简单的表达式是“原始表达式”。原始表达式是表达式的最小单位-它们不能再包含其他表达式。JavaScript中原始表达式包括常量或直接量、关键字和变量。
-直接量1.23"hello"/pattern/保留字truefalsenullthis//不是常量变量i//返回变量i的值sum//返回变量sum的值undefined//undefined是全局变量，和null不同，他不是关键字
-在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。
-4.2对象和数组的初始化表达式对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。
-数组(子表达式会进行计算)[][1+2,3+4][[1,2,3][4,5,6][7,8,9]]逗号之间的元素省略会填充undefined末尾逗号不会创建一个新的undefined元素[1,,,,5]//三个undefined[1,,,,5,]//三个undefined对象直接量（子表达式进行计算）var p = &#123;&#125;；var q = &#123;x:2,y:3&#125;;var rectangle=&#123;upperleft:&#123;x:2,y:3&#125;
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/blog/2019/07/12/表达式和运算符/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1108,205 +739,6 @@ Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1-Inf
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/语句/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/07/12/语句/" class="post-title-link" itemprop="url">犀牛-第5章-语句</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 11:27:49" itemprop="dateModified" datetime="2019-07-17T11:27:49+08:00">2019-07-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。
-5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。
-greeting = "hello"+name;i *= 3;delete o.x;alert(greeting);window.close();
-调用没有副作用的函数一般是没有意义的。如Math.cos(x)
-5.2复合语句和空语句可以用逗号将几个表达式连接起来，形成一个表达式；也可以用花括号{}将多条语句括起来，形成一条复合语句。
-&#123;x = Math.Pr;cx = Math.cos(x);consoel.log("cos(pi)="+cx);&#125;语句块后面不需要分号
-空语句：;可以放在for循环后面表示空的循环体，但一般不这么干，如果这么写了记得加注释说明。
-5.3声明语句var和function都是声明语句，用于声明变量和函数。更多细节这里不说了。
-5.3.1 varvar 语句声明 一个或多个变量，语法如下:
-初始化是可选操作。var name_1 [=value_1][,...,name_n][=value_n]
-
-var出现在函数体内则声明局部变量，作用域为这个函数；var 出现在顶层代码中则声明全局变量，全局变量是全局对象window的属性，不过通过var声明的全局属性是无法delete的；没有用var声明的全局属性是可delete的
-var声明时没有初始化的变量值为undefined；切记变量声明会被提前到函数顶部(3.10.1),但是初始化操作留在var语句的位置（for中的var也会提前到for循环外）
-多次声明同一个变量是没有意义的，无所谓的。
-
-5.3.2 function
-分为函数声明语句和
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/blog/2019/07/12/语句/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/js概述/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1435,6 +867,572 @@ JavaScript是由网景公司创建的，并有使用网景公司这门语言的�
           
             <div class="post-button text-center">
               <a class="btn" href="/blog/2019/07/12/js概述/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/类和模块/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/07/12/类和模块/" class="post-title-link" itemprop="url">类和模块</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-04 14:34:08" itemprop="dateModified" datetime="2020-03-04T14:34:08+08:00">2020-03-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              第9章-类和模块
+              
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/类和模块/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/表达式和运算符/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/07/12/表达式和运算符/" class="post-title-link" itemprop="url">犀牛-第4章-表达式和运算符</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-03 21:08:36" itemprop="dateModified" datetime="2020-03-03T21:08:36+08:00">2020-03-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式]
+将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指定的运算规则对操作数进行计算，并返回结果值。
+4.1原始表达式最简单的表达式是“原始表达式”。原始表达式是表达式的最小单位-它们不能再包含其他表达式。JavaScript中原始表达式包括常量或直接量、关键字和变量。
+直接量1.23"hello"/pattern/保留字truefalsenullthis//不是常量变量i//返回变量i的值sum//返回变量sum的值undefined//undefined是全局变量，和null不同，他不是关键字
+在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。
+4.2对象和数组的初始化表达式对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。
+数组(子表达式会进行计算)[][1+2,3+4][[1,2,3][4,5,6][7,8,9]]逗号之间的元素省略会填充undefined末尾逗号不会创建一个新的undefined元素[1,,,,5]//三个undefined[1,,,,5,]//三个undefined对象直接量（子表达式进行计算）var p = &#123;&#125;；var q = &#123;x:2,y:3&#125;;var rectangle=&#123;upperleft:&#123;x:2,y:3&#125;
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/表达式和运算符/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/类型、值和变量/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/07/12/类型、值和变量/" class="post-title-link" itemprop="url">犀牛-第3章-类型、值和变量</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-15 17:02:37" itemprop="dateModified" datetime="2019-07-15T17:02:37+08:00">2019-07-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              第3章-类型、值和变量
+计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。
+
+JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。
+JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。
+JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。
+3.1数字JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度但是JavaScript中实际的整数操作是基于32位整数。
+当一个数字直接出现在程序中时，我们称为数字直接量。
+3.1.1整数直接量除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。
+3.1.2浮点型直接量浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量1.458e(E)-32简洁语法：[digits][.digits][(E|e)(+|-)]digits
+3.1.3算数运算+ - * / %等更多的运算方法参考Math对象。数字特数量有+-Infinity、+-0、NaN
+Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1-Inf
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/07/12/类型、值和变量/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

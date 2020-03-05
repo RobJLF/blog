@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="J&#39;Blog">
 <meta property="og:description" content="第6章-对象简介其实所有的对象都可以看做空对象，但是可以通过_proto_和prototype给该空对象加上相应的身份，无论何时请问自己这么一个问题，空对象的_proto_和prototype是什么，又是通过什么方式决定的  对象简单来说就是字符串到值的映射，可以从一个原型对象继承属性，也可以新增属性删除属性 除了字符串、数字、true、false、null和undefined之外，JavaScr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T08:15:23.812Z">
+<meta property="og:updated_time" content="2020-03-04T07:33:49.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="犀牛-第6章-对象">
 <meta name="twitter:description" content="第6章-对象简介其实所有的对象都可以看做空对象，但是可以通过_proto_和prototype给该空对象加上相应的身份，无论何时请问自己这么一个问题，空对象的_proto_和prototype是什么，又是通过什么方式决定的  对象简单来说就是字符串到值的映射，可以从一个原型对象继承属性，也可以新增属性删除属性 除了字符串、数字、true、false、null和undefined之外，JavaScr">
@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-17 16:15:23" itemprop="dateModified" datetime="2019-07-17T16:15:23+08:00">2019-07-17</time>
+                <time title="修改时间：2020-03-04 15:33:49" itemprop="dateModified" datetime="2020-03-04T15:33:49+08:00">2020-03-04</time>
               
             
           </span>
@@ -477,7 +477,9 @@
 <li>除了字符串、数字、true、false、null和undefined之外，JavaScript中的其他值都是对象</li>
 <li>对象可以创建、设置、查找、删除、检测和枚举它的属性</li>
 <li>属性名可以是包含空字符串在内的任意字符串，但不能有同名的属性；属性值可以是任意JavaScript值，或者是一个getter或者setter函数（<code>6.6</code>）；除了名值之外，每个属性还是以一些相关的特性，称为属性特性：<ul>
-<li>可写（可设置该值）、可配置（可删除修改）、可枚举(for/in中能否读出)) ；ES5之前对象创建的所有属性这三个值都是true，ES5中则可以对这些特性加以配置</li>
+<li>可写（可设置该值）、可配置（可删除修改）、可枚举(for/in中能否读出)、value <em>枚删改值</em></li>
+<li>get/set、 可配置、可枚举 <em>枚删get/set</em></li>
+<li>属性通过<strong>o.x=y</strong>形式创建默认是true，但是通过Object.defineProperty创建默认值是false</li>
 </ul>
 </li>
 <li>每个对象还有相关的对象特性：（<code>6.1.3 6.2.2 6.8</code>）会进一步讲解<ul>
@@ -555,31 +557,49 @@
 <h2 id="6-3删除属性"><a href="#6-3删除属性" class="headerlink" title="6.3删除属性"></a>6.3删除属性</h2><ol>
 <li>delete运算符用于断开属性和对象之间的关系，操作数应该是一个属性访问表达式。</li>
 <li>delete只删除自有属性，不删除继承属性</li>
-<li>delete删除一个不存在的属性或者说操作数不是一个属性访问表达式，返回true</li>
+<li><p>delete删除一个不存在的属性或者说操作数不是一个属性访问表达式，返回true</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> o.x <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> o.toString <span class="comment">//true 因为toString是继承属性，什么都没有做</span></span><br><span class="line"><span class="keyword">delete</span> <span class="number">1</span>； <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>delete不能删除那些可配置性为false的属性，严格模式中删除一个不可配置属性回报类型错误。非严格模式中返回false</p>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> o.x <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> o.toString <span class="comment">//true 因为toString是继承属性，什么都没有做</span></span><br><span class="line"><span class="keyword">delete</span> <span class="number">1</span>； <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>delete不能删除那些可配置性为false的属性，严格模式中删除一个不可配置属性回报类型错误。非严格模式中返回false</li>
-</ol>
-<h2 id="6-4-检测属性"><a href="#6-4-检测属性" class="headerlink" title="6.4 检测属性"></a>6.4 检测属性</h2><p><strong>in运算符</strong><br>in运算符左边是属性名(字符串)，右边是对象。如果对象的继承属性或自有属性中包含这个属性则返回true</p>
+<h2 id="6-4-检测属性"><a href="#6-4-检测属性" class="headerlink" title="6.4 检测属性"></a>6.4 检测属性</h2><p><strong>in运算符</strong> <em>(own+proto)</em>  </p>
+<blockquote>
+<p>in运算符左边是属性名(字符串)，右边是对象。如果对象的继承属性或自有属性&gt; 中包含这个属性则返回true</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> o; <span class="comment">//true</span></span><br><span class="line"><span class="string">"y"</span> <span class="keyword">in</span> o; <span class="comment">//false</span></span><br><span class="line"><span class="string">"toString"</span> <span class="keyword">in</span> o; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">访问不存在的属性 返回 <span class="literal">undefined</span>，但是返回 <span class="literal">undefined</span> 不能得出属性不存在</span><br><span class="line">通过<span class="keyword">in</span>运算符就可以用于区分不存在的属性和值为<span class="literal">undefined</span>的属性</span><br></pre></td></tr></table></figure>
-<p><strong>hasOwnProperty()方法</strong><br>检测给定的名字是否是对象的自有属性，对继承属性返回false</p>
+<p><strong>hasOwnProperty()方法</strong> <em>(own)</em>  </p>
+<blockquote>
+<p>检测给定的名字是否是对象的自有属性，对继承属性返回false</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;</span><br><span class="line">o.hasOwnProperty(<span class="string">"x"</span>);</span><br><span class="line">o.hasOwnProperty(<span class="string">"toString"</span>); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p><strong>propertyIsEnumerable()</strong><br>检测对象的自有属性，且该属性的可枚举性为true时才返回true</p>
+<p><strong>propertyIsEnumerable()</strong> <em>(enum)</em>  </p>
+<blockquote>
+<p>检测对象的自有属性，且该属性的可枚举性为true时才返回true</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.propertyIsEnumerable(<span class="string">"toString"</span>);<span class="comment">//false 因为不可枚举</span></span><br></pre></td></tr></table></figure>
 <h2 id="6-5枚举属性"><a href="#6-5枚举属性" class="headerlink" title="6.5枚举属性"></a>6.5枚举属性</h2><p>除了检测属性的存在与否，我们还经常遍历对象的属性。通常使用for/in循环遍历</p>
-<p><strong>for/in</strong><br>可以遍历对象中所有可以枚举的属性包括自有和继承，然后把属性名赋值给循环变量。<code>内置方法是不可枚举的（toString等）</code></p>
+<p><strong>for/in</strong> <em>(own+proto)\</em>enum*  </p>
+<blockquote>
+<p>可以遍历对象中所有可以枚举的属性包括自有和继承，然后把属性名赋值给循环&gt; 变量。<code>内置方法是不可枚举的（toString等）</code></p>
+</blockquote>
 <p>更多实例看书</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//把p中的可枚举的属性复制到o中，并返回o</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">o, p</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(prop <span class="keyword">in</span> p) &#123;</span><br><span class="line">    o[prop] = p[prop];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Object.keys()</strong><br>返回一个数组，由对象中可枚举的自有属性的名称组成。</p>
-<p><strong>Object.getOwnPropertyNames()</strong><br>和上一个类似，返回所有自有属性的名称的数组，包括不可枚举的属性</p>
+<p><strong>Object.keys()</strong> <em>(own)\</em>enum*  </p>
+<blockquote>
+<p>返回一个数组，由对象中可枚举的自有属性的名称组成。</p>
+</blockquote>
+<p><strong>Object.getOwnPropertyNames()</strong> <em>(own)</em>  </p>
+<blockquote>
+<p>和上一个类似，返回所有自有属性的名称的数组，包括不可枚举的属性</p>
+</blockquote>
 <h2 id="6-6属性getter和setter"><a href="#6-6属性getter和setter" class="headerlink" title="6.6属性getter和setter"></a>6.6属性getter和setter</h2><ol>
 <li>由getter和setter定义的属性又叫做”存取器属性”，查询时调用getter方法，赋值时调用setter方法。</li>
-<li>存取器属性不具有可写性和value，通过是否具有这两个函数来判断该属性的value/可写性。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过对象直接量来定义存取器属性</span><br><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">  data_prop:value,</span><br><span class="line">  <span class="keyword">get</span> accessor_prop()&#123;&#125;,</span><br><span class="line">  <span class="keyword">set</span> accessor_prop()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>存取器属性定义一个或者两个和属性同名的函数，函数定义使用set和get而不是function,且没有使用冒号将属性名和函数体分开。</li>
+<li><p>存取器属性不具有可写性和value，通过是否具有这两个函数来判断该属性的value/可写性。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过对象直接量来定义存取器属性</span><br><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">  data_prop:value,</span><br><span class="line">  <span class="keyword">get</span> accessor_prop()&#123;&#125;,</span><br><span class="line">  <span class="keyword">set</span> accessor_prop()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>存取器属性定义一个或者两个和属性同名的函数，函数定义使用set和get而不是function,且没有使用冒号将属性名和函数体分开。</p>
+</li>
 <li>存取器函数中的this指向它的调用对象</li>
 <li>该属性更像是一个对象的函数，只是调用的时候不用带()，更多例子请看书</li>
 </ol>
@@ -592,43 +612,43 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;, <span class="string">"x"</span>)</span><br><span class="line"><span class="comment">//&#123;value:1,writable:true,enumerable:true,configurable:true&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(random, <span class="string">"octet"</span>)</span><br><span class="line"><span class="comment">//&#123;get:/*fun*/,set:undefined,enumerable:true, configurable:true&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;&#125;, <span class="string">"x"</span>)</span><br><span class="line"><span class="comment">//undefined 没有</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;&#125;, <span class="string">"toString"</span>)</span><br><span class="line"><span class="comment">//undefined 继承 想访问继承属性需要遍历原型链getPrototypeOf()</span></span><br></pre></td></tr></table></figure>
 <p><strong>Object.defineProperty()</strong></p>
 <ol>
-<li>用于新建、修改属性的特性；传入要修改的对象、属性的名称和描述符对象</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"x"</span>, &#123;<span class="attr">value</span>:<span class="number">1</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;);</span><br><span class="line">更多例子看书吧</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>使用该方法新建的属性默认的特性值为false或者undefined，修改的属性特性值不变。只能用于自有属性，不能上升到继承属性。</li>
-<li>使用Object.defineProperties()来创建多个属性</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(o, &#123;</span><br><span class="line">x:&#123;<span class="attr">value</span>:<span class="number">1</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">y:&#123;<span class="attr">value</span>:<span class="number">2</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;</span><br><span class="line">r:&#123;<span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>Object.defineProperties和Object.defineProperty具体使用细节，违反都会抛出异常（不可写就意味着不能使用”=”赋值）<ul>
+<li><p>用于新建、修改属性的特性；传入要修改的对象、属性的名称和描述符对象</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"x"</span>, &#123;<span class="attr">value</span>:<span class="number">1</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;);</span><br><span class="line">更多例子看书吧</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用该方法新建的属性默认的特性值为false或者undefined，修改的属性特性值不变。只能用于自有属性，不能上升到继承属性。</p>
+</li>
+<li><p>使用Object.defineProperties()来创建多个属性</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(o, &#123;</span><br><span class="line">x:&#123;<span class="attr">value</span>:<span class="number">1</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">y:&#123;<span class="attr">value</span>:<span class="number">2</span>, <span class="attr">writable</span>:<span class="literal">true</span>, <span class="attr">enumerable</span>:<span class="literal">false</span>, <span class="attr">configurable</span>:<span class="literal">true</span>&#125;</span><br><span class="line">r:&#123;<span class="attr">get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.defineProperties和Object.defineProperty具体使用细节，违反都会抛出异常（不可写就意味着不能使用”=”赋值）</p>
+<ul>
 <li>如果对象是不可扩展的，不能给它添加属性</li>
 <li>如果属性是不可配置的， 不能修改它的可配置性和可枚举性</li>
-<li>如果存取器属性是不可配置的，则不能修改器getter和setter方法，也不能将它转为数据属性(加上第二条)</li>
-<li>如果数据属性是不可配置的，则不能将它转为存取器属性(加上第二条)</li>
-<li>如果数据属性时不可配置的，则不能将它的可写性由false变为true，但是可以从true变为false</li>
-<li>如果数据属性时不可配置且不可写的，则不能修改它的值。然而可配置不可写是可以曲线救国的修改其值的。</li>
+<li>如果存取器属性是不可配置的，则不能修改器getter和setter方法，也不能将它转为数据属性(加上第二条等于锁死此属性)</li>
+<li>如果数据属性是不可配置的，则不能将它转为存取器属性(加上第二条等于除了writable和value以外锁死)</li>
+<li>如果数据属性是不可配置的，则不能将它的可写性由false变为true，但是可以从true变为false</li>
+<li>如果数据属性是不可配置且不可写的，则不能修改它的值<code>无论是=赋值还是Object.defineProperty都不能改变value</code>。然而可配置不可写是可以曲线救国的修改其值的。</li>
 </ul>
 </li>
 <li>如果说<code>o.x=5</code>新建了一个属性，那么它默认的属性特性都为true。所以之前的extends函数不会复制属性的特性。具体看书吧。(就是使用了上面的两个函数而已)</li>
 </ol>
-<p><strong>getter和setter的老式API</strong></p>
 <h2 id="6-6-对象的三个属性"><a href="#6-6-对象的三个属性" class="headerlink" title="6.6 对象的三个属性"></a>6.6 对象的三个属性</h2><p>原型prototype、类class和可扩展性</p>
 <h3 id="6-6-1-原型属性-proto"><a href="#6-6-1-原型属性-proto" class="headerlink" title="6.6.1 原型属性__proto__"></a>6.6.1 原型属性<code>__proto__</code></h3><ol>
 <li>这里的原型在Firefox中指的是<code>__proto__</code>属性</li>
 <li>对象直接量的原型为Object.prototype,new关键字创建的对象使用构造函数的原型，Object.create()创建的对象使用第一个参数最为原型</li>
 <li>将对象作为参数传入Object.getPrototypeOf()可以查询该对象的原型；检测一个对象是不是在另一个对象的原型链上使用方法isPrototypeOf()</li>
-<li>isPrototypeOf()和instanceof运算符有些类似，p instanceof o相当于o.prototype.isPrototypeOf(p)</li>
+<li><p>isPrototypeOf()和instanceof运算符有些类似，p instanceof o相当于o.prototype.isPrototypeOf(p)</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o=<span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o=<span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <h3 id="6-8-2-类属性"><a href="#6-8-2-类属性" class="headerlink" title="6.8.2 类属性"></a>6.8.2 类属性</h3><ol>
-<li>是一个字符串，用于表示对象的类型信息。ES5还没有这个方法，默认使用Object.toString来查询类属性。</li>
+<li><p>是一个字符串，用于表示对象的类型信息。ES5还没有这个方法，默认使用Object.toString来查询类属性。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fucntion classof(o) &#123;</span><br><span class="line">  <span class="keyword">if</span>(o===<span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"null"</span>; <span class="comment">/* 可以不要 */</span></span><br><span class="line">  <span class="keyword">if</span>(o===<span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"undefined"</span> <span class="comment">/* 可以不要 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>);</span><br><span class="line">  <span class="comment">/* 可以考虑使用o.constructor.name，但需要单独判断null, undefined */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES5内置对象的类属性就是构造函数名；宿主对象依靠具体实现；自定义对象和自定构函数创建的对象，类属性都是Object。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">classof(<span class="literal">null</span>) <span class="comment">//Null</span></span><br><span class="line">classof(<span class="number">1</span>) <span class="comment">//Number</span></span><br><span class="line">classof(<span class="string">""</span>) <span class="comment">//String</span></span><br><span class="line">classof(<span class="literal">false</span>) <span class="comment">//Boolean</span></span><br><span class="line">classof(&#123;&#125;) <span class="comment">//Object</span></span><br><span class="line">classof([]) <span class="comment">//Array</span></span><br><span class="line">classof(<span class="comment">//) //Regexp</span></span><br><span class="line">classof(<span class="keyword">new</span> <span class="built_in">Date</span>()) <span class="comment">//Date</span></span><br><span class="line">classof(<span class="built_in">window</span>) <span class="comment">//Window</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">classof(<span class="keyword">new</span> f()) <span class="comment">//Object</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fucntion classof(o) &#123;</span><br><span class="line">  <span class="keyword">if</span>(o===<span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"null"</span>;</span><br><span class="line">  <span class="keyword">if</span>(o===<span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"undefined"</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这里使用了<span class="built_in">Function</span>.prototype.call()方法</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>ES5内置对象的类属性就是构造函数名；宿主对象依靠具体实现；自定义对象和自定构函数创建的对象，类属性都是Object。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">classof(<span class="literal">null</span>) <span class="comment">//Null</span></span><br><span class="line">classof(<span class="number">1</span>) <span class="comment">//Number</span></span><br><span class="line">classof(<span class="string">""</span>) <span class="comment">//String</span></span><br><span class="line">classof(<span class="literal">false</span>) <span class="comment">//Boolean</span></span><br><span class="line">classof(&#123;&#125;) <span class="comment">//Object</span></span><br><span class="line">classof([]) <span class="comment">//Array</span></span><br><span class="line">classof(<span class="comment">//) //Regexp</span></span><br><span class="line">classof(<span class="keyword">new</span> <span class="built_in">Date</span>()) <span class="comment">//Date</span></span><br><span class="line">classof(<span class="built_in">window</span>) <span class="comment">//Window</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">classof(<span class="keyword">new</span> f()) <span class="comment">//Object</span></span><br></pre></td></tr></table></figure>
 <h3 id="6-8-3可扩展性"><a href="#6-8-3可扩展性" class="headerlink" title="6.8.3可扩展性"></a>6.8.3可扩展性</h3><ol>
 <li>可扩展性表示是否可以给对象添加新属性,内置对象和自定义对象都是可扩展的；宿主对象可扩展性由JavaScript引擎决定。</li>
 <li>将对象传入Object.isExtensible()来判断对象是否可扩展，传入Object.preventExtensions()来将对象转为不可扩展的，注意该操作是不可逆的，但是只影响自有属性。</li>
@@ -641,7 +661,7 @@
 <li>方法JSON.stringify()和JSON.parse()用来序列化和还原JavaScript对象。</li>
 <li>具体细节看官方文档或书本的参考部分</li>
 </ol>
-<h2 id="6-10-对象方法"><a href="#6-10-对象方法" class="headerlink" title="6.10 对象方法"></a>6.10 对象方法</h2><p>几乎所有的JavaScript对象继承至Object.prototype，所以它们都会继承它的方法。</p>
+<h2 id="6-10-Object对象方法"><a href="#6-10-Object对象方法" class="headerlink" title="6.10 Object对象方法"></a>6.10 Object对象方法</h2><p>几乎所有的JavaScript对象继承至Object.prototype，所以它们都会继承它的方法。</p>
 <h3 id="6-10-1-toString-方法"><a href="#6-10-1-toString-方法" class="headerlink" title="6.10.1 toString()方法"></a>6.10.1 toString()方法</h3><ol>
 <li>Object.prototye的toString()返回值和类属性相关的字符串。</li>
 <li>很多类都有自定义的toString()</li>
@@ -650,7 +670,7 @@
 <li>返回本地化的字符串，Array类的toLocalString()使得每个数组元素都调用该方法</li>
 </ol>
 <h3 id="6-10-3-toJSON"><a href="#6-10-3-toJSON" class="headerlink" title="6.10.3 toJSON()"></a>6.10.3 toJSON()</h3><ol>
-<li>返回对象序列化，JSON.stringify()会调用toJSON()</li>
+<li>FireFox拥有Object.prototype.toSource方法来返回对象的序列化，但是chrome上没有</li>
 </ol>
 <h3 id="6-10-4-valueOf"><a href="#6-10-4-valueOf" class="headerlink" title="6.10.4 valueOf()"></a>6.10.4 valueOf()</h3><ol>
 <li>和toString()很类似，当需要将对象转化为某种原始值而不是字符串的时候调用该函数</li>
@@ -703,8 +723,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/11/12/ieee_745_float/" rel="prev" title="ieee-745浮点数">
-                ieee-745浮点数 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/11/12/string/" rel="prev" title="犀牛-String类型">
+                犀牛-String类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -910,7 +930,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-对象"><span class="nav-number">1.</span> <span class="nav-text">第6章-对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-创建对象"><span class="nav-number">1.2.</span> <span class="nav-text">6.1 创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-对象直接量"><span class="nav-number">1.2.1.</span> <span class="nav-text">6.1.1 对象直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-通过new创建对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">6.1.2 通过new创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-对象的原型"><span class="nav-number">1.2.3.</span> <span class="nav-text">6.1.3 对象的原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-4-Object-create"><span class="nav-number">1.2.4.</span> <span class="nav-text">6.1.4 Object.create()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-属性的查询和设置"><span class="nav-number">1.3.</span> <span class="nav-text">6.2 属性的查询和设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-作为关联数组的对象"><span class="nav-number">1.3.1.</span> <span class="nav-text">6.2.1 作为关联数组的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-继承属性（这里关于修改和添加属性的具体细节后面会讲）"><span class="nav-number">1.3.2.</span> <span class="nav-text">6.2.2 继承属性（这里关于修改和添加属性的具体细节后面会讲）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-3-属性访问错误"><span class="nav-number">1.3.3.</span> <span class="nav-text">6.2.3 属性访问错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3删除属性"><span class="nav-number">1.4.</span> <span class="nav-text">6.3删除属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-检测属性"><span class="nav-number">1.5.</span> <span class="nav-text">6.4 检测属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5枚举属性"><span class="nav-number">1.6.</span> <span class="nav-text">6.5枚举属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6属性getter和setter"><span class="nav-number">1.7.</span> <span class="nav-text">6.6属性getter和setter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-7-属性的特性"><span class="nav-number">1.8.</span> <span class="nav-text">6.7 属性的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-对象的三个属性"><span class="nav-number">1.9.</span> <span class="nav-text">6.6 对象的三个属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-1-原型属性-proto"><span class="nav-number">1.9.1.</span> <span class="nav-text">6.6.1 原型属性__proto__</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-2-类属性"><span class="nav-number">1.9.2.</span> <span class="nav-text">6.8.2 类属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-3可扩展性"><span class="nav-number">1.9.3.</span> <span class="nav-text">6.8.3可扩展性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-9-序列化对象"><span class="nav-number">1.10.</span> <span class="nav-text">6.9 序列化对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-10-对象方法"><span class="nav-number">1.11.</span> <span class="nav-text">6.10 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-1-toString-方法"><span class="nav-number">1.11.1.</span> <span class="nav-text">6.10.1 toString()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-2toLocaleString-方法"><span class="nav-number">1.11.2.</span> <span class="nav-text">6.10.2toLocaleString()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-3-toJSON"><span class="nav-number">1.11.3.</span> <span class="nav-text">6.10.3 toJSON()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-4-valueOf"><span class="nav-number">1.11.4.</span> <span class="nav-text">6.10.4 valueOf()</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-对象"><span class="nav-number">1.</span> <span class="nav-text">第6章-对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-创建对象"><span class="nav-number">1.2.</span> <span class="nav-text">6.1 创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-对象直接量"><span class="nav-number">1.2.1.</span> <span class="nav-text">6.1.1 对象直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-通过new创建对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">6.1.2 通过new创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-对象的原型"><span class="nav-number">1.2.3.</span> <span class="nav-text">6.1.3 对象的原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-4-Object-create"><span class="nav-number">1.2.4.</span> <span class="nav-text">6.1.4 Object.create()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-属性的查询和设置"><span class="nav-number">1.3.</span> <span class="nav-text">6.2 属性的查询和设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-作为关联数组的对象"><span class="nav-number">1.3.1.</span> <span class="nav-text">6.2.1 作为关联数组的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-继承属性（这里关于修改和添加属性的具体细节后面会讲）"><span class="nav-number">1.3.2.</span> <span class="nav-text">6.2.2 继承属性（这里关于修改和添加属性的具体细节后面会讲）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-3-属性访问错误"><span class="nav-number">1.3.3.</span> <span class="nav-text">6.2.3 属性访问错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3删除属性"><span class="nav-number">1.4.</span> <span class="nav-text">6.3删除属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-检测属性"><span class="nav-number">1.5.</span> <span class="nav-text">6.4 检测属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5枚举属性"><span class="nav-number">1.6.</span> <span class="nav-text">6.5枚举属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6属性getter和setter"><span class="nav-number">1.7.</span> <span class="nav-text">6.6属性getter和setter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-7-属性的特性"><span class="nav-number">1.8.</span> <span class="nav-text">6.7 属性的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-对象的三个属性"><span class="nav-number">1.9.</span> <span class="nav-text">6.6 对象的三个属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-1-原型属性-proto"><span class="nav-number">1.9.1.</span> <span class="nav-text">6.6.1 原型属性__proto__</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-2-类属性"><span class="nav-number">1.9.2.</span> <span class="nav-text">6.8.2 类属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-3可扩展性"><span class="nav-number">1.9.3.</span> <span class="nav-text">6.8.3可扩展性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-9-序列化对象"><span class="nav-number">1.10.</span> <span class="nav-text">6.9 序列化对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-10-Object对象方法"><span class="nav-number">1.11.</span> <span class="nav-text">6.10 Object对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-1-toString-方法"><span class="nav-number">1.11.1.</span> <span class="nav-text">6.10.1 toString()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-2toLocaleString-方法"><span class="nav-number">1.11.2.</span> <span class="nav-text">6.10.2toLocaleString()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-3-toJSON"><span class="nav-number">1.11.3.</span> <span class="nav-text">6.10.3 toJSON()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-4-valueOf"><span class="nav-number">1.11.4.</span> <span class="nav-text">6.10.4 valueOf()</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -2020,7 +2020,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3cff01;
+  background: #2f5c0a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3285,6 +3285,14 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+html,
+body {
+  background-image: url("/blog/uploads/bg9.png") !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 #footer>.footer-inner {
   padding-left: 0px;
