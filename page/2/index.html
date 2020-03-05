@@ -355,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/语句/">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/12/类型、值和变量/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RobJ">
@@ -375,7 +375,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/07/12/语句/" class="post-title-link" itemprop="url">犀牛-第5章-语句</a>
+                <a href="/blog/2019/07/12/类型、值和变量/" class="post-title-link" itemprop="url">犀牛-第3章-类型、值和变量</a>
               
             
           </h1>
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-03 21:48:40" itemprop="dateModified" datetime="2020-03-03T21:48:40+08:00">2020-03-03</time>
+                <time title="修改时间：2019-07-15 17:02:37" itemprop="dateModified" datetime="2019-07-15T17:02:37+08:00">2019-07-15</time>
               
             
           </span>
@@ -472,29 +472,24 @@
         
           
             <p>
-              第5章-语句表达式计算出一个值，语句则用来执行以使某件事发生。一个JavaScript程序无非就是语句们以分号分隔的集合。
-5.1表达式语句具有副作用的表达式是JavaScript最简单的语句，在第4章讲过。赋值语句就是最常见的表达式语句。
-greeting = "hello"+name;i *= 3;delete o.x;alert(greeting);window.close();
-调用没有副作用的函数一般是没有意义的。如Math.cos(x)
-5.2复合语句和空语句可以用逗号将几个表达式连接起来，形成一个表达式；也可以用花括号{}将多条语句括起来，形成一条复合语句。
-&#123;x = Math.Pr;cx = Math.cos(x);consoel.log("cos(pi)="+cx);&#125;语句块后面不需要分号
-空语句：;可以放在for循环后面表示空的循环体，但一般不这么干，如果这么写了记得加注释说明。
-5.3声明语句var和function都是声明语句，用于声明变量和函数。更多细节这里不说了。
-5.3.1 varvar 语句声明 一个或多个变量，语法如下:
-初始化是可选操作。var name_1 [=value_1][,...,name_n][=value_n]
+              第3章-类型、值和变量
+计算机程序的运行需要对值进行操作。能够表示并被操作的值的类型称为数据类型。
 
-var出现在函数体内则声明局部变量，作用域为这个函数；var 出现在顶层代码中则声明全局变量，全局变量是全局对象window的属性，不过通过var声明的全局属性是无法delete的；没有用var声明的全局属性是可delete的
-var声明时没有初始化的变量值为undefined；切记变量声明会被提前到函数顶部(3.10.1),但是初始化操作留在var语句的位置（for中的var也会提前到for循环外）
-多次声明同一个变量是没有意义的，无所谓的。
-
-5.3.2 function
-分为函数声明语句和
+JavaScript的数据类型分为两类：原始类型(primitive type)和对象类型(object type)。其中原始类型包括：数字、字符串、布尔值、null和undefined。对象类型就是属性的集合，JS中重要的对象类型有：数组、函数、类（构造函数）、日期、正则类、错误。
+JS有自己的内存管理机制，有点像JAVA的GC，自动清理没有引用的对象。
+JavaScript的类型还可以分为拥有方法的类型和没有方法的类型，可变类型和不可变类型。
+3.1数字JavaScript的数字不区分整数和浮点数，所有的数字在内部均是使用ieee-754标准的64位浮点数格式进行表示。小数范围：最大值$\pm 1.79769 \times10^{308}$ 最小值:$\pm 5 \times10^{-324}$整数范围：$\pm 2^{53}$ 如果超过了则无法保证精度但是JavaScript中实际的整数操作是基于32位整数。
+当一个数字直接出现在程序中时，我们称为数字直接量。
+3.1.1整数直接量除了使用10进制外，还可以使用16(0x或0X)进制 但是某些引擎不支持8进制。且严格模式下8进制是禁止的。
+3.1.2浮点型直接量浮点型直接量可以含有小数点，由整数部分和小数部分组成。此外还可以使用指数计数法（科学计数法）表示浮点型直接量1.458e(E)-32简洁语法：[digits][.digits][(E|e)(+|-)]digits
+3.1.3算数运算+ - * / %等更多的运算方法参考Math对象。数字特数量有+-Infinity、+-0、NaN
+Infinity===Number.POSITIVE_INFINITY===1/0===Number.MAX_VALUE+1-Inf
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/blog/2019/07/12/语句/#more" rel="contents">
+              <a class="btn" href="/blog/2019/07/12/类型、值和变量/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -677,190 +672,6 @@ More info: Deployment
         
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/ieee_745_float/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2018/11/12/ieee_745_float/" class="post-title-link" itemprop="url">ieee-745浮点数</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-12 15:40:40" itemprop="dateModified" datetime="2019-07-12T15:40:40+08:00">2019-07-12</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><p>参考博客：<a href="https://www.cnblogs.com/german-iris/p/5759557.html" target="_blank" rel="noopener"><strong>ieee 754浮点数表示标准</strong></a>  <a href="https://blog.csdn.net/tercel_zhang/article/details/52537726" target="_blank" rel="noopener">程序员必须知道的浮点运算原理</a><br>Reference：</p>
-<ol>
-<li><a href="http://steve.hollasch.net/cgindex/coding/ieeefloat.html" target="_blank" rel="noopener">http://steve.hollasch.net/cgindex/coding/ieeefloat.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/IEEE_754-1985" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/IEEE_754-1985</a></li>
-</ol>
-<h2 id="10进制和2进制的科学进制转换"><a href="#10进制和2进制的科学进制转换" class="headerlink" title="10进制和2进制的科学进制转换"></a>10进制和2进制的科学进制转换</h2><p>10进制转2进制中，对于小数点以前的值除以2，小数点以后的值除以1/2，且小数点后的值有可能是除不尽的，也就是说会有误差。<br>$$(3.3)_{10}=(11.11)_2=1.111 \times 2^1$$<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/blog/2018/11/12/ieee_745_float/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
 
     
 
@@ -1107,6 +918,384 @@ JavaScript数组是对象的特殊形式，数组索引和碰巧是整数的属�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/ieee_745_float/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2018/11/12/ieee_745_float/" class="post-title-link" itemprop="url">ieee-745浮点数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-12 15:40:40" itemprop="dateModified" datetime="2019-07-12T15:40:40+08:00">2019-07-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><p>参考博客：<a href="https://www.cnblogs.com/german-iris/p/5759557.html" target="_blank" rel="noopener"><strong>ieee 754浮点数表示标准</strong></a>  <a href="https://blog.csdn.net/tercel_zhang/article/details/52537726" target="_blank" rel="noopener">程序员必须知道的浮点运算原理</a><br>Reference：</p>
+<ol>
+<li><a href="http://steve.hollasch.net/cgindex/coding/ieeefloat.html" target="_blank" rel="noopener">http://steve.hollasch.net/cgindex/coding/ieeefloat.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IEEE_754-1985" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/IEEE_754-1985</a></li>
+</ol>
+<h2 id="10进制和2进制的科学进制转换"><a href="#10进制和2进制的科学进制转换" class="headerlink" title="10进制和2进制的科学进制转换"></a>10进制和2进制的科学进制转换</h2><p>10进制转2进制中，对于小数点以前的值除以2，小数点以后的值除以1/2，且小数点后的值有可能是除不尽的，也就是说会有误差。<br>$$(3.3)_{10}=(11.11)_2=1.111 \times 2^1$$<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2018/11/12/ieee_745_float/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/string/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2018/11/12/string/" class="post-title-link" itemprop="url">犀牛-String类型</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-05 17:00:49" itemprop="dateModified" datetime="2020-03-05T17:00:49+08:00">2020-03-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              String类型1. 描述
+属性：length，返回字符串中的字符数
+使用new时返回一个String对象，不带new则是转换参数为字符串
+JavaScript的字符串是不可变的，String类的所有方法（包括数组方法）都不允许修改某个字符串的内容，这些方法都是返回一个全新的字符串
+String是类数组；可以使用s[1]的方式代替s.charAt(1),也可以在字符串上使用for/in来遍历每一个字符
+ new String("abcd") -&gt;0: "a"1: "b"2: "c"3: "d"length: 4__proto__: String[[PrimitiveValue]]: "abcd"
+
+
+2. 方法String.length 字符串长度描述：一个只读属性，最后一个字符的索引都是string.length-1;该属性不可枚举，不可配置，不可写
+String.charAt() 取得字符串中第n个字符概要：string.charAt(n)参数：n：希望返回的字符在字符串string中的索引返回：字符串string的第n个字符描述：返回字符串中的第n个字符。如果n不在0~string.length-1之间，这个方法将返回一个空的字符串。
+String.charCodeAt() 取得字符串中第n个字符的编码概要：string.charCodeAt(n)参数：n：待返回编码在字符串string中的索引返回：返回第n个字符的Unicode编码，一个16位的整数，值在0~65535之间描述：与charAt()类似，如果n值不在有效范围内，那么该方法返回NaN
+String.concat() 连接字符串概要：string.concat(value, ...)描述：concat将每一个参数都转化为字符串，并按照它们的顺序添加到string的末尾，返回最终的连接结果字符串，注意
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2018/11/12/string/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/method/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1169,7 +1358,7 @@ JavaScript数组是对象的特殊形式，数组索引和碰巧是整数的属�
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-04 23:40:08" itemprop="dateModified" datetime="2020-03-04T23:40:08+08:00">2020-03-04</time>
+                <time title="修改时间：2020-03-05 17:21:52" itemprop="dateModified" datetime="2020-03-05T17:21:52+08:00">2020-03-05</time>
               
             
           </span>
@@ -1249,187 +1438,6 @@ JavaScript数组是对象的特殊形式，数组索引和碰巧是整数的属�
         
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2018/11/12/Unicode_UTF8_16/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RobJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2018/11/12/Unicode_UTF8_16/" class="post-title-link" itemprop="url">Unicode编码UTF-8-16</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">2018-11-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-04 23:41:57" itemprop="dateModified" datetime="2020-03-04T23:41:57+08:00">2020-03-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p>参考博客：<a href="https://blog.whezh.com/encoded/" target="_blank" rel="noopener"><strong>彻底搞懂Unicode编码</strong></a></p>
-<h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>在计算机种中，1 字节对应 8 位二进制数，而每位二进制数有 0、1 两种状态，因此 1 字节可以组合出 256 种状态。如果这 256 中状态每一个都对应一个符号，就能通过 1 字节的数据表示 256 个字符。美国人于是就制定了一套编码（其实就是个字典），描述英语中的字符和这 8 位二进制数的对应关系，这被称为 ASCII 码。</p>
-<p>ASCII 码一共定义了 128 个字符，例如大写的字母 A 是 65（这是十进制数，对应二进制是0100 0001）。这 128 个字符只使用了 8 位二进制数中的后面 7 位，最前面的一位<code>统一规定为 0</code>。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/blog/2018/11/12/Unicode_UTF8_16/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
 
     
 
