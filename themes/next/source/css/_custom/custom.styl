@@ -1,0 +1,74 @@
+// Custom styles.
+
+// 设置footer
+html, body {
+  background-image: url("/blog/uploads/bg1.jpg")  !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+code {
+  // color: #ff502c;
+  // color: #444;
+}
+blockquote {
+  /* color: #666;
+  background-color: #f8f8f8;
+  border-color: #cbcbcb */
+  border-color: #c9a97a;
+}
+#footer>.footer-inner {
+  padding-left: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: solid 3px #80AEBE;
+  box-shadow: 0 -10px 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+// 设置header
+#header {
+  opacity: 0.9;
+  .header-inner {
+    background-color: #cfe8cc
+  }
+}
+#header .header-inner .site-meta {
+  background-color: #80AEBE;
+}
+
+
+// 设置content
+#content {
+  opacity: 0.9;
+  .post-block {
+    background-color: #cfe8cc
+  }
+}
+// 设置sidebar
+#sidebar {
+  opacity: 0.9;
+  .sidebar-inner{
+    background-color: #cfe8cc
+  }
+}
+
+
+// 占满父类 动态壁纸使用
+.full {
+  transition: opacity 3s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height 100%;
+}
+// 动态壁纸使用
+.background-image {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height 100%;  
+  overflow: hidden;
+  z-index: -999;
+}
