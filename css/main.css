@@ -2020,7 +2020,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2f5c0a;
+  background: #ffff87;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3288,11 +3288,17 @@ ul.breadcrumb li+li:last-child {
 }
 html,
 body {
-  background-image: url("/blog/uploads/bg9.png") !important;
+  background-image: url("/blog/uploads/bg1.jpg") !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+blockquote {
+/* color: #666;
+  background-color: #f8f8f8;
+  border-color: #cbcbcb */
+  border-color: #c9a97a;
 }
 #footer>.footer-inner {
   padding-left: 0px;
@@ -3301,7 +3307,7 @@ body {
   box-shadow: 0 -10px 10px 5px rgba(0,0,0,0.25);
 }
 #header {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 #header .header-inner {
   background-color: #cfe8cc;
@@ -3310,13 +3316,13 @@ body {
   background-color: #80aebe;
 }
 #content {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 #content .post-block {
   background-color: #cfe8cc;
 }
 #sidebar {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 #sidebar .sidebar-inner {
   background-color: #cfe8cc;
