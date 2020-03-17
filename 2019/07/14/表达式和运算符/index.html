@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/avatar-emoj-obscene-16.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/blog/images/avatar-emoj-obscene-32.png?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
+<meta name="keywords" content="JS,犀牛书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="犀牛-第4章-表达式和运算符">
+<meta property="og:url" content="https://robjlf.github.io/blog/2019/07/14/表达式和运算符/index.html">
+<meta property="og:site_name" content="J&#39;Blog">
+<meta property="og:description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3左移.jpg">
+<meta property="og:image" content="https://robjlf.github.io/blog/images/js/4-8-3右移.jpg">
+<meta property="og:updated_time" content="2020-03-06T13:12:55.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="犀牛-第4章-表达式和运算符">
+<meta name="twitter:description" content="第4章-表达式和运算符什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为一个数组表达式[一个整数表达式]；同样的函数调用表达式一个函数表达式[0个或多个参数表达式] 将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指">
+<meta name="twitter:image" content="https://robjlf.github.io/blog/images/js/4-8-3左移.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://robjlf.github.io/blog/2019/07/14/表达式和运算符/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>犀牛-第4章-表达式和运算符 | J'Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">J'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">16</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/RobJLF" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robjlf.github.io/blog/blog/2019/07/14/表达式和运算符/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RobJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar-gourdin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">犀牛-第4章-表达式和运算符
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-14T00:00:00+08:00">2019-07-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-06 21:12:55" itemprop="dateModified" datetime="2020-03-06T21:12:55+08:00">2020-03-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第4章-表达式和运算符"><a href="#第4章-表达式和运算符" class="headerlink" title="第4章-表达式和运算符"></a>第4章-表达式和运算符</h2><p>什么是表达式呢？表达式就是JavaScript中的一个短语，JavaScript解析器会将其计算出一个结果。比如说常量就是最简单的表达式，变量名也是，复杂的表达式就是由简单表达式组成的，比如数组访问表达式可以表示为<code>一个数组表达式[一个整数表达式]</code>；同样的函数调用表达式<code>一个函数表达式[0个或多个参数表达式]</code></p>
+<p>将简单表达式组合成复杂表达式的最常用的方法就是使用运算符。运算符按照指定的运算规则对操作数进行计算，并返回结果值。</p>
+<h2 id="4-1原始表达式"><a href="#4-1原始表达式" class="headerlink" title="4.1原始表达式"></a>4.1原始表达式</h2><p>最简单的表达式是“原始表达式”。原始表达式是表达式的最小单位-它们不能再包含其他表达式。JavaScript中原始表达式包括常量或直接量、关键字和变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">直接量</span><br><span class="line"><span class="number">1.23</span></span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line">/pattern/</span><br><span class="line"></span><br><span class="line">保留字</span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="keyword">this</span><span class="comment">//不是常量</span></span><br><span class="line"></span><br><span class="line">变量</span><br><span class="line">i<span class="comment">//返回变量i的值</span></span><br><span class="line">sum<span class="comment">//返回变量sum的值</span></span><br><span class="line"><span class="literal">undefined</span><span class="comment">//undefined是全局变量，和null不同，他不是关键字</span></span><br></pre></td></tr></table></figure>
+<p>在JavaScript中出现的标识符，JavaScript会将其当做变量去查找它的值。如果变量名不存在，会报错。</p>
+<h2 id="4-2对象和数组的初始化表达式"><a href="#4-2对象和数组的初始化表达式" class="headerlink" title="4.2对象和数组的初始化表达式"></a>4.2对象和数组的初始化表达式</h2><p>对象和数组的初始化表达式实际上是新创建一个对象和数组。有时称为“对象直接量”“数组直接量”。他们不是原始表达式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">数组(子表达式会进行计算)</span><br><span class="line">[]</span><br><span class="line">[<span class="number">1</span>+<span class="number">2</span>,<span class="number">3</span>+<span class="number">4</span>]</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>][<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>][<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">逗号之间的元素省略会填充<span class="literal">undefined</span></span><br><span class="line">末尾逗号不会创建一个新的<span class="literal">undefined</span>元素</span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>]<span class="comment">//三个undefined</span></span><br><span class="line">[<span class="number">1</span>,,,,<span class="number">5</span>,]<span class="comment">//三个undefined</span></span><br><span class="line"></span><br><span class="line">对象直接量（子表达式进行计算）</span><br><span class="line"><span class="keyword">var</span> p = &#123;&#125;；</span><br><span class="line"><span class="keyword">var</span> q = &#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> rectangle=&#123;<span class="attr">upperleft</span>:&#123;<span class="attr">x</span>:<span class="number">2</span>,<span class="attr">y</span>:<span class="number">3</span>&#125;,<span class="attr">lowerRight</span>:&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">5</span>&#125;&#125;<span class="comment">//可以是任意的JavaScript表达式</span></span><br><span class="line"></span><br><span class="line">对象的属性名称可以不使用标识符，而使用字符串</span><br><span class="line"><span class="keyword">var</span> scope=&#123;<span class="string">"upperleft"</span>:&#123;<span class="attr">x</span>:p.x,<span class="attr">y</span>:p.y&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里只是初步讨论，之后会在对象和数组章节进行详细的介绍。</p>
+<h2 id="4-3函数定义表达式（函数直接量）"><a href="#4-3函数定义表达式（函数直接量）" class="headerlink" title="4.3函数定义表达式（函数直接量）"></a>4.3函数定义表达式（函数直接量）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;函数表达式</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;函数声明语句</span><br></pre></td></tr></table></figure>
+<p>后面会详细将，自己也可以看看<code>潭州/08-函数.md</code></p>
+<h2 id="4-4属性访问表达式"><a href="#4-4属性访问表达式" class="headerlink" title="4.4属性访问表达式"></a>4.4属性访问表达式</h2><p>该表达式运算得到对象属性值或一个数组元素的值。有一下两中语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expression.identifier<span class="comment">//对象属性的名称</span></span><br><span class="line">expression[expression]<span class="comment">//对象的属性或者数组的下标</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:&#123;<span class="attr">z</span>:<span class="number">3</span>&#125;&#125;</span><br><span class="line"><span class="keyword">var</span> a=&#123;o,<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>]&#125;</span><br><span class="line">o.x<span class="comment">//1</span></span><br><span class="line">o.y.z<span class="comment">//3</span></span><br><span class="line">o[<span class="string">"x"</span>]<span class="comment">//1</span></span><br><span class="line">a[<span class="number">1</span>]<span class="comment">//4</span></span><br><span class="line">a[<span class="number">2</span>][<span class="string">"1"</span>]<span class="comment">//6</span></span><br><span class="line">a[<span class="number">0</span>].x<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>两种访问方式（.和[ ]）都是先计算其之前的表达式，如果计算结果为null或者undefined，那么抛出类型错误异常</li>
+<li>如果结果不是对象类型，JavaScript会将其转换为对象类型(3.6)。但是1不会被识别为直接量，而是会被识别为非法的标识符。</li>
+<li>.符号会查找标识符指定的属性值，[]则会计算括号内的表达式并将其转换为<code>字符串</code></li>
+<li>只要命名的属性不存在，那么整个属性访问表达式返回undefined</li>
+<li><code>.identifier</code>写法更简单，但是功能更受限：</li>
+</ol>
+<ul>
+<li>访问的属性名称必须是合法的标识符(数字不当头)</li>
+<li>不能是一个保留字或者包含空格和标点符号</li>
+<li>不能在代码中动态生成</li>
+<li>所有这些在<code>[expression]</code>中都是可行的。哈哈</li>
+</ul>
+<h2 id="4-5调用表达式"><a href="#4-5调用表达式" class="headerlink" title="4.5调用表达式"></a>4.5调用表达式</h2><p>一种调用/执行函数或者方法的语法表现。<code>（返回函数对象的）函数表达式(参数)</code></p>
+<ol>
+<li>先计算函数表达式，然后计算参数表达式得到实参。（然后实参会赋值给形参）</li>
+<li>函数表达式的值不是一个可调用的对象，则抛出一个类型错误异常（8.7.7可调用对象）</li>
+<li>如果函数表达式是属性访问表达式，那么称为方法调用，方法调用的this指向该方法的对象 （严格模式中this不指向全局对象）</li>
+</ol>
+<h2 id="4-6对象创建表达式"><a href="#4-6对象创建表达式" class="headerlink" title="4.6对象创建表达式"></a>4.6对象创建表达式</h2><p>对象创建表达式通过调用一个函数(构造函数)初始化对象的属性来创建对象。对象创建表达式和函数调用表达式非常类似，但是函数调用没有new关键字：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">new</span> Point(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">如果不需要传入任何参数，那么括号可以省略</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>;</span><br></pre></td></tr></table></figure>
+<p>构造函数的细节查看9章</p>
+<h2 id="4-7运算符概述-哇，表达式终于完了"><a href="#4-7运算符概述-哇，表达式终于完了" class="headerlink" title="4.7运算符概述(哇，表达式终于完了)"></a>4.7运算符概述(哇，表达式终于完了)</h2><ol>
+<li>算术/比较/逻辑/赋值等</li>
+<li>大部分运算符由标点符号表示，有一些则由关键字表示，比如delete 和 instanceof</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">运算符优先级</a></li>
+</ol>
+<ul>
+<li>圆括号(n/a)&gt;成员访问(L).=(L)成员访问[]=new带参数(n/a)=函数调用(L)&gt;new无参(R)</li>
+<li>单目运算符优先级比较高，且都是从右往左(R)</li>
+<li><code>...++=...--&gt;++...=--...</code></li>
+<li>具体内容看书</li>
+</ul>
+<h3 id="4-7-1操作数的个数"><a href="#4-7-1操作数的个数" class="headerlink" title="4.7.1操作数的个数"></a>4.7.1操作数的个数</h3><p>分为一元运算符(++)、二元运算符(+)、三元运算符(?:)</p>
+<h3 id="4-7-2操作数的类型和结果类型"><a href="#4-7-2操作数的类型和结果类型" class="headerlink" title="4.7.2操作数的类型和结果类型"></a>4.7.2操作数的类型和结果类型</h3><ol>
+<li>一些运算符希望操作数是指定的类型，并且返回指定的类型值。</li>
+<li>通常来说运算符会根据操作数进行类型转换(3.8)</li>
+<li>有一些运算符依赖于操作数的类型来进行不同的类型转换和返回不同的类型值</li>
+</ol>
+<h3 id="4-7-3左值-lval"><a href="#4-7-3左值-lval" class="headerlink" title="4.7.3左值(lval)"></a>4.7.3左值(lval)</h3><p>指可以出现在赋值运算符左侧的值。一般就是变量、对象属性和数组元素等。</p>
+<h3 id="4-7-4运算符的副作用"><a href="#4-7-4运算符的副作用" class="headerlink" title="4.7.4运算符的副作用"></a>4.7.4运算符的副作用</h3><p>指”++” “=” delete等会运算符会改变操作数(变量)的值，从而产生副作用</p>
+<h3 id="4-7-5运算符优先级"><a href="#4-7-5运算符优先级" class="headerlink" title="4.7.5运算符优先级"></a>4.7.5运算符优先级</h3><p>优先级高的运算符的执行总是优先于优先级低的运算符。优先级相同的运算符按照运算顺序执行。<br>可以使用圆括号“()”来改变运算符的执行顺序，因为圆括号有着最高的优先级(当然，此圆括号不是指函数调用，new有参时的圆括号),但不是说<code>a*(b+c)</code>是先计算b+c，更像是将圆括号内的表达式们看做了一个整体的自表达式，对外界而言其内部的运算符运行顺序不受外界影响。</p>
+<h3 id="4-7-6运算符的结合性"><a href="#4-7-6运算符的结合性" class="headerlink" title="4.7.6运算符的结合性"></a>4.7.6运算符的结合性</h3><p>L表示从左往右结合，R表示从右往左结合。结合性指定了同一表达式中的多个具有相同优先级的运算符的运算顺序。</p>
+<p>一般来说一元运算符、赋值和三目运算符都具有R–&gt;的结合性</p>
+<h3 id="4-7-7运算顺序"><a href="#4-7-7运算顺序" class="headerlink" title="4.7.7运算顺序"></a>4.7.7运算顺序</h3><p>运算符的优先级和结合性规定了运算符在复杂表达式中的运算顺序，但是并没有规定运算符的操作数或者说子表达式的运算顺序。JavaScript总是严格按照从左往右的顺序来计算子表达式。比如，<code>w=x+y*z</code>中先计算表达式w，然后依次计算x，y，z表达式，然后才是运算符计算表达式的返回结果，即y*z然后+x最后赋值给w表达式的返回值。<br>对于副作用的运算符，比如<code>a=1;b=(a++)+a</code>最终b等于3</p>
+<h2 id="算术表达式"><a href="#算术表达式" class="headerlink" title="算术表达式"></a>算术表达式</h2><ol>
+<li>基本的算术运算符包括<code>+ - * / %</code></li>
+<li>除去<code>+</code>运算符外，剩余4个运算符都是将操作数先转化为数字然后进行相应的计算。无法转为数字的操作数转为NaN，操作数是NaN将导致算符运算符的结果也是NaN（<code>+除外 NaN+&quot;a&quot;//&quot;NaNa&quot;</code>）。</li>
+<li>运算符<code>/</code>：结果都是浮点型；<code>?/0</code>可能返回无穷大和无穷小，<code>0/0</code>返回NaN，所有运算均不报错</li>
+<li>运算符<code>%</code>：<code>?%?</code>结果的符号和第一个操作数的符号保持一致；第二个操作数是负数可以直接取绝对值变作正数使用。一般用于正数，也可以用于浮点数(注意精度不准)</li>
+</ol>
+<h3 id="4-8-1-quot-quot-运算符"><a href="#4-8-1-quot-quot-运算符" class="headerlink" title="4.8.1&quot;+&quot;运算符"></a>4.8.1<code>&quot;+&quot;</code>运算符</h3><p>计算时的行为表现如下：</p>
+<ol>
+<li>如果有操作数是对象，遵循对象到原始值的转换规则转换为原始值(具体看这里3.8.3):日期对象toString()，其他对象valueOf()<br>没有valueOf()则调用toString</li>
+<li>当操作数都是原始值以后，如果有一个操作数是字符串，那么另一个操作数也会转换为字符串，然后进行字符串的拼接</li>
+<li>否则，两个操作数都转化为数字(或者NaN)，然后相加</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>+<span class="literal">null</span><span class="comment">//0</span></span><br><span class="line"><span class="number">2</span>+<span class="literal">undefined</span><span class="comment">//NaN</span></span><br><span class="line"><span class="literal">true</span>+<span class="literal">true</span><span class="comment">//2</span></span><br><span class="line"><span class="number">1</span>+&#123;&#125;<span class="comment">//"1[object Object]"</span></span><br></pre></td></tr></table></figure>
+<p>注意运算符结合性和优先级的问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">2</span>+<span class="string">"3"</span><span class="comment">//"33"</span></span><br><span class="line"><span class="number">1</span>+(<span class="number">2</span>+<span class="string">"3"</span>)<span class="comment">//"123"</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-8-2一元运算符"><a href="#4-8-2一元运算符" class="headerlink" title="4.8.2一元运算符"></a>4.8.2一元运算符</h3><p>作用于单个操作数，并产生一个新值。一般来说具有高优先级，右结合性，且会将操作转为<code>数字</code></p>
+<ol>
+<li><code>+和-</code>：操作数转为数字</li>
+<li><code>&quot;++和--&quot;</code>：操作数转为数字；操作数必须是左值；分为前增量和后增量。<code>a=1;b=1;a+++b;//(a++)+b</code></li>
+</ol>
+<h3 id="4-8-3位运算符"><a href="#4-8-3位运算符" class="headerlink" title="4.8.3位运算符"></a>4.8.3位运算符</h3><p>这里归为算术运算，JavaScript中不常用。</p>
+<ol>
+<li>要求操作数是整数，由32位整数表示，而不是64位浮点数</li>
+<li>先将操作数转为数字，然后强制表示为32整数，忽略小数部分和超过32位的部分。（不是很清楚）并且舍弃第5位之后的二进制位，一边生成一个正确的数字。</li>
+<li><code>NaN Infinity -Infinity</code>转为0</li>
+</ol>
+<p><strong>按位与&amp;</strong><br>对两边的整形操作数执行按位与（and）操作，<code>0x1234&amp;0x00ff=0x0034</code></p>
+<p><strong>按位或|</strong><br>对两边的整形操作数执行按位或（or）操作，<code>0x1234&amp;0x00ff=0x12ff</code></p>
+<p><strong>按位异或^</strong><br>对两边的整形操作数执行按位异或（xor）操作，对应为位不同返回1，相同返回0<code>0xff00&amp;0xf0f0=0x0f0f</code></p>
+<p><strong>按位非~</strong><br>对两边的整形操作数执行按位非操作，<code>~0xff=0xfffffff0(32位)或者-16</code>。相当于数值上取反-1，<code>取反+1=取负号（0和最小负数除外）</code></p>
+<p><strong>左移&lt;&lt;</strong><br>32位整数，舍去左边的移除位，其余位依次左移动，新位由0补充。相当于乘以2。<code>7&lt;&lt;2=28</code>：简单说只要没有超过范围就简单的乘以2，超过了相当于减去(加上)<code>|MIN|</code>然后在乘以2(详细细节看图)<br><img src="/blog/images/js/4-8-3左移.jpg" alt="左移"></p>
+<p><strong>带符号位右移&gt;&gt;</strong><br>32位整数，舍去右边的移除位，其余位依次右移动，新位由符号位补充。(详细看图)<br><img src="/blog/images/js/4-8-3右移.jpg" alt="右移"></p>
+<p><strong>无符号右移&gt;&gt;&gt;</strong><br>和带符号右移&gt;&gt;相似，只是新位由0补充，而不是符号位。<br>此时正数规则同<code>&gt;&gt;</code>一样，不变；负数相比于原来的结果在数值上会加上一个<code>|MIN|</code></p>
+<h2 id="4-9关系运算符"><a href="#4-9关系运算符" class="headerlink" title="4.9关系运算符"></a>4.9关系运算符</h2><p>关系运算符用于测试两个值之间的关系，根据关系是否存在返回true或者false。(in 和 instanceof也是关系运算符)</p>
+<h2 id="4-9-1相等和不相等运算符"><a href="#4-9-1相等和不相等运算符" class="headerlink" title="4.9.1相等和不相等运算符"></a>4.9.1相等和不相等运算符</h2><p><code>==</code>:相等运算符<code>===</code>：严格相等运算符。<code>!=</code> <code>!==</code>是这两个运算符的结果取反。</p>
+<p>3.7节提到过，对象比较的是引用，而不是值本身。例如两个不同的对象具有相同的属性名和值，它们依然不相等；值相同的两个数组依旧是不相等的。</p>
+<p><strong>严格相等运算符<code>===</code></strong></p>
+<ul>
+<li>会先计算表达式得出两个操作数的值，然后比较这两个值，过程中<code>===</code>不会对操作数进行类型转换。</li>
+</ul>
+<ol>
+<li>如果两个操作数类型不相同，返回fasle（所以后面只讨论类型相同的情况）</li>
+<li>如果两个操作数都是null或者都是undefined，返回true</li>
+<li>如果两个操作数都是布尔值true或者都是false，返回true</li>
+<li>其中一个是NaN，或者两个都是NaN，返回false。（NaN和任何值包括<code>自己</code>都是不相等的。通过<code>x!==x</code>来判断x是不是NaN）</li>
+<li>如果两个操作数都是数字，且相等，返回true；0和-0也返回true</li>
+<li>如果两个操作数都是字符串，且对应位上的16位Unicode(3.2)相等，则返回true。<br>因为JavaScript没有进行标准化Unicode转换，所以有时两个字符串显示一样，但是具有不同的编码，导致返回false。String.localeCompare()提供了另外一种比较字符串的方法。</li>
+<li>如果两个引用指向同一个对象、数组或函数，则它们是相等的，返回true。如果引用指向不同的对象，则返回false，尽管它们包含的内容一样。</li>
+</ol>
+<p><strong>相等运算符<code>==</code></strong></p>
+<ul>
+<li>相比于<code>===</code>，<code>==</code>有一点不严格。即如果两个操作数不是同一类型，会进行类型转换。</li>
+</ul>
+<ol>
+<li>类型相同则依照<code>===</code>的规则判断（否则类型不同，进入如下步骤）</li>
+<li>如果一个是null，一个是undefined，返回true</li>
+<li>一个是数字，一个字符串，字符串转为数字，然后比较。</li>
+<li><code>true false</code>均转为数字<code>1 0</code>后再比较</li>
+<li>如果一个是对象，另外一个是数字或者字符串，那么对象先转为原始值，在比较。（对象怎么转为原始值看第3章）</li>
+<li>其他情况返回false</li>
+</ol>
+<h3 id="4-9-2比较运算符（-lt-gt-lt-gt-）"><a href="#4-9-2比较运算符（-lt-gt-lt-gt-）" class="headerlink" title="4.9.2比较运算符（&lt; &gt; &lt;= &gt;=）"></a>4.9.2比较运算符（<code>&lt; &gt; &lt;= &gt;=</code>）</h3><ul>
+<li>所有的操作数会转化为数字和字符串（当然除去数字和字符串）</li>
+</ul>
+<ol>
+<li>如果操作数是对象，转为原始值(3.8.3)</li>
+<li>对象转换为原始后，如果操作数都是字符串，依照16Unicode码进行比较</li>
+<li>对象转换为原始后，如果至少有一个操作数不是字符串，那么两个操作数都转为数字。NaN永远返回false，0 -0相等，Infinity最大-Infinity最小。</li>
+</ol>
+<ul>
+<li>“+”偏爱字符串，比较运算偏爱数字。</li>
+<li>String.localCompare()比较字符串更为的健壮；使用String.toLowerCase(),String.toUpperCase()做大小写转换</li>
+<li><code>&lt;= &gt;=</code>在判断相等的时候并不依赖于<code>==和===</code>，只是简单的‘不大于’或者‘不小于’</li>
+</ul>
+<h3 id="4-9-3in运算符"><a href="#4-9-3in运算符" class="headerlink" title="4.9.3in运算符"></a>4.9.3<code>in</code>运算符</h3><ul>
+<li><code>in</code>希望左边操作数是字符串（或者转换为字符串），希望右边是一个对象。</li>
+<li>如果右侧对象有名为左侧操作数的值的属性，返回true。</li>
+</ul>
+<h3 id="4-9-4instanceof运算符"><a href="#4-9-4instanceof运算符" class="headerlink" title="4.9.4instanceof运算符"></a>4.9.4<code>instanceof</code>运算符</h3><ul>
+<li><code>instanceof</code>希望左边是一个对象，右边是一个表示对象的类（函数）。如果左边对象是右边对象的实例，返回true。</li>
+<li>如果左操作数不是对象，返回false<code>&quot;a&quot; instanceof String//false 不会进行包装类转化</code>；右操作数不是函数，抛出类型错误异常。</li>
+<li>instanceof运算符的工作原理和原型链相关。<code>i instanceof f</code>中会先计算f.prototype 然后在o的原型链中寻找f.prototype，找到就返回true，找不到返回false。</li>
+</ul>
+<h2 id="4-10逻辑运算符（-amp-amp-）"><a href="#4-10逻辑运算符（-amp-amp-）" class="headerlink" title="4.10逻辑运算符（&amp;&amp; || !）"></a>4.10逻辑运算符（<code>&amp;&amp; || !</code>）</h2><p><code>&amp;&amp; || !</code>对操作数进行布尔计算。优先级低于关系运算符</p>
+<h3 id="4-10-1逻辑与-amp-amp"><a href="#4-10-1逻辑与-amp-amp" class="headerlink" title="4.10.1逻辑与(&amp;&amp;)"></a>4.10.1逻辑与(&amp;&amp;)</h3><p>可以分为三个不同的层次理解（先计算左边表达式）</p>
+<ol>
+<li>当操作数都是布尔值时，返回布尔与运算(AND)的结果</li>
+<li>操作数不一定非要是布尔值，因为操作数分为真值和假值，所以最终的返回值也为真值和假值，而不一定是true和false</li>
+<li>逻辑与运算&amp;&amp;存在短路，如果第一个操作数是假值，则返回第一个操作数，且第二个操作数不会进行运算；否则第一个操作数是真值，返回第二个操作数运算结果。</li>
+</ol>
+<p>例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;；</span><br><span class="line"><span class="keyword">var</span> p=<span class="literal">null</span>；</span><br><span class="line">o &amp;&amp; o.x<span class="comment">//1 返回o.x</span></span><br><span class="line">p &amp;&amp; p.x<span class="comment">//null ：p是假值，将其返回，并不计算p.x,所以不报错</span></span><br><span class="line"></span><br><span class="line">以下运行流程等价（只是后一个表达式由返回值，前一个<span class="keyword">if</span>语句没有返回值）</span><br><span class="line"><span class="keyword">if</span>(a==b) stop();</span><br><span class="line">(a==b)&amp;&amp;stop();</span><br><span class="line">所以可以替代<span class="keyword">if</span>语句，只有条件全部成立才执行最后的语句。</span><br></pre></td></tr></table></figure>
+<p>多数情况下，&amp;&amp;仅用来做真值和假值的布尔运算。</p>
+<h3 id="4-10-2逻辑或"><a href="#4-10-2逻辑或" class="headerlink" title="4.10.2逻辑或||"></a>4.10.2逻辑或||</h3><p>和&amp;&amp;运算一样具有三层意思，常用用于从一组备选表达式中选出第一个真值表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在前面两个值都为假值的情况下，提供一个<span class="number">500</span>的默认参数。</span><br><span class="line"><span class="keyword">var</span> max = max_width||preferences.max_width||<span class="number">500</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">o, p</span>) </span>&#123;</span><br><span class="line">  p = p || &#123;&#125;;<span class="comment">//没有传入参数p，则默认赋值为一个空对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-10-3逻辑非"><a href="#4-10-3逻辑非" class="headerlink" title="4.10.3逻辑非(!)"></a>4.10.3逻辑非(!)</h3><ul>
+<li>!运算符是一个单目运算符，用于将操作数的布尔值取反。如果x是真值那么<code>!x</code>返回<code>false</code>，如果x是假值那么<code>!x</code>返回<code>true</code></li>
+<li>和<code>&amp;&amp; ||</code>运算符不同，<code>!</code>会将操作数转化为布尔值，然后在取反。<code>!!x等价于Boolean(x)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!(p &amp;&amp; q)===!p || !q</span><br><span class="line">!(p || q)===!p &amp;&amp; !q</span><br></pre></td></tr></table></figure>
+<h2 id="4-11赋值表达式"><a href="#4-11赋值表达式" class="headerlink" title="4.11赋值表达式"></a>4.11赋值表达式</h2><p>JavaScript使用<code>=</code>运算符来给变量或者属性赋值。</p>
+<ol>
+<li>左操作数必须是一个左值，右操作数可以任何类型的任意值；返回值为赋值给左操作数的值（说白了就是右操作数的运算值）；结合性从右往左；具有副作用；优先级基本最低</li>
+</ol>
+<p><strong>带操作的赋值运算</strong><code>+= -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= |= ^=</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">下列两个表达式是有不同的</span><br><span class="line">a op= b <span class="comment">//表达式a只计算了一次，计算表达式a，表达式b，然后计算a*b并赋值给a</span></span><br><span class="line">a = a op b <span class="comment">//表达式a计算了两次，计算表达式a1, 表达式a2，表达式b 然后计算a2*b赋值给a1(a1表示左边的a，a2表示右边的)</span></span><br><span class="line"></span><br><span class="line">比如</span><br><span class="line">data[i++] *= <span class="number">2</span> <span class="comment">//等价于data[i]=date[i]*2</span></span><br><span class="line">data[i++]=data[i++] * <span class="number">2</span> <span class="comment">//等价于data[i]=date[i+1]*2</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-12表达式计算-eval"><a href="#4-12表达式计算-eval" class="headerlink" title="4.12表达式计算(eval)"></a>4.12表达式计算(eval)</h2><p>JavaScript可以动态的解释运行由JavaScript源代码组成的字符串，并产生一个值。这些都通过全局函数eval()来完成。</p>
+<p>这是一个强大的语言特性，几乎没有必要在开发中使用。</p>
+<p>通过测试得知eval是一个函数，可以复制给任何变量，然后再通过变量调用该函数。</p>
+<h3 id="4-12-1-eval"><a href="#4-12-1-eval" class="headerlink" title="4.12.1 eval()"></a>4.12.1 eval()</h3><ol>
+<li>eval()函数只有一个参数，如果不是字符串则直接返回这个参数。</li>
+<li>参数是字符串则会当做JavaScript代码编译，编译失败会抛出语法错误异常。</li>
+<li>编译成功则会开始执行这段代码，并返回字符串中最后一个表达式或语句的值，如果最后一个表达式或语句没有值，则最终返回undefined，如果运行时抛出异常，则会往外抛出。</li>
+<li>eval()函数的变量作用域环境由调用所在地决定。放在最顶层就是全局环境</li>
+<li>eval函数的执行上下文环境和调用上下文环境是一样的。</li>
+</ol>
+<h3 id="4-12-2全局eval"><a href="#4-12-2全局eval" class="headerlink" title="4.12.2全局eval()"></a>4.12.2全局eval()</h3><p>eval如果通过别名调用，只能在全局上下文中执行(不能访问局部变量和函数)；如果直接调用eval,则在调用它的上下文作用域中执行(可以访问局部变量和函数)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例子看书吧。。HIA</span><br></pre></td></tr></table></figure>
+<p>IE中没有eval() 只有execScript(),不详述</p>
+<h3 id="4-12-3严格eval"><a href="#4-12-3严格eval" class="headerlink" title="4.12.3严格eval()"></a>4.12.3严格eval()</h3><p>“use strict”:eval不能别名…不详述</p>
+<h2 id="4-13其他运算符"><a href="#4-13其他运算符" class="headerlink" title="4.13其他运算符"></a>4.13其他运算符</h2><h3 id="4-13-1条件运算符"><a href="#4-13-1条件运算符" class="headerlink" title="4.13.1条件运算符(?:)"></a>4.13.1条件运算符(?:)</h3><ol>
+<li>有三个操作数，都可以为任何值。</li>
+<li>如果第一个操作数是真值，那么计算第二个操作数，并返回结果；如果是假值，那么计算第三个操作数，并返回结果；不能两个操作数都计算。</li>
+<li>和使用if一样?:只会一种简写。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">常用场景:判断一个值是否用定义(准确来说是判断是为真值还是假值)，没有定义设置为默认值</span><br><span class="line">greeting = <span class="string">"hello"</span> + (username ? username : <span class="string">"there"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="4-13-2-typeof运算符"><a href="#4-13-2-typeof运算符" class="headerlink" title="4.13.2 typeof运算符"></a>4.13.2 typeof运算符</h3><p>是一元运算符，操作数可以是任何类型，返回值为一个操作数类型的字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span>     <span class="string">"undefined"</span></span><br><span class="line"><span class="literal">null</span>          <span class="string">"object"</span></span><br><span class="line"><span class="literal">true</span>或<span class="literal">false</span>   <span class="string">"boolean"</span></span><br><span class="line">数字或<span class="literal">NaN</span>      <span class="string">"number"</span></span><br><span class="line">字符串         <span class="string">"string"</span></span><br><span class="line">函数           <span class="string">"function"</span>（包括可执行对象）</span><br><span class="line">内置对象(非函数) <span class="string">"object"</span></span><br><span class="line">宿主对象        浏览器厂商各自的编译器决定的字符串</span><br><span class="line">               不能是<span class="string">"undefined boolean number string"</span></span><br></pre></td></tr></table></figure>
+<p>可以带括号<code>typeof(???)</code></p>
+<p>想区分对象的类，则需要使用其他手段，比如instanceof class特性 constructor属性。</p>
+<h3 id="4-13-3-delete运算符"><a href="#4-13-3-delete运算符" class="headerlink" title="4.13.3 delete运算符"></a>4.13.3 delete运算符</h3><p>一元运算符，用于删除对象的属性或者数组元素；有副作用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x; <span class="comment">//删除一个属性</span></span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> o;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> a[<span class="number">2</span>]; <span class="comment">//删除最后一个数组元素</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">in</span> a;  <span class="comment">//false</span></span><br><span class="line">a.length <span class="comment">//3:长度比并未有变化，删除操作留下了一个'洞',而并没有改变数组的长度。</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>delete不是说将属性设置为undefined，而是整个属性都不存在了。（虽然读取不存在的属性或赋值为undefined的属性都返回undefined，但是可以通过 in 运算符来检测这个属性是否存在）</li>
+<li>delete希望操作数是一个左值，不是左值则不进行任何操作并返回true；是左值则试图删除，成功返回true，失败返回false；不能删除var 定义的变量(var定义的全局变量?)，function语句定义的函数和函数参数（最后一句有点没懂,只知道属性的可配置性与delete相关）。</li>
+<li>严格模式 。。。。</li>
+</ol>
+<h3 id="4-13-4-void运算符"><a href="#4-13-4-void运算符" class="headerlink" title="4.13.4 void运算符"></a>4.13.4 void运算符</h3><p>一元运算符，出现在操作数之前，操作数类型任意。可以让操作数正常计算，但是会忽略计算结果并将返回值变为undefined。</p>
+<h3 id="4-13-5-逗号运算符"><a href="#4-13-5-逗号运算符" class="headerlink" title="4.13.5 逗号运算符(,)"></a>4.13.5 逗号运算符(,)</h3><p>二元运算符，操作数类型任意，结合性为L。先计算左操作数，在计算右操作数，最后返回右操作数。优先级比赋值<code>=</code>还要低。<br><code>i=0, j=1, k=2;  //结果是2</code></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/blog/tags/犀牛书/" rel="tag"># 犀牛书</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/07/13/类型、值和变量/" rel="next" title="犀牛-第3章-类型、值和变量">
+                <i class="fa fa-chevron-left"></i> 犀牛-第3章-类型、值和变量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/07/15/语句/" rel="prev" title="犀牛-第5章-语句">
+                犀牛-第5章-语句 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar-gourdin.png" alt="RobJ">
+            
+              <p class="site-author-name" itemprop="name">RobJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/blog/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/RobJLF" title="GitHub &rarr; https://github.com/RobJLF" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:JLF_Rob@163.com" title="E-Mail &rarr; mailto:JLF_Rob@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/blog/">暂时没有</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-表达式和运算符"><span class="nav-number">1.</span> <span class="nav-text">第4章-表达式和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1原始表达式"><span class="nav-number">2.</span> <span class="nav-text">4.1原始表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2对象和数组的初始化表达式"><span class="nav-number">3.</span> <span class="nav-text">4.2对象和数组的初始化表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3函数定义表达式（函数直接量）"><span class="nav-number">4.</span> <span class="nav-text">4.3函数定义表达式（函数直接量）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4属性访问表达式"><span class="nav-number">5.</span> <span class="nav-text">4.4属性访问表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5调用表达式"><span class="nav-number">6.</span> <span class="nav-text">4.5调用表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6对象创建表达式"><span class="nav-number">7.</span> <span class="nav-text">4.6对象创建表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7运算符概述-哇，表达式终于完了"><span class="nav-number">8.</span> <span class="nav-text">4.7运算符概述(哇，表达式终于完了)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-1操作数的个数"><span class="nav-number">8.1.</span> <span class="nav-text">4.7.1操作数的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-2操作数的类型和结果类型"><span class="nav-number">8.2.</span> <span class="nav-text">4.7.2操作数的类型和结果类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-3左值-lval"><span class="nav-number">8.3.</span> <span class="nav-text">4.7.3左值(lval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-4运算符的副作用"><span class="nav-number">8.4.</span> <span class="nav-text">4.7.4运算符的副作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-5运算符优先级"><span class="nav-number">8.5.</span> <span class="nav-text">4.7.5运算符优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-6运算符的结合性"><span class="nav-number">8.6.</span> <span class="nav-text">4.7.6运算符的结合性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-7运算顺序"><span class="nav-number">8.7.</span> <span class="nav-text">4.7.7运算顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算术表达式"><span class="nav-number">9.</span> <span class="nav-text">算术表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-1-quot-quot-运算符"><span class="nav-number">9.1.</span> <span class="nav-text">4.8.1&quot;+&quot;运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-2一元运算符"><span class="nav-number">9.2.</span> <span class="nav-text">4.8.2一元运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-3位运算符"><span class="nav-number">9.3.</span> <span class="nav-text">4.8.3位运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9关系运算符"><span class="nav-number">10.</span> <span class="nav-text">4.9关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-1相等和不相等运算符"><span class="nav-number">11.</span> <span class="nav-text">4.9.1相等和不相等运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-2比较运算符（-lt-gt-lt-gt-）"><span class="nav-number">11.1.</span> <span class="nav-text">4.9.2比较运算符（&lt; &gt; &lt;= &gt;=）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-3in运算符"><span class="nav-number">11.2.</span> <span class="nav-text">4.9.3in运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-4instanceof运算符"><span class="nav-number">11.3.</span> <span class="nav-text">4.9.4instanceof运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10逻辑运算符（-amp-amp-）"><span class="nav-number">12.</span> <span class="nav-text">4.10逻辑运算符（&amp;&amp; || !）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-10-1逻辑与-amp-amp"><span class="nav-number">12.1.</span> <span class="nav-text">4.10.1逻辑与(&amp;&amp;)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-10-2逻辑或"><span class="nav-number">12.2.</span> <span class="nav-text">4.10.2逻辑或||</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-10-3逻辑非"><span class="nav-number">12.3.</span> <span class="nav-text">4.10.3逻辑非(!)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11赋值表达式"><span class="nav-number">13.</span> <span class="nav-text">4.11赋值表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12表达式计算-eval"><span class="nav-number">14.</span> <span class="nav-text">4.12表达式计算(eval)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-1-eval"><span class="nav-number">14.1.</span> <span class="nav-text">4.12.1 eval()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-2全局eval"><span class="nav-number">14.2.</span> <span class="nav-text">4.12.2全局eval()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-3严格eval"><span class="nav-number">14.3.</span> <span class="nav-text">4.12.3严格eval()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-13其他运算符"><span class="nav-number">15.</span> <span class="nav-text">4.13其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-1条件运算符"><span class="nav-number">15.1.</span> <span class="nav-text">4.13.1条件运算符(?:)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-2-typeof运算符"><span class="nav-number">15.2.</span> <span class="nav-text">4.13.2 typeof运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-3-delete运算符"><span class="nav-number">15.3.</span> <span class="nav-text">4.13.3 delete运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-4-void运算符"><span class="nav-number">15.4.</span> <span class="nav-text">4.13.4 void运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-5-逗号运算符"><span class="nav-number">15.5.</span> <span class="nav-text">4.13.5 逗号运算符(,)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RobJ</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/blog/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/blog/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/blog/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/blog/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+
+  
+  
+<script src="/blog/js/src/custom.js"></script>
+
+</body>
+</html>
