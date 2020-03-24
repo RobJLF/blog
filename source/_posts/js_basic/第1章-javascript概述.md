@@ -1,7 +1,7 @@
 ---
 title: 犀牛-第1章-JavaScript概述
 permalink: js概述
-date: "2019/7/12"
+date: "2019/6/12"
 mathjax: true
 tags: 
 - JS

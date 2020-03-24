@@ -1,7 +1,7 @@
 ---
 title: 犀牛-String类型
 permalink: string
-date: "2018/11/12"
+date: "2019/11/12"
 mathjax: true
 tags: 
 - JS 
